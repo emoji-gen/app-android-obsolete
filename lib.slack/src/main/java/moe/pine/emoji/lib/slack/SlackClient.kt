@@ -1,35 +1,39 @@
 package moe.pine.emoji.lib.slack
 
-import okhttp3.CookieJar
-import okhttp3.JavaNetCookieJar
-import okhttp3.OkHttpClient
-import java.net.CookieHandler
-import java.net.CookieManager
-import java.net.CookiePolicy
+import android.util.Log
+import okhttp3.FormBody
+import okhttp3.Request
+import org.jsoup.Connection
+import org.jsoup.Jsoup
+import org.jsoup.nodes.FormElement
 
 /**
  * Created by pine on 4/4/17.
  */
 
 class SlackClient {
-    companion object {
-        const val USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-    }
-
-    private val cookieJar: CookieJar by lazy {
-        val cookieManager = CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER)
-        CookieHandler.setDefault(cookieManager)
-        JavaNetCookieJar(cookieManager)
-    }
-
-    private val client: OkHttpClient by lazy {
-        OkHttpClient().newBuilder()
-                .cookieJar(this.cookieJar)
-                .addNetworkInterceptor(UserAgentInterceptor(USER_AGENT))
-                .build()
-    }
+    private val httpClient: HttpClient by lazy { HttpClient() }
+    private val htmlParser: HtmlParser by lazy { HtmlParser() }
 
     fun auth(team: String, email: String, password: String): Boolean {
-        return true
+        this.httpClient.clearCookies()
+
+        val initialResponse = this.httpClient.doGetCustomizeEmoji(team)
+        val formData = this.htmlParser.getSigninFormData(initialResponse)
+        formData ?: return false
+
+        val formBody = FormBody.Builder().also { builder ->
+            formData.forEach {
+                when (it.key()) {
+                    "email" -> builder.add(it.key(), email)
+                    "password" -> builder.add(it.key(), password)
+                    else -> builder.add(it.key(), it.value())
+                }
+            }
+        }.build()
+        val response = this.httpClient.doPostSignin(team, formBody)
+        val hasSigninForm = this.htmlParser.hasSigninForm(response)
+
+        return !hasSigninForm
     }
 }

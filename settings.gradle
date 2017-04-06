@@ -1,1 +1,1 @@
-include ':app', ':lib.slack'
+include ':app', ':lib.slack', ':example.slack'
