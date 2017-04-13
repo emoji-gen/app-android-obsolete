@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="ContentDescription,HardcodedText,RtlHardcoded">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +27,7 @@
                 android:paddingRight="10dp"
                 android:paddingTop="8dp"
                 android:text="Auth"
-                android:textSize="15dp" />
+                android:textSize="15sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -42,38 +44,44 @@
                 <TableRow>
 
                     <TextView
+                        style="@style/Emoji.Label"
                         android:layout_column="0"
-                        android:layout_gravity="center_vertical"
-                        android:text="Team"
-                        android:textSize="14sp" />
+                        android:text="Team" />
 
                     <EditText
                         android:id="@+id/edit_text_team"
+                        style="@style/Emoji.EditText"
                         android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:layout_marginLeft="15dp"
-                        android:hint="team"
-                        android:inputType="text"
-                        android:minHeight="0dp"
-                        android:textSize="14sp" />
+                        android:hint="team" />
                 </TableRow>
 
                 <TableRow>
 
                     <TextView
+                        style="@style/Emoji.Label"
                         android:layout_column="0"
-                        android:layout_gravity="center_vertical"
-                        android:text="Username"
-                        android:textSize="14sp" />
+                        android:text="Username" />
 
                     <EditText
+                        style="@style/Emoji.EditText"
                         android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:layout_marginLeft="15dp"
-                        android:hint="username"
-                        android:inputType="text"
-                        android:minHeight="0dp"
-                        android:textSize="14sp" />
+                        android:hint="username" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        style="@style/Emoji.Label"
+                        android:layout_column="0"
+                        android:text="Password" />
+
+                    <EditText
+                        style="@style/Emoji.EditText"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:hint="password" />
                 </TableRow>
 
             </TableLayout>
