@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- ********** Styles for Example App ***************************************************** -->
+
+    <style name="Emoji" />
+
+    <style name="Emoji.EditText">
+
+    </style>
 </resources>

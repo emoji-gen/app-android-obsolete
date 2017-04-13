@@ -1,23 +1,23 @@
 package moe.pine.emoji.example.slack
 
-import android.app.Notification
-import android.app.ProgressDialog
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import moe.pine.emoji.lib.slack.SlackClient
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        this.setContentView(R.layout.activity_main)
+
+        val adapter = MainPagerAdapter(this.supportFragmentManager)
+        view_pager.adapter = adapter
+        tab_layout.setupWithViewPager(view_pager)
     }
 
     override fun onResume() {
         super.onResume()
 
+        /*
         object : AsyncTask<Unit, Unit, Unit>() {
             lateinit var dialog: ProgressDialog
 
@@ -44,5 +44,6 @@ class MainActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
         }.execute()
+        */
     }
 }
