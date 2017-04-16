@@ -8,7 +8,7 @@ import okhttp3.Response
  * Created by pine on 4/4/17.
  */
 
-class UserAgentInterceptor(val userAgent: String) : Interceptor {
+internal class UserAgentInterceptor(val userAgent: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain?): Response? {
         val request = chain?.request()
         val newRequest = request?.newBuilder()
