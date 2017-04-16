@@ -45,18 +45,14 @@ class AuthTask(
                     .setTitle("Successful")
                     .setMessage("Login succeeded")
                     .setCancelable(false)
-                    .setPositiveButton("Close") { dialog, _ ->
-                        dialog.dismiss()
-                    }
+                    .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                     .show()
         } else {
             AlertDialog.Builder(this.context)
                     .setTitle("Failure")
                     .setMessage("Login failed")
                     .setCancelable(false)
-                    .setPositiveButton("Close") { dialog, _ ->
-                        dialog.dismiss()
-                    }
+                    .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                     .show()
         }
     }

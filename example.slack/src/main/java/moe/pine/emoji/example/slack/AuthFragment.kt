@@ -1,5 +1,6 @@
 package moe.pine.emoji.example.slack
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -21,11 +22,19 @@ class AuthFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        button_login.setOnClickListener { this.auth(it) }
+        button_login.setOnClickListener { this.auth() }
     }
 
-    private fun auth(view: View) {
-        if (!this.validate()) return
+    private fun auth() {
+        if (!this.validate()) {
+            AlertDialog.Builder(this.context)
+                    .setTitle("Error")
+                    .setMessage("Invalid form values")
+                    .setCancelable(false)
+                    .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                    .show()
+            return
+        }
 
         val task = AuthTask(this.context)
         val arguments = AuthTask.Arguments(
