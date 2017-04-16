@@ -36,6 +36,8 @@ class RegisterClient {
             password: String,
             emojiName: String,
             emojiUrl: String
-    ) {
+    ): RegisterResult {
+
+        return RegisterResult(true, "")
     }
 }

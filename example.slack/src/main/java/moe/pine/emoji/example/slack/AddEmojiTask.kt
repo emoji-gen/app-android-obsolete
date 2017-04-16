@@ -1,8 +1,10 @@
 package moe.pine.emoji.example.slack
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.AsyncTask
+import moe.pine.emoji.lib.slack.RegisterClient
 import moe.pine.emoji.lib.slack.RegisterResult
 
 /**
@@ -37,30 +39,34 @@ class AddEmojiTask(
 
     override fun doInBackground(vararg params: Arguments): RegisterResult {
         val param = params[0]
-
-        return RegisterResult(true, "")
+        val client = RegisterClient()
+        return client.register(
+                param.team,
+                param.username,
+                param.password,
+                param.emojiName,
+                param.emojiUrl
+        )
     }
 
     override fun onPostExecute(result: RegisterResult) {
         super.onPostExecute(result)
         this.dialog.dismiss()
 
-        /*
-        if (result) {
+        if (result.ok) {
             AlertDialog.Builder(this.context)
                     .setTitle("Successful")
-                    .setMessage("Register succeeded")
+                    .setMessage(result.message)
                     .setCancelable(false)
                     .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                     .show()
         } else {
             AlertDialog.Builder(this.context)
                     .setTitle("Failure")
-                    .setMessage("Login failed")
+                    .setMessage(result.message)
                     .setCancelable(false)
                     .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                     .show()
         }
-        */
     }
 }
