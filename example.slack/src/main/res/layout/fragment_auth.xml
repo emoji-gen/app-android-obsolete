@@ -61,13 +61,14 @@
                     <TextView
                         style="@style/Emoji.Label"
                         android:layout_column="0"
-                        android:text="Username" />
+                        android:text="Email" />
 
                     <EditText
+                        android:id="@+id/edit_text_email"
                         style="@style/Emoji.EditText"
                         android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:hint="username" />
+                        android:hint="example@gmail.com" />
                 </TableRow>
 
                 <TableRow>
@@ -78,15 +79,18 @@
                         android:text="Password" />
 
                     <EditText
+                        android:id="@+id/edit_text_password"
                         style="@style/Emoji.EditText"
                         android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:hint="password" />
+                        android:hint="password"
+                        android:inputType="textPassword" />
                 </TableRow>
 
             </TableLayout>
 
             <Button
+                android:id="@+id/button_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

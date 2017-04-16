@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_auth.*
 
 /**
  * AuthFragment
@@ -17,4 +18,26 @@ class AuthFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
             = inflater.inflate(R.layout.fragment_auth, container, false)
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        button_login.setOnClickListener { this.auth(it) }
+    }
+
+    private fun auth(view: View) {
+        if (!this.validate()) return
+
+        val task = AuthTask(this.context)
+        val arguments = AuthTask.Arguments(
+                edit_text_team.text.toString(),
+                edit_text_email.text.toString(),
+                edit_text_password.text.toString()
+        )
+        task.execute(arguments)
+    }
+
+    private fun validate(): Boolean
+            = edit_text_team.text.isNotEmpty()
+            && edit_text_email.text.isNotEmpty()
+            && edit_text_password.text.isNotEmpty()
 }
