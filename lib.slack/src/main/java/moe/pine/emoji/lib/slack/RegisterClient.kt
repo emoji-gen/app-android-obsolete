@@ -1,10 +1,12 @@
 package moe.pine.emoji.lib.slack
 
-import okhttp3.CookieJar
-import okhttp3.JavaNetCookieJar
-import okhttp3.OkHttpClient
+import moe.pine.bottler.CookieStoreUtils
+import okhttp3.*
+import java.io.InputStream
+import java.io.OutputStream
 import java.net.CookieManager
 import java.net.CookiePolicy
+import java.net.CookieStore
 
 /**
  * RegisterClient
@@ -30,6 +32,14 @@ class RegisterClient {
                 .build()
     }
 
+    fun loadCookie(stream: InputStream) {
+        CookieStoreUtils.readFrom(this.cookieManager.cookieStore, stream)
+    }
+
+    fun saveCookie(stream: OutputStream) {
+        CookieStoreUtils.writeTo(this.cookieManager.cookieStore, stream)
+    }
+
     fun register(
             team: String,
             email: String,
@@ -39,5 +49,12 @@ class RegisterClient {
     ): RegisterResult {
 
         return RegisterResult(true, "")
+    }
+
+    internal fun doGetCustomizeEmoji(team: String): Response {
+        val request = Request.Builder()
+                .url("https://$team.slack.com/customize/emoji")
+                .build()
+        return this.client.newCall(request).execute()
     }
 }
