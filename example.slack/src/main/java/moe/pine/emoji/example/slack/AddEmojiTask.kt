@@ -7,6 +7,7 @@ import android.os.AsyncTask
 import moe.pine.emoji.lib.slack.RegisterClient
 import moe.pine.emoji.lib.slack.RegisterResult
 import java.io.FileNotFoundException
+import java.io.IOException
 
 /**
  * AddEmojiTask
@@ -46,6 +47,9 @@ class AddEmojiTask(
             val istream = this.context.openFileInput("cookie.dat")
             istream.use { client.loadCookie(it) }
         } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        } catch (e: IOException) {
+            e.printStackTrace()
         }
 
         val result = client.register(
@@ -56,8 +60,12 @@ class AddEmojiTask(
                 param.emojiUrl
         )
 
-        val ostream = this.context.openFileOutput("cookie.dat", Context.MODE_PRIVATE)
-        ostream.use { client.saveCookie(it) }
+        try {
+            val ostream = this.context.openFileOutput("cookie.dat", Context.MODE_PRIVATE)
+            ostream.use { client.saveCookie(it) }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
 
         return result;
     }
