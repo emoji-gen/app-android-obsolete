@@ -2,6 +2,8 @@ package moe.pine.emoji.lib.slack
 
 import moe.pine.bottler.CookieStoreUtils
 import okhttp3.*
+import org.jsoup.Jsoup
+import org.jsoup.nodes.FormElement
 import java.io.InputStream
 import java.io.OutputStream
 import java.net.CookieManager
@@ -47,6 +49,10 @@ class RegisterClient {
             emojiName: String,
             emojiUrl: String
     ): RegisterResult {
+        val initialResponse = this.doGetCustomizeEmoji(team)
+        val isLoggedIn = !this.hasSigninForm(initialResponse)
+
+        println(isLoggedIn)
 
         return RegisterResult(true, "")
     }
@@ -56,5 +62,11 @@ class RegisterClient {
                 .url("https://$team.slack.com/customize/emoji")
                 .build()
         return this.client.newCall(request).execute()
+    }
+
+    internal fun hasSigninForm(response: Response): Boolean {
+        val body = response.body().string()
+        val doc = Jsoup.parse(body)
+        return doc.getElementById("signin_form") is FormElement
     }
 }
