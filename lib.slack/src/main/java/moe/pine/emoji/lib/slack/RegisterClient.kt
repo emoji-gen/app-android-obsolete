@@ -30,5 +30,12 @@ class RegisterClient {
                 .build()
     }
 
-    fun register(team: String, email: String, password: String, emojiUrl: String) {}
+    fun register(
+            team: String,
+            email: String,
+            password: String,
+            emojiName: String,
+            emojiUrl: String
+    ) {
+    }
 }

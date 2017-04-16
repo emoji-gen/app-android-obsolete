@@ -12,6 +12,14 @@
 
     <style name="Emoji" />
 
+    <style name="Emoji.Heading">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
     <style name="Emoji.Label">
         <item name="android:layout_gravity">left|center_vertical</item>
         <item name="android:textSize">14sp</item>
