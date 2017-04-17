@@ -1,2 +1,4 @@
 <resources>
+    <!-- MainActivity -->
+    <string name="main_title">絵文字ジェネレーター</string>
 </resources>
