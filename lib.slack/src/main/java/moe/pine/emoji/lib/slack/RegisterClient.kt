@@ -5,7 +5,6 @@ import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import org.jsoup.Jsoup
-import org.jsoup.nodes.FormElement
 import java.io.InputStream
 import java.io.OutputStream
 
@@ -29,7 +28,7 @@ class RegisterClient {
         // Check login status
         val initialResponse = this.httpClient.doGetCustomizeEmoji(team)
         var body = initialResponse.body().string()
-        val initialIsLoggedIn = !this.hasSigninForm(body)
+        val initialIsLoggedIn = !HtmlParser.hasSigninForm(body)
 
         // Login if not logged in
         if (!initialIsLoggedIn) {
@@ -47,7 +46,7 @@ class RegisterClient {
 
             val response = this.httpClient.doPostSignin(team, loginFormBody)
             body = response.body().string()
-            val isLoggedIn = !this.hasSigninForm(body)
+            val isLoggedIn = !HtmlParser.hasSigninForm(body)
             if (!isLoggedIn) return RegisterResult(false, "Login failed")
         }
 
@@ -73,11 +72,6 @@ class RegisterClient {
 
         val registerResponse = this.httpClient.doPostCustomizeEmoji(team, registerFormBody)
         return this.getRegisterResult(registerResponse.body().string())
-    }
-
-    internal fun hasSigninForm(body: String): Boolean {
-        val doc = Jsoup.parse(body)
-        return doc.getElementById("signin_form") is FormElement
     }
 
     internal fun getRegisterResult(body: String): RegisterResult {

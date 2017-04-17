@@ -1,9 +1,6 @@
 package moe.pine.emoji.lib.slack
 
 import okhttp3.FormBody
-import okhttp3.Response
-import org.jsoup.Jsoup
-import org.jsoup.nodes.FormElement
 
 /**
  * AuthClient
@@ -33,13 +30,8 @@ class AuthClient {
 
         return run {
             val response = this.httpClient.doPostSignin(team, formBody)
-            this.hasSigninForm(response)
+            val body = response.body().string()
+            HtmlParser.hasSigninForm(body)
         }
-    }
-
-    internal fun hasSigninForm(response: Response): Boolean {
-        val body = response.body().string()
-        val doc = Jsoup.parse(body)
-        return doc.getElementById("signin_form") is FormElement
     }
 }
