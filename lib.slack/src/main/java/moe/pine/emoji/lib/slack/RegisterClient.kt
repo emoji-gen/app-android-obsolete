@@ -24,7 +24,7 @@ class RegisterClient {
             password: String,
             emojiName: String,
             emojiUrl: String
-    ): RegisterResult {
+    ): MessageResult {
         // Check login status
         val initialResponse = this.httpClient.doGetCustomizeEmoji(team)
         var body = initialResponse.body().string()
@@ -33,7 +33,7 @@ class RegisterClient {
         // Login if not logged in
         if (!initialIsLoggedIn) {
             val loginFormData = HtmlParser.parseSigninFormData(body)
-            loginFormData ?: return RegisterResult(false, "Login failed")
+            loginFormData ?: return MessageResult(false, "Login failed")
             val loginFormBody = FormBody.Builder().also { builder ->
                 loginFormData?.forEach {
                     when (it.key()) {
@@ -47,7 +47,7 @@ class RegisterClient {
             val response = this.httpClient.doPostSignin(team, loginFormBody)
             body = response.body().string()
             val isLoggedIn = !HtmlParser.hasSigninForm(body)
-            if (!isLoggedIn) return RegisterResult(false, "Login failed")
+            if (!isLoggedIn) return MessageResult(false, "Login failed")
         }
 
         // Fetch emoji image data
@@ -56,7 +56,7 @@ class RegisterClient {
 
         // Send image data
         val registerFormData = HtmlParser.parseRegisterFormData(body)
-        registerFormData ?: return RegisterResult(false, "Login failed")
+        registerFormData ?: return MessageResult(false, "Login failed")
         val registerFormBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .also { builder ->
@@ -71,18 +71,6 @@ class RegisterClient {
                 }.build()
 
         val registerResponse = this.httpClient.doPostCustomizeEmoji(team, registerFormBody)
-        return this.getRegisterResult(registerResponse.body().string())
-    }
-
-    internal fun getRegisterResult(body: String): RegisterResult {
-        val doc = Jsoup.parse(body)
-        val elem = doc.select(".alert:first-of-type").first()
-        if (elem.hasClass("alert_success")) {
-            val messsage = elem.select("strong").first().text().trim()
-            return RegisterResult(true, if (messsage.isBlank()) "Successful" else messsage)
-        } else {
-            val message = elem.text().trim()
-            return RegisterResult(false, if (message.isBlank()) "Unknown Error" else message)
-        }
+        return HtmlParser.parseAlertMessage(registerResponse.body().string())
     }
 }

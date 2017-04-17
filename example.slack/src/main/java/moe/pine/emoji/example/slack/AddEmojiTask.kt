@@ -4,8 +4,8 @@ import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.AsyncTask
+import moe.pine.emoji.lib.slack.MessageResult
 import moe.pine.emoji.lib.slack.RegisterClient
-import moe.pine.emoji.lib.slack.RegisterResult
 import java.io.FileNotFoundException
 import java.io.IOException
 
@@ -70,21 +70,21 @@ class AddEmojiTask(
         return result;
     }
 
-    override fun onPostExecute(result: RegisterResult) {
+    override fun onPostExecute(result: MessageResult) {
         super.onPostExecute(result)
         this.dialog.dismiss()
 
         if (result.ok) {
             AlertDialog.Builder(this.context)
                     .setTitle("Successful")
-                    .setMessage(result.message)
+                    .setMessage(result.message ?: "Successful")
                     .setCancelable(false)
                     .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                     .show()
         } else {
             AlertDialog.Builder(this.context)
                     .setTitle("Failure")
-                    .setMessage(result.message)
+                    .setMessage(result.message ?: "Error")
                     .setCancelable(false)
                     .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                     .show()
