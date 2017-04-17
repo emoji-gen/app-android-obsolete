@@ -34,7 +34,7 @@ class RegisterClient {
 
         // Login if not logged in
         if (!initialIsLoggedIn) {
-            val loginFormData = this.getSigninFormData(body)
+            val loginFormData = HtmlParser.parseSigninFormData(body)
             loginFormData ?: return RegisterResult(false, "Login failed")
             val loginFormBody = FormBody.Builder().also { builder ->
                 loginFormData?.forEach {
@@ -74,12 +74,6 @@ class RegisterClient {
 
         val registerResponse = this.httpClient.doPostCustomizeEmoji(team, registerFormBody)
         return this.getRegisterResult(registerResponse.body().string())
-    }
-
-    internal fun getSigninFormData(body: String): List<Connection.KeyVal>? {
-        val doc = Jsoup.parse(body)
-        val form = doc.getElementById("signin_form") as? FormElement
-        return form?.formData()
     }
 
     internal fun getRegisterFormData(body: String): List<Connection.KeyVal>? {
