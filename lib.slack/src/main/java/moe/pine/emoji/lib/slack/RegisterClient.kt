@@ -1,46 +1,24 @@
 package moe.pine.emoji.lib.slack
 
-import moe.pine.bottler.CookieStoreUtils
-import okhttp3.*
+import okhttp3.FormBody
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.FormElement
 import java.io.InputStream
 import java.io.OutputStream
-import java.net.CookieManager
-import java.net.CookiePolicy
 
 /**
  * RegisterClient
  * Created by pine on Apr 16, 2017.
  */
 class RegisterClient {
-    companion object {
-        const val HTTP_USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-    }
+    private val httpClient: HttpClient by lazy { HttpClient() }
 
-    private val cookieManager: CookieManager by lazy {
-        CookieManager(null, CookiePolicy.ACCEPT_ORIGINAL_SERVER)
-    }
-
-    private val cookieJar: CookieJar by lazy {
-        JavaNetCookieJar(this.cookieManager)
-    }
-
-    private val client: OkHttpClient by lazy {
-        OkHttpClient().newBuilder()
-                .cookieJar(this.cookieJar)
-                .addNetworkInterceptor(UserAgentInterceptor(AuthClient.HTTP_USER_AGENT))
-                .build()
-    }
-
-    fun loadCookie(stream: InputStream) {
-        CookieStoreUtils.readFrom(this.cookieManager.cookieStore, stream)
-    }
-
-    fun saveCookie(stream: OutputStream) {
-        CookieStoreUtils.writeTo(this.cookieManager.cookieStore, stream)
-    }
+    fun loadCookie(stream: InputStream) = this.httpClient.loadCookies(stream)
+    fun saveCookie(stream: OutputStream) = this.httpClient.saveCookies(stream)
 
     fun register(
             team: String,
@@ -50,7 +28,7 @@ class RegisterClient {
             emojiUrl: String
     ): RegisterResult {
         // Check login status
-        val initialResponse = this.doGetCustomizeEmoji(team)
+        val initialResponse = this.httpClient.doGetCustomizeEmoji(team)
         var body = initialResponse.body().string()
         val initialIsLoggedIn = !this.hasSigninForm(body)
 
@@ -68,14 +46,14 @@ class RegisterClient {
                 }
             }.build()
 
-            val response = this.doPostSignin(team, loginFormBody)
+            val response = this.httpClient.doPostSignin(team, loginFormBody)
             body = response.body().string()
             val isLoggedIn = !this.hasSigninForm(body)
             if (!isLoggedIn) return RegisterResult(false, "Login failed")
         }
 
         // Fetch emoji image data
-        val emojiResponse = this.doGetEmojiImage(emojiUrl)
+        val emojiResponse = this.httpClient.doGetEmojiImage(emojiUrl)
         val emojiBytes = emojiResponse.body().bytes()
 
         // Send image data
@@ -94,38 +72,8 @@ class RegisterClient {
                     }
                 }.build()
 
-        val registerResponse = this.doPostCustomizeEmoji(team, registerFormBody)
+        val registerResponse = this.httpClient.doPostCustomizeEmoji(team, registerFormBody)
         return this.getRegisterResult(registerResponse.body().string())
-    }
-
-    internal fun doGetEmojiImage(emojiUrl: String): Response {
-        val request = Request.Builder()
-                .url(emojiUrl)
-                .build()
-        return this.client.newCall(request).execute()
-    }
-
-    internal fun doGetCustomizeEmoji(team: String): Response {
-        val request = Request.Builder()
-                .url("https://$team.slack.com/customize/emoji")
-                .build()
-        return this.client.newCall(request).execute()
-    }
-
-    internal fun doPostCustomizeEmoji(team: String, body: RequestBody): Response {
-        val request = Request.Builder()
-                .url("https://$team.slack.com/customize/emoji")
-                .post(body)
-                .build()
-        return this.client.newCall(request).execute()
-    }
-
-    internal fun doPostSignin(team: String, formBody: FormBody): Response {
-        val request = Request.Builder()
-                .url("https://$team.slack.com/")
-                .post(formBody)
-                .build()
-        return this.client.newCall(request).execute()
     }
 
     internal fun getSigninFormData(body: String): List<Connection.KeyVal>? {
