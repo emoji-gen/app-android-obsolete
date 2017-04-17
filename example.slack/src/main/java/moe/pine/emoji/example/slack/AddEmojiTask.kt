@@ -15,7 +15,7 @@ import java.io.IOException
  */
 class AddEmojiTask(
         val context: Context
-) : AsyncTask<AddEmojiTask.Arguments, Unit, RegisterResult>() {
+) : AsyncTask<AddEmojiTask.Arguments, Unit, MessageResult>() {
     data class Arguments(
             val team: String,
             val username: String,
@@ -39,7 +39,7 @@ class AddEmojiTask(
         }
     }
 
-    override fun doInBackground(vararg params: Arguments): RegisterResult {
+    override fun doInBackground(vararg params: Arguments): MessageResult {
         val param = params[0]
 
         val client = RegisterClient()
@@ -67,7 +67,7 @@ class AddEmojiTask(
             e.printStackTrace()
         }
 
-        return result;
+        return result
     }
 
     override fun onPostExecute(result: MessageResult) {

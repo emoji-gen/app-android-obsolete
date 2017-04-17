@@ -31,7 +31,7 @@ class AuthClient {
         return run {
             val response = this.httpClient.doPostSignin(team, formBody)
             val body = response.body().string()
-            HtmlParser.hasSigninForm(body)
+            !HtmlParser.hasSigninForm(body)
         }
     }
 }
