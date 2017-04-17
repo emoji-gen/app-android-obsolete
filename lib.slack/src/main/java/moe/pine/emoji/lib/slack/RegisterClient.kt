@@ -4,7 +4,6 @@ import okhttp3.FormBody
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.FormElement
 import java.io.InputStream
@@ -57,7 +56,7 @@ class RegisterClient {
         val emojiBytes = emojiResponse.body().bytes()
 
         // Send image data
-        val registerFormData = this.getRegisterFormData(body)
+        val registerFormData = HtmlParser.parseRegisterFormData(body)
         registerFormData ?: return RegisterResult(false, "Login failed")
         val registerFormBody = MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
@@ -74,12 +73,6 @@ class RegisterClient {
 
         val registerResponse = this.httpClient.doPostCustomizeEmoji(team, registerFormBody)
         return this.getRegisterResult(registerResponse.body().string())
-    }
-
-    internal fun getRegisterFormData(body: String): List<Connection.KeyVal>? {
-        val doc = Jsoup.parse(body)
-        val form = doc.getElementById("addemoji") as? FormElement
-        return form?.formData()
     }
 
     internal fun hasSigninForm(body: String): Boolean {

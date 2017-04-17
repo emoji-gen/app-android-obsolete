@@ -1,6 +1,5 @@
 package moe.pine.emoji.lib.slack
 
-import okhttp3.Response
 import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.FormElement
@@ -13,6 +12,12 @@ internal object HtmlParser {
     fun parseSigninFormData(body: String): List<Connection.KeyVal>? {
         val doc = Jsoup.parse(body)
         val form = doc.getElementById("signin_form") as? FormElement
+        return form?.formData()
+    }
+
+    fun parseRegisterFormData(body: String): List<Connection.KeyVal>? {
+        val doc = Jsoup.parse(body)
+        val form = doc.getElementById("addemoji") as? FormElement
         return form?.formData()
     }
 }
