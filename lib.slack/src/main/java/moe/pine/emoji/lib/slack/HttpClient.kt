@@ -31,17 +31,9 @@ internal class HttpClient {
                 .build()
     }
 
-    fun clearCookies() {
-        this.cookieManager.cookieStore.removeAll()
-    }
-
-    fun loadCookies(stream: InputStream) {
-        CookieStoreUtils.readFrom(this.cookieManager.cookieStore, stream)
-    }
-
-    fun saveCookies(stream: OutputStream) {
-        CookieStoreUtils.writeTo(this.cookieManager.cookieStore, stream)
-    }
+    fun clearCookies() = this.cookieManager.cookieStore.removeAll()
+    fun loadCookies(stream: InputStream) = CookieStoreUtils.readFrom(this.cookieManager.cookieStore, stream)
+    fun saveCookies(stream: OutputStream) = CookieStoreUtils.writeTo(this.cookieManager.cookieStore, stream)
 
     fun doGetCustomizeEmoji(team: String): Response {
         val request = Request.Builder()
