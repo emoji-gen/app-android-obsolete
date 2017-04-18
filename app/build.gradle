@@ -13,13 +13,24 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    apply from: '../gradle/config/signing.gradle', to: android
+
+    def home = System.getenv('HOME')
+    def privateDir = new File("$home/project/Emoji-Android-Private")
+    if (privateDir.exists()) {
+        apply from: "$privateDir/signing.gradle", to: android
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
+            signingConfig signingConfigs.debug
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
