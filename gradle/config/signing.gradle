@@ -1,8 +1,0 @@
-signingConfigs {
-    debug {
-        storeFile file('debug.jks')
-        storePassword 'keiku0Ch'
-        keyAlias 'debug'
-        keyPassword 'eese6Mev'
-    }
-}

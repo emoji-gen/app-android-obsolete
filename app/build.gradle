@@ -15,20 +15,24 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    apply from: '../gradle/config/signing.gradle', to: android
+    // ---------------------------------------------------------------------------------------------
 
     def privateDir = new File("${System.env.HOME}/project/Emoji-Android-Private")
+    ext.PROJECT_ROOT_DIR = projectDir.parent
+    ext.PROJECT_PRIVATE_DIR = privateDir.absolutePath
+
     if (privateDir.exists()) {
         apply from: "$privateDir/signing.gradle", to: android
         apply from: "$privateDir/fabric.gradle", to: android
+        apply from: "$privateDir/firebase.gradle", to: android
     } else {
-        if (!System.env.CI) {
-            throw new GradleException("$privateDir is not found\n" +
-                    "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
-        }
+        throw new GradleException("$privateDir is not found\n" +
+                "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
     }
 
-    def fabricApiKey = System.env.FABRIC_API_KEY ?: ext.fabricApiKey
+    // ---------------------------------------------------------------------------------------------
+
+    def fabricApiKey = ext.fabricApiKey
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
@@ -54,8 +58,13 @@ dependencies {
         transitive = true;
     }
 
+    // Firebase
+    compile 'com.google.firebase:firebase-core:10.0.1'
+
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }
+
+apply plugin: 'com.google.gms.google-services'
