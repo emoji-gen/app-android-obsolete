@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_home"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="生成履歴" />
+        <item
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="新規生成" />
+        <item
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="チーム管理" />
+    </group>
+    <item android:title="その他">
+        <menu android:checkableBehavior="single">
+            <item android:title="このアプリについて" />
+            <item android:title="お問い合わせ" />
+            <item android:title="バージョン情報" />
+            <item android:title="ライセンス表記" />
+        </menu>
+    </item>
+</menu>
