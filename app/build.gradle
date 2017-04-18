@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 25
@@ -16,21 +17,29 @@ android {
 
     apply from: '../gradle/config/signing.gradle', to: android
 
-    def home = System.getenv('HOME')
-    def privateDir = new File("$home/project/Emoji-Android-Private")
+    def privateDir = new File("${System.env.HOME}/project/Emoji-Android-Private")
     if (privateDir.exists()) {
         apply from: "$privateDir/signing.gradle", to: android
+        apply from: "$privateDir/fabric.gradle", to: android
+    } else {
+        if (!System.env.CI) {
+            throw new GradleException("$privateDir is not found\n" +
+                    "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
+        }
     }
 
+    def fabricApiKey = System.env.FABRIC_API_KEY ?: ext.fabricApiKey
     buildTypes {
         debug {
-            applicationIdSuffix = ".debug"
+            applicationIdSuffix ".debug"
             signingConfig signingConfigs.debug
+            manifestPlaceholders = [fabricApiKey: fabricApiKey]
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            manifestPlaceholders = [fabricApiKey: fabricApiKey]
         }
     }
 }
@@ -39,6 +48,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Fabric
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
+        transitive = true;
+    }
 
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

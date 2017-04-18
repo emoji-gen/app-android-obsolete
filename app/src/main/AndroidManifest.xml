@@ -2,12 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="moe.pine.emoji">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name=".MainApplication">
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoTitleBar">
@@ -21,6 +24,9 @@
             android:name=".MainActivity"
             android:label="@string/main_title"
             android:theme="@style/AppTheme" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="${fabricApiKey}" />
     </application>
 
 </manifest>
