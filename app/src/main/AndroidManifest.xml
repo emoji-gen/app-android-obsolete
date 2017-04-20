@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:theme="@style/AppTheme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/main_title"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.GeneratorActivity"
+            android:label="@string/generator_title"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:label="@string/setting_title"
             android:theme="@style/AppTheme" />
 
         <meta-data

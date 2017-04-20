@@ -1,4 +1,16 @@
 <resources>
-    <!-- MainActivity -->
+    <!-- Menu -->
+    <string name="menu_my_history">マイ絵文字</string>
+    <string name="menu_our_history">みんなの生成履歴</string>
+    <string name="menu_setting">設定</string>
+    <string name="menu_other">その他</string>
+
+    <!-- Main -->
     <string name="main_title">絵文字ジェネレーター</string>
+
+    <!-- Generator -->
+    <string name="generator_title">絵文字の生成</string>
+
+    <!-- Setting -->
+    <string name="setting_title">設定</string>
 </resources>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="moe.pine.emoji.SplashActivity"
+    tools:context="moe.pine.emoji.activity.SplashActivity"
     tools:ignore="RtlHardcoded">
 
     <FrameLayout
@@ -13,22 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/first_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/ic_add_white_24dp" />
+        <include layout="@layout/view_main_floating_action_button" />
     </FrameLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/main_drawer_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/menu_main" />
-
+    <include layout="@layout/view_main_navigation_view" />
 
 </android.support.v4.widget.DrawerLayout>

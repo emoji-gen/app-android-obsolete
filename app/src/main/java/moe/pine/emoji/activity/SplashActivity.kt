@@ -1,4 +1,4 @@
-package moe.pine.emoji
+package moe.pine.emoji.activity
 
 import android.os.Bundle
 import android.os.Handler
@@ -13,7 +13,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setContentView(R.layout.activity_splash)
+        this.setContentView(moe.pine.emoji.R.layout.activity_splash)
     }
 
     override fun onResume() {
