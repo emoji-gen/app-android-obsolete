@@ -9,7 +9,9 @@ import android.view.MenuItem
 import android.view.View
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.SettingActivity
+import moe.pine.emoji.activity.WebViewActivity
 import moe.pine.emoji.fragment.VersionInfoDialogFragment
+import moe.pine.emoji.model.internal.WebViewPage
 
 /**
  * MainNavigationView
@@ -45,9 +47,10 @@ class MainNavigationView : NavigationView {
             }
             R.id.menu_our_history -> {
             }
-            R.id.menu_setting -> {
-                this.context.startActivity(SettingActivity.createIntent(this.context))
-
+            R.id.menu_setting -> this.context.startActivity(SettingActivity.createIntent(this.context))
+            R.id.menu_contact -> {
+                val intent = WebViewActivity.createIntent(this.context, WebViewPage.CONTACT)
+                this.context.startActivity(intent)
             }
             R.id.menu_version_info -> {
                 val activity = this.context as? AppCompatActivity

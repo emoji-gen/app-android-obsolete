@@ -32,6 +32,10 @@
             android:name=".activity.SettingActivity"
             android:label="@string/setting_title"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:label="@string/empty"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

@@ -16,8 +16,8 @@ class SplashActivity : AppCompatActivity() {
         this.setContentView(moe.pine.emoji.R.layout.activity_splash)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
         this.handler.postDelayed({
             this.startActivity(MainActivity.createIntent(this))
             this.finish()

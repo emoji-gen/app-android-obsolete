@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import moe.pine.emoji.R
 import moe.pine.emoji.components.SupportActionBarComponent
 
 /**
@@ -20,7 +21,7 @@ class SettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setContentView(moe.pine.emoji.R.layout.activity_generator)
+        this.setContentView(R.layout.activity_generator)
         this.actionBar.onCreate()
     }
 
