@@ -8,9 +8,11 @@ enum class WebViewPage(
         val title: String,
         val url: String
 ) {
-    CONTACT("お問い合わせ", "https://www.google.co.jp");
+    CONTACT("お問い合わせ", "twitter://user?screen_name=pine613");
 
     companion object {
+        val urls: List<String> by lazy { WebViewPage.values().map { it.url } }
+
         fun of(ordinal: Int): WebViewPage? = WebViewPage.values().find { it.ordinal == ordinal }
     }
 }
