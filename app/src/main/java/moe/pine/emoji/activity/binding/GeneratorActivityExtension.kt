@@ -3,6 +3,7 @@ package moe.pine.emoji.activity.binding
 import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
 import kotlinx.android.synthetic.main.view_generator_background_color.*
+import kotlinx.android.synthetic.main.view_generator_font.*
 import kotlinx.android.synthetic.main.view_generator_text_color.*
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
@@ -25,6 +26,19 @@ var GeneratorActivity.emojiText: String
         }
     }
     get() = text_view_emoji_text.text.toString()
+
+
+var GeneratorActivity.fontName: String
+    set(value) {
+        view_generator_font.fontName = value
+    }
+    get() = view_generator_font.fontName
+
+var GeneratorActivity.fontKey: String
+    set(value) {
+        view_generator_font.fontKey = value
+    }
+    get() = view_generator_font.fontKey
 
 
 var GeneratorActivity.textColor: Int

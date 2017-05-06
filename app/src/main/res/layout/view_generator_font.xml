@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <moe.pine.emoji.view.generator.FontListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/view_emoji_font"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_generator_font"
     style="@style/AppTheme.Generator.MenuItem"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:ignore="RtlHardcoded">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -22,10 +24,10 @@
 
 
         <TextView
+            android:id="@+id/text_view_generator_font_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Noto Sans Mono CJK Bold" />
+            android:layout_gravity="right" />
 
     </FrameLayout>
 </moe.pine.emoji.view.generator.FontListView>

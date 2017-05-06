@@ -4,7 +4,14 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
+import android.util.Log
 import moe.pine.emoji.R
+import moe.pine.emoji.activity.GeneratorActivity
+import moe.pine.emoji.activity.binding.backgroundColor
+import moe.pine.emoji.activity.binding.fontKey
+import moe.pine.emoji.activity.binding.fontName
+import moe.pine.emoji.activity.binding.textColor
+import moe.pine.emoji.lib.emoji.model.Font
 
 
 /**
@@ -14,24 +21,43 @@ import moe.pine.emoji.R
 
 class SelectFontDialogFragment : DialogFragment() {
     companion object {
-        val FONT_LIST_KEY = "fontList"
+        val FONT_NAMES_KEY = "fontNames"
+        val FONT_KEYS_KEY = "fontKeys"
 
-        fun newInstance(fonts: List<String>): SelectFontDialogFragment {
+        fun newInstance(fonts: List<Font>): SelectFontDialogFragment {
             return SelectFontDialogFragment().also { fragment ->
                 val arguments = Bundle()
-                arguments.putStringArray(FONT_LIST_KEY, fonts.toTypedArray())
+                val fontNames = fonts.map(Font::name).toTypedArray()
+                val fontKeys = fonts.map(Font::key).toTypedArray()
+                arguments.putStringArray(FONT_NAMES_KEY, fontNames)
+                arguments.putStringArray(FONT_KEYS_KEY, fontKeys)
                 fragment.arguments = arguments
             }
         }
     }
 
+    private lateinit var fontNames: Array<String>
+    private lateinit var fontKeys: Array<String>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        this.fontNames = this.arguments.getStringArray(FONT_NAMES_KEY)
+        this.fontKeys = this.arguments.getStringArray(FONT_KEYS_KEY)
+    }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val items = this.arguments.getStringArray(FONT_LIST_KEY)
+
         return AlertDialog.Builder(this.activity)
-                //.setTitle(R.string.generator_select_font_dialog_title)
-                .setItems(items) { dialog, which ->
-                    // item_which pressed
+                .setItems(this.fontNames) { dialog, which ->
+                    dialog.dismiss()
+                    this@SelectFontDialogFragment.updateFont(which)
                 }
                 .create()
+    }
+
+    private fun updateFont(position: Int) {
+        val activity = this.activity as GeneratorActivity
+        activity.fontName = this.fontNames[position]
+        activity.fontKey = this.fontKeys[position]
     }
 }
