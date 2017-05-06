@@ -3,13 +3,13 @@ package moe.pine.emoji.view.common
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.util.AttributeSet
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.crashlytics.android.BuildConfig
 import com.crashlytics.android.Crashlytics
+import moe.pine.emoji.BuildConfig
 import moe.pine.emoji.model.internal.WebViewPage
 
 /**
@@ -30,10 +30,19 @@ class WebView : WebView {
                 this@WebView.onPageFinishedListener?.invoke(view, url)
             }
 
-            override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                if (view == null || request == null) return false
+                return this.shouldOverrideUrlLoadingImpl(view, request.url.toString())
+            }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                if (view == null || url == null) return false
+                return this.shouldOverrideUrlLoadingImpl(view, url)
+            }
+
+            private fun shouldOverrideUrlLoadingImpl(view: WebView, url: String): Boolean {
                 // Twitter
                 if (url.startsWith("twitter://")) {
-                    view.stopLoading()
                     val twitterRegexp = "^twitter://user\\?screen_name=(.+)$".toRegex()
                     if (twitterRegexp.matches(url)) {
                         val screenName = twitterRegexp.find(url)?.groupValues?.lastOrNull()
@@ -50,13 +59,12 @@ class WebView : WebView {
                             }
                         }
                     }
-                    return
+                    return true
                 }
 
                 // External Links
                 val isInInternal = WebViewPage.urls.any { url.startsWith(it) }
                 if (!isInInternal) {
-                    view.stopLoading()
                     try {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         this@WebView.context.startActivity(intent)
@@ -64,10 +72,10 @@ class WebView : WebView {
                         if (BuildConfig.DEBUG) e.printStackTrace()
                         Crashlytics.logException(e)
                     }
-                    return
+                    return true
                 }
 
-                super.onPageStarted(view, url, favicon)
+                return false
             }
         }
     }
@@ -75,7 +83,6 @@ class WebView : WebView {
     init {
         this.isVerticalScrollBarEnabled = true
         this.settings.let { settings ->
-            settings.javaScriptEnabled = true
             settings.displayZoomControls = false
             settings.builtInZoomControls = false
             settings.setSupportZoom(false)
