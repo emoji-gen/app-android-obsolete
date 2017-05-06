@@ -6,7 +6,6 @@ import android.preference.PreferenceManager
 import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
 import moe.pine.emoji.BuildConfig
-import moe.pine.emoji.fragment.generator.SelectColorDialogFragment
 import moe.pine.emoji.fragment.splash.StartupErrorDialogFragment
 import moe.pine.emoji.lib.emoji.ApiCallback
 import moe.pine.emoji.lib.emoji.ApiClient
