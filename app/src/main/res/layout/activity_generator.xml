@@ -66,90 +66,16 @@
 
             <include layout="@layout/activity_generator_hr2" />
 
-            <LinearLayout
-                android:id="@+id/view_emoji_font"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple_white"
-                android:clickable="true"
-                android:gravity="center_vertical"
-                android:paddingBottom="15dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="15dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_font" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:text="フォント"
-                    android:textColor="@color/color_blue_dark"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold" />
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:text="Noto Sans Mono CJK Bold" />
-
-                </FrameLayout>
-            </LinearLayout>
+            <include layout="@layout/view_generator_font" />
 
             <include layout="@layout/activity_generator_hr2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ripple_white"
-                android:clickable="true"
-                android:gravity="center_vertical"
-                android:paddingBottom="15dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="15dp">
+            <include layout="@layout/view_generator_text_color" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_color" />
+            <include layout="@layout/activity_generator_hr2" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:text="カラー"
-                    android:textColor="@color/color_blue_dark"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold" />
+            <include layout="@layout/view_generator_background_color" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="right"
-                        android:text="#FFFFFF" />
-
-                </FrameLayout>
-            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>

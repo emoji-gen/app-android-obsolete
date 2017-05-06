@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moe.pine.emoji.view.generator.TextColorView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_generator_text_color"
+    style="@style/AppTheme.Generator.MenuItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="RtlHardcoded,ContentDescription">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_color" />
+
+    <TextView
+        style="@style/AppTheme.Generator.MenuTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generator_text_color_label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_square_white_bordered_silver"
+            android:padding="1dp">
+
+            <View
+                android:id="@+id/view_generator_text_color_square"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="@color/generator_text_color_initial" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/text_view_generator_text_color"
+            style="@style/AppTheme.Generator.MenuColorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generator_text_color_initial" />
+
+    </LinearLayout>
+</moe.pine.emoji.view.generator.TextColorView>

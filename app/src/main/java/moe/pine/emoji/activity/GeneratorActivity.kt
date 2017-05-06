@@ -8,6 +8,7 @@ import android.view.MenuItem
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
+import kotlinx.android.synthetic.main.view_generator_font.*
 import moe.pine.emoji.activity.binding.clear
 import moe.pine.emoji.components.ActionBarBackButtonComponent
 import moe.pine.emoji.components.SupportActionBarComponent
@@ -50,8 +51,8 @@ class GeneratorActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val dialog = InputTextDialogFragment.newInstance()
-        this.supportFragmentManager?.let { dialog.show(it, null) }
+        // val dialog = InputTextDialogFragment.newInstance()
+        // this.supportFragmentManager?.let { dialog.show(it, null) }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

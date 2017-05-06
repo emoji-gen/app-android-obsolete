@@ -23,7 +23,7 @@
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="18dp"
-        android:background="@drawable/shape_white_bordered"
+        android:background="@drawable/shape_rounded_square_white_bordered_gray"
         android:gravity="center"
         android:textColor="@color/color_black"
         android:textSize="@dimen/text_size_medium">

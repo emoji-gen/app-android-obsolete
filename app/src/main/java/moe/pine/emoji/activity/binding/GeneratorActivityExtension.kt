@@ -2,6 +2,8 @@ package moe.pine.emoji.activity.binding
 
 import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
+import kotlinx.android.synthetic.main.view_generator_background_color.*
+import kotlinx.android.synthetic.main.view_generator_text_color.*
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
 
@@ -13,6 +15,7 @@ fun GeneratorActivity.clear() {
     image_view_preview.setImageDrawable(null)
 }
 
+
 var GeneratorActivity.emojiText: String
     set(str) {
         if (str.isNotEmpty()) {
@@ -22,3 +25,17 @@ var GeneratorActivity.emojiText: String
         }
     }
     get() = text_view_emoji_text.text.toString()
+
+
+var GeneratorActivity.textColor: Int
+    set(value) {
+        view_generator_text_color.color = value
+    }
+    get() = view_generator_text_color.color
+
+
+var GeneratorActivity.backgroundColor: Int
+    set(value) {
+        view_generator_background_color.color = value
+    }
+    get() = view_generator_background_color.color
