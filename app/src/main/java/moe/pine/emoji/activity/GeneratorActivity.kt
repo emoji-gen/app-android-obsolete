@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
 import moe.pine.emoji.activity.binding.clear
 import moe.pine.emoji.components.SupportActionBarComponent
-import moe.pine.emoji.fragment.InputTextDialogFragment
+import moe.pine.emoji.fragment.generator.InputTextDialogFragment
 
 /**
  * Activity for generator

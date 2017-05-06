@@ -1,4 +1,4 @@
-package moe.pine.emoji.fragment
+package moe.pine.emoji.fragment.generator
 
 import android.app.AlertDialog
 import android.app.Dialog
