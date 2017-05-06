@@ -35,7 +35,7 @@ class SelectColorDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val color = this.arguments.getInt(COLOR_KEY)
-        
+
         return ColorPickerDialogBuilder
                 .with(this.context)
                 .initialColor(color)
