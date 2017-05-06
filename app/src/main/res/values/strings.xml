@@ -9,6 +9,10 @@
     <string name="menu_setting">設定</string>
     <string name="menu_other">その他</string>
 
+    <!-- Splash -->
+    <string name="splash_startup_error_title">起動エラー</string>
+    <string name="splash_startup_error_message">アプリケーションの初期化に失敗しました。通信状況を確認し再度お試しください。</string>
+
     <!-- Main -->
     <string name="main_title">絵文字ジェネレーター</string>
 
