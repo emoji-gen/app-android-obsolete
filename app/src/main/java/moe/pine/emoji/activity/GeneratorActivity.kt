@@ -9,8 +9,10 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
 import moe.pine.emoji.activity.binding.clear
+import moe.pine.emoji.components.ActionBarBackButtonComponent
 import moe.pine.emoji.components.SupportActionBarComponent
 import moe.pine.emoji.fragment.generator.InputTextDialogFragment
+import moe.pine.emoji.fragment.generator.SelectFontDialogFragment
 
 /**
  * Activity for generator
@@ -21,7 +23,8 @@ class GeneratorActivity : AppCompatActivity() {
         fun createIntent(context: Context): Intent = Intent(context, GeneratorActivity::class.java)
     }
 
-    val actionBar by lazy { SupportActionBarComponent(this) }
+    private val actionBar by lazy { SupportActionBarComponent(this) }
+    private val backButton by lazy { ActionBarBackButtonComponent(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,11 @@ class GeneratorActivity : AppCompatActivity() {
             val dialog = InputTextDialogFragment.newInstance(text_view_emoji_text.text.toString())
             this.supportFragmentManager?.let { dialog.show(it, null) }
         }
+        view_emoji_font.setOnClickListener {
+            val fonts = arrayListOf("a", "b", "c")
+            val dialog = SelectFontDialogFragment.newInstance(fonts)
+            this.supportFragmentManager?.let { dialog.show(it, null) }
+        }
     }
 
     override fun onResume() {
@@ -47,10 +55,6 @@ class GeneratorActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            this.onBackPressed()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
+        return this.backButton.onOptionsItemSelected(item) or super.onOptionsItemSelected(item)
     }
 }

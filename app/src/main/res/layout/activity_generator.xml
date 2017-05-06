@@ -67,6 +67,7 @@
             <include layout="@layout/activity_generator_hr2" />
 
             <LinearLayout
+                android:id="@+id/view_emoji_font"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ripple_white"

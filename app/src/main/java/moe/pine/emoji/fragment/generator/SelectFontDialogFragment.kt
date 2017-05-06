@@ -1,0 +1,37 @@
+package moe.pine.emoji.fragment.generator
+
+import android.app.AlertDialog
+import android.app.Dialog
+import android.os.Bundle
+import android.support.v4.app.DialogFragment
+import moe.pine.emoji.R
+
+
+/**
+ * Fragment for font selection dialog
+ * Created by pine on May 6, 2017.
+ */
+
+class SelectFontDialogFragment : DialogFragment() {
+    companion object {
+        val FONT_LIST_KEY = "fontList"
+
+        fun newInstance(fonts: ArrayList<String>): SelectFontDialogFragment {
+            return SelectFontDialogFragment().also { fragment ->
+                val arguments = Bundle()
+                arguments.putStringArrayList(FONT_LIST_KEY, fonts)
+                fragment.arguments = arguments
+            }
+        }
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val items = arrayOf("item_0", "item_1", "item_2")
+        return AlertDialog.Builder(this.activity)
+                //.setTitle(R.string.generator_select_font_dialog_title)
+                .setItems(items) { dialog, which ->
+                    // item_which pressed
+                }
+                .create()
+    }
+}

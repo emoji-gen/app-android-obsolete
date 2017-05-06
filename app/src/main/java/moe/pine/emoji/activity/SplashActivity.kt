@@ -9,6 +9,10 @@ import android.support.v7.app.AppCompatActivity
  * Created by pine on Apr 18, 2017.
  */
 class SplashActivity : AppCompatActivity() {
+    companion object {
+        val SPLASH_DELAY_MS = 700L
+    }
+
     private val handler: Handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +25,6 @@ class SplashActivity : AppCompatActivity() {
         this.handler.postDelayed({
             this.startActivity(MainActivity.createIntent(this))
             this.finish()
-        }, 700)
+        }, SPLASH_DELAY_MS)
     }
 }
