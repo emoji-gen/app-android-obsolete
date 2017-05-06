@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_white">
+    android:background="@color/color_white"
+    tools:context=".activity.GeneratorActivity"
+    tools:ignore="RtlHardcoded">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,7 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <include layout="@layout/activity_generator_result" />
+
+            <include layout="@layout/activity_generator_hr" />
+
             <LinearLayout
+                android:id="@+id/view_emoji_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ripple_white"
@@ -37,6 +45,7 @@
                     android:paddingTop="5dp"
                     android:text="テキスト"
                     android:textColor="@color/color_blue_dark"
+                    android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
 
                 <FrameLayout
@@ -44,20 +53,18 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/text_view_emoji_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|center_vertical"
-                        android:text="絵文\n字。" />
+                        android:gravity="top|center_horizontal"
+                        android:text="@string/generator_text_placeholder"
+                        android:textColor="@color/color_gray" />
 
                 </FrameLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="0dp"
-                android:background="@color/color_silver" />
+            <include layout="@layout/activity_generator_hr2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -83,6 +90,7 @@
                     android:paddingTop="5dp"
                     android:text="フォント"
                     android:textColor="@color/color_blue_dark"
+                    android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
 
                 <FrameLayout
@@ -99,12 +107,7 @@
                 </FrameLayout>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="0dp"
-                android:background="@color/color_silver" />
+            <include layout="@layout/activity_generator_hr2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,6 +133,7 @@
                     android:paddingTop="5dp"
                     android:text="カラー"
                     android:textColor="@color/color_blue_dark"
+                    android:textSize="@dimen/text_size_medium"
                     android:textStyle="bold" />
 
                 <FrameLayout

@@ -27,7 +27,8 @@
         <activity
             android:name=".activity.GeneratorActivity"
             android:label="@string/generator_title"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity
             android:name=".activity.SettingActivity"
             android:label="@string/setting_title"

@@ -12,6 +12,9 @@
 
     <!-- Generator -->
     <string name="generator_title">絵文字の生成</string>
+    <string name="generator_register">登録</string>
+    <string name="generator_share">シェア</string>
+    <string name="generator_text_placeholder">絵文\n字。</string>
 
     <!-- Setting -->
     <string name="setting_title">設定</string>
