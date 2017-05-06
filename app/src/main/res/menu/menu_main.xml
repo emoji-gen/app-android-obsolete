@@ -16,11 +16,12 @@
     </group>
     <item android:title="その他">
         <menu android:checkableBehavior="single">
-            <item android:title="このアプリについて" />
             <item
                 android:id="@+id/menu_contact"
                 android:title="お問い合わせ" />
-            <item android:title="ライセンス表記" />
+            <item
+                android:id="@+id/menu_copyright"
+                android:title="ライセンス表記" />
             <item
                 android:id="@+id/menu_version_info"
                 android:title="バージョン情報" />

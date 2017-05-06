@@ -39,7 +39,7 @@ class SelectColorDialogFragment : DialogFragment() {
         return ColorPickerDialogBuilder
                 .with(this.context)
                 .initialColor(color)
-                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
                 .density(COLOR_DENSITY)
                 .setPositiveButton(R.string.ok) { dialog, color, allColors ->
                     dialog.dismiss()

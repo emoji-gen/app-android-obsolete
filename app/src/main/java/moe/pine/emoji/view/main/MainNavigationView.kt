@@ -52,6 +52,10 @@ class MainNavigationView : NavigationView {
                 val intent = WebViewActivity.createIntent(this.context, WebViewPage.CONTACT)
                 this.context.startActivity(intent)
             }
+            R.id.menu_copyright -> {
+                val intent = WebViewActivity.createIntent(this.context, WebViewPage.COPYRIGHT)
+                this.context.startActivity(intent)
+            }
             R.id.menu_version_info -> {
                 val activity = this.context as? AppCompatActivity
                 val dialog = VersionInfoDialogFragment.newInstance()
