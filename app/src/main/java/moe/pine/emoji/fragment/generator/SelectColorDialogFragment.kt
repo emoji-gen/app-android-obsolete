@@ -18,6 +18,7 @@ import moe.pine.emoji.activity.binding.textColor
  */
 class SelectColorDialogFragment : DialogFragment() {
     companion object {
+        val COLOR_DENSITY = 10
         val COLOR_KEY = "color"
         val IS_BACKGROUND_KEY = "isBackground"
 
@@ -34,13 +35,12 @@ class SelectColorDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val color = this.arguments.getInt(COLOR_KEY)
-        Log.d("Emoji", "color=" + color)
-
+        
         return ColorPickerDialogBuilder
                 .with(this.context)
                 .initialColor(color)
                 .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
-                .density(12)
+                .density(COLOR_DENSITY)
                 .setPositiveButton(R.string.ok) { dialog, color, allColors ->
                     dialog.dismiss()
                     this@SelectColorDialogFragment.updateColor(color)
