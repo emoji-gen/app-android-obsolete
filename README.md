@@ -9,7 +9,7 @@
 ## Getting Started
 
 ```
-$ ./gradlew clean installDebug
+$ ./gradlew clean :app:installDebug
 ```
 
 ## License
