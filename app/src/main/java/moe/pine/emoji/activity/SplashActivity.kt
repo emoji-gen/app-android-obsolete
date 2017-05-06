@@ -2,11 +2,14 @@ package moe.pine.emoji.activity
 
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
 import moe.pine.emoji.lib.emoji.ApiCallback
 import moe.pine.emoji.lib.emoji.ApiClient
+import moe.pine.emoji.lib.emoji.JsonSerializer
 import moe.pine.emoji.lib.emoji.model.Font
+import moe.pine.emoji.value.LogicValues
 import java.io.IOException
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -14,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  * Activity for splash
  * Created by pine on Apr 18, 2017.
  */
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity(), ApiCallback<List<Font>> {
     companion object {
         val SPLASH_DELAY_MS = 700L
     }
@@ -39,21 +42,29 @@ class SplashActivity : AppCompatActivity() {
     @UiThread
     private fun fetchFonts() {
         if (!this.progressing.compareAndSet(false, true)) return
-
-        this.client.fetchFonts(object : ApiCallback<List<Font>> {
-            override fun onFailure(e: IOException?) {
-                super.onFailure(e)
-            }
-
-            override fun onResponse(response: List<Font>) {
-                super.onResponse(response)
-                this@SplashActivity.startApp(response)
-            }
-        })
+        this.client.fetchFonts(this)
     }
 
     @UiThread
-    private fun startApp(fonts: List<Font>) {
+    override fun onFailure(e: IOException?) {
+    }
+
+    @UiThread
+    override fun onResponse(response: List<Font>) {
+        this.saveFonts(response)
+        this.startApp()
+    }
+
+    @UiThread
+    private fun saveFonts(fonts: List<Font>) {
+        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+        val editor = pref.edit()
+        editor.putString(LogicValues.SharedPreferences.FONTS_KEY, JsonSerializer.fontsToJson(fonts))
+        editor.apply()
+    }
+
+    @UiThread
+    private fun startApp() {
         val currentTime = System.nanoTime()
         val diffMs: Long = this.startTime?.let { (currentTime - it) / 1000_000 } ?: Long.MAX_VALUE
 

@@ -17,15 +17,14 @@ class ApiClient {
     }
 
     private val client: OkHttpClient by lazy { OkHttpClient() }
-    private val gson: Gson by lazy { Gson() }
 
     fun fetchFonts(callback: ApiCallback<List<Font>>) {
         val request = Request.Builder().url(FONTS_URL).build()
         this.client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) = callback.onFailure(e)
             override fun onResponse(call: Call?, response: Response?) {
-                val body = response?.body()?.string() ?: "{}"
-                val fonts: List<Font> = gson.fromJson(body, object : TypeToken<List<Font>>() {}.type)
+                val body = response?.body()?.string() ?: "[]"
+                val fonts = JsonDeserializer.fontsFromJson(body)
                 callback.onResponse(fonts)
             }
         })

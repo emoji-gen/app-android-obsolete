@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<moe.pine.emoji.view.generator.FontListView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/view_emoji_font"
     style="@style/AppTheme.Generator.MenuItem"
     android:layout_width="match_parent"
@@ -28,4 +28,4 @@
             android:text="Noto Sans Mono CJK Bold" />
 
     </FrameLayout>
-</LinearLayout>
+</moe.pine.emoji.view.generator.FontListView>

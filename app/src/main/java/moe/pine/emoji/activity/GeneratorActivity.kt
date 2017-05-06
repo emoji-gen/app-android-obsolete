@@ -41,11 +41,7 @@ class GeneratorActivity : AppCompatActivity() {
             val dialog = InputTextDialogFragment.newInstance(text_view_emoji_text.text.toString())
             this.supportFragmentManager?.let { dialog.show(it, null) }
         }
-        view_emoji_font.setOnClickListener {
-            val fonts = arrayListOf("a", "b", "c")
-            val dialog = SelectFontDialogFragment.newInstance(fonts)
-            this.supportFragmentManager?.let { dialog.show(it, null) }
-        }
+
     }
 
     override fun onResume() {
