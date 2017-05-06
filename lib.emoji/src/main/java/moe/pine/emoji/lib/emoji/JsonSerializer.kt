@@ -10,5 +10,5 @@ import moe.pine.emoji.lib.emoji.model.Font
 object JsonSerializer {
     private val gson: Gson by lazy { Gson() }
 
-    fun fontsToJson(fonts: List<Font>) = this.gson.toJson(fonts)
+    fun fontsToJson(fonts: List<Font>): String = this.gson.toJson(fonts)
 }
