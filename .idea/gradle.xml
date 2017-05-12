@@ -10,9 +10,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/example.slack" />
-            <option value="$PROJECT_DIR$/lib.emoji" />
-            <option value="$PROJECT_DIR$/lib.slack" />
+            <option value="$PROJECT_DIR$/example-slack" />
+            <option value="$PROJECT_DIR$/lib-emoji" />
+            <option value="$PROJECT_DIR$/lib-slack" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

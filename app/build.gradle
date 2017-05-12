@@ -49,8 +49,8 @@ android {
 }
 
 dependencies {
-    compile project(':lib.emoji')
-    compile project(':lib.slack')
+    compile project(':lib-emoji')
+    compile project(':lib-slack')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:$support_library_version"
     compile "com.android.support:design:$support_library_version"

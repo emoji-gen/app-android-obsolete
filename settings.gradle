@@ -1,1 +1,1 @@
-include ':app', ':lib.emoji', ':lib.slack', ':example.slack'
+include ':app', ':lib-emoji', ':lib-slack', ':example-slack'
