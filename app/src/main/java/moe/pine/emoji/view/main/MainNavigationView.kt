@@ -40,14 +40,16 @@ class MainNavigationView : NavigationView {
     }
 
     private fun onNavigationItemSelected(item: MenuItem) {
-        layout.closeDrawers()
+        this.layout.closeDrawers()
 
         when (item.itemId) {
             R.id.menu_my_history -> {
             }
             R.id.menu_our_history -> {
             }
-            R.id.menu_setting -> this.context.startActivity(SettingActivity.createIntent(this.context))
+            R.id.menu_setting -> {
+                this.context.startActivity(SettingActivity.createIntent(this.context))
+            }
             R.id.menu_contact -> {
                 val intent = WebViewActivity.createIntent(this.context, WebViewPage.CONTACT)
                 this.context.startActivity(intent)
