@@ -5,14 +5,12 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
 import android.support.annotation.StringRes
-import android.support.annotation.WorkerThread
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ShareCompat
 import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_generator_result.*
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
 import moe.pine.emoji.activity.binding.previewUri
