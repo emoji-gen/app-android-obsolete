@@ -42,11 +42,10 @@ class SelectFontDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         return AlertDialog.Builder(this.activity)
                 .setItems(this.fontNames) { dialog, which ->
                     dialog.dismiss()
-                    this@SelectFontDialogFragment.updateFont(which)
+                    this.updateFont(which)
                 }
                 .create()
     }
