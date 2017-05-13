@@ -39,7 +39,7 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/selector_blue"
         android:minHeight="34dp"
-        android:text="OK"
+        android:text="@string/ok"
         android:textColor="@color/color_white"
         android:textSize="@dimen/text_size_medium" />
 </moe.pine.emoji.view.generator.InputTextDialogView>
