@@ -12,5 +12,5 @@ import io.realm.annotations.RealmClass
 class SlackTeam(
         @PrimaryKey var domain: String,
         var email: String,
-        val password: String
+        var password: String
 ) : RealmObject()

@@ -75,7 +75,7 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/button_text_input_ok"
+        android:id="@+id/button_setting_add_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"

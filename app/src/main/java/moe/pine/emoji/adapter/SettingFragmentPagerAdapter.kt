@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import moe.pine.emoji.R
 import moe.pine.emoji.fragment.setting.AddTeamFragment
+import moe.pine.emoji.fragment.setting.TeamListFragment
 
 /**
  * PagerAdapter for setting fragments
@@ -16,12 +17,10 @@ class SettingFragmentPagerAdapter(
         fm: FragmentManager?,
         val context: Context
 ) : FragmentPagerAdapter(fm) {
-
-
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> AddTeamFragment.newInstance()
-            1 -> AddTeamFragment.newInstance()
+            1 -> TeamListFragment.newInstance()
             else -> throw IllegalArgumentException()
         }
     }
