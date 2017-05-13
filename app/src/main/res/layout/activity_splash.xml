@@ -1,34 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="moe.pine.emoji.activity.SplashActivity">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="30dp"
+    tools:context="moe.pine.emoji.activity.SplashActivity"
+    tools:ignore="ContentDescription">
 
-    <LinearLayout
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:src="@drawable/ic_splash" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_splash" />
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:indeterminate="true"
-            android:indeterminateTint="@color/color_white"
-            android:indeterminateTintMode="src_atop"
-            android:visibility="invisible" />
-    </LinearLayout>
-
-</FrameLayout>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/color_white"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="invisible" />
+</LinearLayout>
