@@ -74,12 +74,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_rounded_square_white_bordered_gray"
+            android:lines="1"
+            android:maxLines="1"
             android:minHeight="0dp"
             android:minWidth="0dp"
             android:paddingBottom="6dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="6dp"
+            android:inputType="textEmailAddress"
             android:textCursorDrawable="@drawable/shape_cursor_blue">
 
             <requestFocus />
