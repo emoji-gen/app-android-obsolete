@@ -5,10 +5,10 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingBottom="18dp"
+    android:paddingBottom="19dp"
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
-    android:paddingTop="18dp"
+    android:paddingTop="19dp"
     tools:ignore="ContentDescription,RtlHardcoded">
 
     <ImageView
@@ -35,10 +35,17 @@
                 android:textSize="@dimen/text_size_small" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:text="@string/main_version_prefix"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/text_size_small" />
+
+            <moe.pine.emoji.view.main.VersionInfoTextView
                 android:id="@+id/text_view_version_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/text_size_small" />
         </LinearLayout>
