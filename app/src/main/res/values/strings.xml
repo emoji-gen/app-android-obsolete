@@ -3,6 +3,7 @@
     <string name="ok">OK</string>
     <string name="cancel">キャンセル</string>
     <string name="color_code_prefix">#</string>
+    <string name="network_error_message">通信に失敗しました。時間を置いて再度お試しください。</string>
 
     <!-- Menu -->
     <string name="menu_my_history">マイ絵文字</string>
@@ -27,6 +28,8 @@
     <string name="generator_text_color_initial">EC71A1FF</string>
     <string name="generator_background_color_label">背景色</string>
     <string name="generator_background_color_initial">00000000</string>
+    <string name="generator_share_dialog_title">生成した絵文字を共有</string>
+    <string name="generator_share_permission_error_message">絵文字の共有するには、権限を許可する必要があります</string>
 
     <!-- Setting -->
     <string name="setting_title">設定</string>

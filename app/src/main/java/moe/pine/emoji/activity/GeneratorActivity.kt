@@ -5,17 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
-import kotlinx.android.synthetic.main.view_generator_font.*
-import moe.pine.emoji.R
 import moe.pine.emoji.activity.binding.clear
 import moe.pine.emoji.activity.binding.updateUI
 import moe.pine.emoji.components.ActionBarBackButtonComponent
 import moe.pine.emoji.components.SupportActionBarComponent
 import moe.pine.emoji.fragment.generator.InputTextDialogFragment
-import moe.pine.emoji.fragment.generator.SelectFontDialogFragment
 
 /**
  * Activity for generator
@@ -52,5 +48,10 @@ class GeneratorActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return this.backButton.onOptionsItemSelected(item) or super.onOptionsItemSelected(item)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        this.view_share_button.onRequestPermissionResult(permissions, grantResults)
     }
 }

@@ -26,7 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -42,12 +46,18 @@
                 android:textSize="@dimen/text_size_large" />
         </LinearLayout>
 
-        <LinearLayout
+        <moe.pine.emoji.view.generator.ShareButtonView
+            android:id="@+id/view_share_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:background="@drawable/ripple_white"
+            android:clickable="true"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="8dp">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -61,6 +71,6 @@
                 android:text="@string/generator_share"
                 android:textColor="@color/color_yellow_dark"
                 android:textSize="@dimen/text_size_large" />
-        </LinearLayout>
+        </moe.pine.emoji.view.generator.ShareButtonView>
     </LinearLayout>
 </LinearLayout>
