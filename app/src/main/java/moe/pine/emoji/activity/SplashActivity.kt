@@ -5,6 +5,8 @@ import android.os.Handler
 import android.preference.PreferenceManager
 import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import kotlinx.android.synthetic.main.activity_splash.*
 import moe.pine.emoji.BuildConfig
 import moe.pine.emoji.fragment.splash.StartupErrorDialogFragment
 import moe.pine.emoji.lib.emoji.ApiCallback
@@ -21,7 +23,8 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 class SplashActivity : AppCompatActivity(), ApiCallback<List<Font>> {
     companion object {
-        val SPLASH_DELAY_MS = 700L
+        val SPLASH_DELAY_MS = 600L
+        val PROGRESS_DELAY_MS = 1000L
     }
 
     private val handler: Handler = Handler()
@@ -39,6 +42,10 @@ class SplashActivity : AppCompatActivity(), ApiCallback<List<Font>> {
         super.onStart()
         this.startTime = System.nanoTime()
         this.fetchFonts()
+
+        this.handler.postDelayed({
+            this.progress_bar.visibility = View.VISIBLE
+        }, PROGRESS_DELAY_MS)
     }
 
     @UiThread
