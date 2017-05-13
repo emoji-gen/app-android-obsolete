@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         fun createIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
     }
 
-    val toggle by lazy { ActionBarDrawerToggleComponent(this, activity_main, R.string.app_name, R.string.app_name) }
+    val toggle by lazy { ActionBarDrawerToggleComponent(this, this.activity_main, R.string.app_name, R.string.app_name) }
     val actionBar by lazy { SupportActionBarComponent(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         this.setContentView(moe.pine.emoji.R.layout.activity_main)
         this.toggle.onCreate()
         this.actionBar.onCreate()
-        navigation_view_main.setupView(activity_main)
+        this.navigation_view_main.setupView(activity_main)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
