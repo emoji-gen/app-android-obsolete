@@ -1,102 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:background="@color/color_white"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="@color/color_silver" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/setting_add_team_title"
-            android:textColor="@color/color_blue_dark"
-            android:textSize="@dimen/text_size_large"
-            android:textStyle="bold" />
+            app:tabIndicatorColor="@color/color_blue_dark"
+            app:tabIndicatorHeight="2dp"
+            app:tabSelectedTextColor="@color/color_blue_dark"
+            app:tabTextColor="@color/color_gray" />
+    </FrameLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/setting_add_team_description"
-            android:textColor="@color/color_gray"
-            android:textSize="@dimen/text_size_small" />
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:stretchColumns="1">
-
-            <TableRow>
-
-                <TextView
-                    android:layout_column="0"
-                    android:text="チームドメイン" />
-
-                <EditText
-                    android:layout_column="1"
-                    android:layout_marginLeft="25dp"
-                    android:background="@drawable/shape_rounded_square_white_bordered_silver"
-                    android:minHeight="0dp"
-                    android:minLines="1"
-                    android:minWidth="0dp"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="6dp" />
-            </TableRow>
-
-            <TableRow android:layout_marginTop="12dp">
-
-                <TextView
-                    android:layout_column="0"
-                    android:text="メールアドレス" />
-
-                <EditText
-                    android:layout_column="1"
-                    android:layout_marginLeft="25dp"
-                    android:background="@drawable/shape_rounded_square_white_bordered_silver"
-                    android:minHeight="0dp"
-                    android:minLines="1"
-                    android:minWidth="0dp"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="6dp" />
-            </TableRow>
-
-            <TableRow android:layout_marginTop="12dp">
-
-                <TextView
-                    android:layout_column="0"
-                    android:text="パスワード" />
-
-                <EditText
-                    android:layout_column="1"
-                    android:layout_marginLeft="25dp"
-                    android:background="@drawable/shape_rounded_square_white_bordered_silver"
-                    android:minHeight="0dp"
-                    android:minLines="1"
-                    android:minWidth="0dp"
-                    android:paddingBottom="6dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="6dp" />
-            </TableRow>
-        </TableLayout>
-    </LinearLayout>
-
-    <ListView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ListView>
+        android:layout_height="match_parent" />
 </LinearLayout>

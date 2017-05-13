@@ -43,4 +43,9 @@
     <string name="setting_title">設定</string>
     <string name="setting_add_team_title">新規登録</string>
     <string name="setting_add_team_description">追加したい Slack チームの情報を入力して下さい。</string>
+    <string name="setting_team_list_title">一覧</string>
+    <string name="setting_team_domain_label">チームドメイン</string>
+    <string name="setting_email_label">メールアドレス</string>
+    <string name="setting_password_label">パスワード</string>
+    <string name="setting_add_team_button">登録</string>
 </resources>

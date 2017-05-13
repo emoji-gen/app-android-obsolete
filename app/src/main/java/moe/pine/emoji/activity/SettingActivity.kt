@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import kotlinx.android.synthetic.main.activity_setting.*
 import moe.pine.emoji.R
+import moe.pine.emoji.adapter.SettingFragmentPagerAdapter
 import moe.pine.emoji.components.ActionBarBackButtonComponent
 import moe.pine.emoji.components.SupportActionBarComponent
 
@@ -25,6 +27,10 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         this.setContentView(R.layout.activity_setting)
         this.actionBar.onCreate()
+
+        val adapter = SettingFragmentPagerAdapter(this.supportFragmentManager, this)
+        this.view_pager.adapter = adapter
+        this.tab_layout.setupWithViewPager(this.view_pager)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

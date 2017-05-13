@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="26dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="28dp"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/setting_add_team_description"
+        android:textColor="@color/color_gray"
+        android:textSize="@dimen/text_size_small" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:stretchColumns="1">
+
+        <TableRow style="@style/AppTheme.Setting.TableRow">
+
+            <TextView
+                style="@style/AppTheme.Setting.HeadingCell"
+                android:layout_column="0"
+                android:labelFor="@+id/edit_text_setting_team_domain"
+                android:text="@string/setting_team_domain_label" />
+
+            <EditText
+                android:id="@+id/edit_text_setting_team_domain"
+                style="@style/AppTheme.Setting.TextInput"
+                android:layout_column="1"
+                android:inputType="textEmailAddress" />
+        </TableRow>
+
+        <TableRow
+            style="@style/AppTheme.Setting.TableRow"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                style="@style/AppTheme.Setting.HeadingCell"
+                android:layout_column="0"
+                android:labelFor="@+id/edit_text_setting_email"
+                android:text="@string/setting_email_label" />
+
+            <EditText
+                android:id="@+id/edit_text_setting_email"
+                style="@style/AppTheme.Setting.TextInput"
+                android:layout_column="1"
+                android:inputType="textEmailAddress" />
+        </TableRow>
+
+        <TableRow
+            style="@style/AppTheme.Setting.TableRow"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                style="@style/AppTheme.Setting.HeadingCell"
+                android:layout_column="0"
+                android:labelFor="@+id/edit_text_setting_password"
+                android:text="@string/setting_password_label" />
+
+            <EditText
+                android:id="@+id/edit_text_setting_password"
+                style="@style/AppTheme.Setting.TextInput"
+                android:layout_column="1"
+                android:inputType="textPassword" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button_text_input_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_red"
+        android:minHeight="34dp"
+        android:text="@string/setting_add_team_button"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/text_size_medium" />
+</LinearLayout>
