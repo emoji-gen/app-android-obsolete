@@ -52,6 +52,6 @@ class GeneratorActivity : AppCompatActivity() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        this.view_share_button.onRequestPermissionResult(permissions, grantResults)
+        this.view_generator_share_button.onRequestPermissionResult(permissions, grantResults)
     }
 }

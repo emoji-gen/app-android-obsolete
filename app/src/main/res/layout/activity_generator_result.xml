@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
@@ -7,7 +8,8 @@
     android:paddingBottom="35dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="30dp">
+    android:paddingTop="30dp"
+    tools:ignore="ContentDescription,RtlHardcoded">
 
     <ImageView
         android:id="@+id/image_view_preview"
@@ -22,9 +24,12 @@
         android:layout_marginLeft="45dp"
         android:orientation="vertical">
 
-        <LinearLayout
+        <moe.pine.emoji.view.generator.RegisterButtonView
+            android:id="@+id/view_generator_register_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/ripple_white"
+            android:clickable="true"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingBottom="8dp"
@@ -44,10 +49,10 @@
                 android:text="@string/generator_register"
                 android:textColor="@color/color_red_dark"
                 android:textSize="@dimen/text_size_large" />
-        </LinearLayout>
+        </moe.pine.emoji.view.generator.RegisterButtonView>
 
         <moe.pine.emoji.view.generator.ShareButtonView
-            android:id="@+id/view_share_button"
+            android:id="@+id/view_generator_share_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ripple_white"
