@@ -29,6 +29,8 @@ class FontListView : LinearLayout {
     override fun onFinishInflate() {
         super.onFinishInflate()
 
+        if (this.isInEditMode) return
+
         val pref = PreferenceManager.getDefaultSharedPreferences(this.context)
         val fonts = JsonDeserializer.fontsFromJson(pref.getString(LogicValues.SharedPreferences.FONTS_KEY, "[]"))
 
