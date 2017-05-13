@@ -16,7 +16,6 @@ import android.support.v4.content.ContextCompat
 import android.widget.Toast
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
-import moe.pine.emoji.activity.binding.previewUri
 import moe.pine.emoji.activity.binding.text
 import okhttp3.*
 import okio.Okio
