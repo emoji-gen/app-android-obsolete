@@ -32,6 +32,7 @@
     <string name="generator_share_download_title">ダウンロード中</string>
     <string name="generator_share_download_message">絵文字をダウンロードしています</string>
     <string name="generator_share_permission_error_message">絵文字の共有するには、権限を許可する必要があります</string>
+    <string name="generator_register_button">登録</string>
 
     <!-- Setting -->
     <string name="setting_title">設定</string>

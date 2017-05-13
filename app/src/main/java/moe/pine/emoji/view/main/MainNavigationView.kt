@@ -10,7 +10,7 @@ import android.view.View
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.SettingActivity
 import moe.pine.emoji.activity.WebViewActivity
-import moe.pine.emoji.fragment.VersionInfoDialogFragment
+import moe.pine.emoji.fragment.main.VersionInfoDialogFragment
 import moe.pine.emoji.model.internal.WebViewPage
 
 /**

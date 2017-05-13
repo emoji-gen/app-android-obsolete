@@ -4,6 +4,10 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
+import android.view.LayoutInflater
+import moe.pine.emoji.R
+import moe.pine.emoji.view.generator.InputTextDialogView
+import moe.pine.emoji.view.generator.RegisterDialogView
 
 /**
  * Fragment for register emoji
@@ -27,7 +31,10 @@ class RegisterDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val inflater = LayoutInflater.from(this.context)
+        val view = inflater.inflate(R.layout.dialog_register, null, false) as RegisterDialogView
         val dialog = AlertDialog.Builder(this.activity)
+                .setView(view)
                 .create()
         return dialog
     }

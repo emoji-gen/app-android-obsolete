@@ -1,4 +1,4 @@
-package moe.pine.emoji.fragment
+package moe.pine.emoji.fragment.main
 
 import android.app.AlertDialog
 import android.app.Dialog

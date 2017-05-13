@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moe.pine.emoji.view.generator.RegisterDialogView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/color_white"
+    android:orientation="vertical"
+    android:paddingBottom="17dp"
+    android:paddingLeft="17dp"
+    android:paddingRight="17dp"
+    android:paddingTop="17dp"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="絵文字の登録情報を入力して下さい。"
+        android:textColor="@color/color_gray"
+        android:textSize="@dimen/text_size_small" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="チーム"
+            android:textColor="@color/color_blue_dark"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_rounded_square_white_bordered_gray"
+            android:minHeight="0dp" />
+
+        <Button
+            android:id="@+id/button_register_add_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ripple_blue"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:text="新規追加"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/text_size_xsmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="絵文字の名前"
+            android:textColor="@color/color_blue_dark"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_rounded_square_white_bordered_gray"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:textCursorDrawable="@drawable/shape_cursor_blue" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_text_input_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/selector_red"
+        android:minHeight="34dp"
+        android:text="@string/generator_register_button"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/text_size_medium" />
+</moe.pine.emoji.view.generator.RegisterDialogView>
