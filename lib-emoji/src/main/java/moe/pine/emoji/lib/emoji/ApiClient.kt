@@ -1,7 +1,5 @@
 package moe.pine.emoji.lib.emoji
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import moe.pine.emoji.lib.emoji.model.Font
 import okhttp3.*
 import java.io.IOException
