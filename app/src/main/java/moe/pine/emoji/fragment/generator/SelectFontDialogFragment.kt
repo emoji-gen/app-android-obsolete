@@ -4,13 +4,9 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
-import android.util.Log
-import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
-import moe.pine.emoji.activity.binding.backgroundColor
 import moe.pine.emoji.activity.binding.fontKey
 import moe.pine.emoji.activity.binding.fontName
-import moe.pine.emoji.activity.binding.textColor
 import moe.pine.emoji.lib.emoji.model.Font
 
 
