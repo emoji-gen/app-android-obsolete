@@ -17,6 +17,9 @@
 
     <!-- Main -->
     <string name="main_title">絵文字ジェネレーター</string>
+    <string name="main_version_app_name">絵文字ジェネレーター</string>
+    <string name="main_version_url">https://emoji.pine.moe</string>
+    <string name="main_version_copyright">&#169; 2017 Emoji Generator</string>
 
     <!-- Generator -->
     <string name="generator_title">絵文字の生成</string>
