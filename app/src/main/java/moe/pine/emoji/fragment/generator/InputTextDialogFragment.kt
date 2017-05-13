@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.WindowManager
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
-import moe.pine.emoji.activity.binding.emojiText
+import moe.pine.emoji.activity.binding.text
 import moe.pine.emoji.view.generator.InputTextDialogView
 
 /**
@@ -38,13 +38,13 @@ class InputTextDialogFragment : DialogFragment() {
                 .setOnCancelListener { dialog ->
                     Log.d("Emoji", "cancel")
                     dialog.dismiss()
-                    (this.activity as GeneratorActivity).emojiText = ""
+                    (this.activity as GeneratorActivity).text = ""
                 }
                 .create()
 
         view.onOkClickListener = {
             dialog.dismiss()
-            (this.activity as GeneratorActivity).emojiText = view.inputText
+            (this.activity as GeneratorActivity).text = view.inputText
         }
         view.inputText = this.arguments.getString(TEXT_KEY)
 

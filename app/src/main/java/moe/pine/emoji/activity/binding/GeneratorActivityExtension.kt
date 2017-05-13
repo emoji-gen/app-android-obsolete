@@ -1,5 +1,7 @@
 package moe.pine.emoji.activity.binding
 
+import android.net.Uri
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
 import kotlinx.android.synthetic.main.view_generator_background_color.*
@@ -7,6 +9,7 @@ import kotlinx.android.synthetic.main.view_generator_font.*
 import kotlinx.android.synthetic.main.view_generator_text_color.*
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
+import moe.pine.emoji.util.rgba.toRgba
 
 /**
  * Extension for GeneratorActivity
@@ -16,16 +19,27 @@ fun GeneratorActivity.clear() {
     image_view_preview.setImageDrawable(null)
 }
 
+fun GeneratorActivity.updateUI() {
+    Glide.with(this)
+            .load(this.previewUri)
+            .crossFade()
+            .fitCenter()
+            .into(this.image_view_preview)
+}
 
-var GeneratorActivity.emojiText: String
+var GeneratorActivity.text: String
     set(str) {
+        val changed = this.text_view_generator_text.text.toString() != str
+
         if (str.isNotEmpty()) {
-            text_view_emoji_text.text = str
+            text_view_generator_text.text = str
         } else {
-            text_view_emoji_text.setText(R.string.generator_text_placeholder)
+            text_view_generator_text.setText(R.string.generator_text_placeholder)
         }
+
+        if (changed) this.updateUI()
     }
-    get() = text_view_emoji_text.text.toString()
+    get() = text_view_generator_text.text.toString()
 
 
 var GeneratorActivity.fontName: String
@@ -36,20 +50,40 @@ var GeneratorActivity.fontName: String
 
 var GeneratorActivity.fontKey: String
     set(value) {
-        view_generator_font.fontKey = value
+        val changed = this.view_generator_font.fontKey != value
+        this.view_generator_font.fontKey = value
+        if (changed) this.updateUI()
     }
     get() = view_generator_font.fontKey
 
 
 var GeneratorActivity.textColor: Int
     set(value) {
-        view_generator_text_color.color = value
+        val changed = this.view_generator_text_color.color != value
+        this.view_generator_text_color.color = value
+        if (changed) this.updateUI()
     }
     get() = view_generator_text_color.color
 
 
 var GeneratorActivity.backgroundColor: Int
     set(value) {
-        view_generator_background_color.color = value
+        val changed = this.view_generator_background_color.color != value
+        this.view_generator_background_color.color = value
+        if (changed) this.updateUI()
     }
     get() = view_generator_background_color.color
+
+
+val GeneratorActivity.previewUri: Uri
+    get() {
+        return Uri.Builder()
+                .scheme("https")
+                .authority("emoji.pine.moe")
+                .path("emoji")
+                .appendQueryParameter("text", this.text_view_generator_text.text.toString())
+                .appendQueryParameter("font", this.fontKey)
+                .appendQueryParameter("color", this.textColor.toRgba())
+                .appendQueryParameter("back_color", this.backgroundColor.toRgba())
+                .build()
+    }

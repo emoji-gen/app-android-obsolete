@@ -22,6 +22,6 @@ object RgbaColorUtils {
         val red = (color ushr 16) and 0xff
         val green = (color ushr 8) and 0xff
         val blue = color and 0xff
-        return "#%02X%02X%02X%02X".format(red, green, blue, alpha)
+        return "%02X%02X%02X%02X".format(red, green, blue, alpha)
     }
 }

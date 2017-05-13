@@ -38,6 +38,11 @@
         </FrameLayout>
 
         <TextView
+            style="@style/AppTheme.Generator.MenuColorPrefixText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/color_code_prefix" />
+        <TextView
             android:id="@+id/text_view_generator_text_color"
             style="@style/AppTheme.Generator.MenuColorText"
             android:layout_width="wrap_content"

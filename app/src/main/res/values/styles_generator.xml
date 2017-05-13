@@ -22,9 +22,16 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="AppTheme.Generator.MenuColorText">
+    <style name="AppTheme.Generator.MenuColorPrefixText">
         <item name="android:layout_gravity">right</item>
         <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:textColor">@color/color_gray</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="AppTheme.Generator.MenuColorText">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_marginLeft">0dp</item>
         <item name="android:textColor">@color/color_gray</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
     </style>
