@@ -1,7 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-allopen'
+apply plugin: 'kotlin-noarg'
 apply plugin: 'io.fabric'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 25
@@ -77,3 +80,11 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+
+allOpen {
+    annotation('io.realm.annotations.RealmClass')
+}
+
+noArg {
+    annotation('io.realm.annotations.RealmClass')
+}
