@@ -23,7 +23,6 @@ fun GeneratorActivity.updateUI() {
     Glide.with(this)
             .load(this.previewUri)
             .crossFade()
-            .fitCenter()
             .into(this.image_view_preview)
 }
 
