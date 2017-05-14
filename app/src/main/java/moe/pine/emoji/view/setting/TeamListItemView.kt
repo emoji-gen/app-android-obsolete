@@ -15,7 +15,7 @@ import moe.pine.emoji.model.realm.SlackTeam
 class TeamListItemView : LinearLayout {
     var team: SlackTeam? = null
         set(value) {
-            this.text_view_setting_team_domain.text = value?.domain.orEmpty()
+            this.text_view_setting_team_domain.text = value?.team.orEmpty()
             this.text_view_setting_team_email.text = value?.email.orEmpty()
             field = value
         }
@@ -30,7 +30,7 @@ class TeamListItemView : LinearLayout {
     }
 
     private fun remove() {
-        val domain = this.team?.domain ?: return
+        val domain = this.team?.team ?: return
         val activity = this.context as? AppCompatActivity
         val dialog = DeleteTeamDialogFragment.newInstance(domain)
         activity?.supportFragmentManager?.let { dialog.show(it, null) }

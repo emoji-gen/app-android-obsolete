@@ -11,7 +11,7 @@ import java.util.*
  */
 @RealmClass
 class SlackTeam(
-        @PrimaryKey var domain: String,
+        @PrimaryKey var team: String,
         var email: String,
         var password: String,
         var createdAt: Date = Date()

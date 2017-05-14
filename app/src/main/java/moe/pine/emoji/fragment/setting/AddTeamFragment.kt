@@ -45,6 +45,6 @@ class AddTeamFragment : Fragment() {
         this.settingSaver.onActivityCreated(savedInstanceState)
 
         val isFocus = this.arguments.getBoolean(IS_FOCUS_KEY, false)
-        if (isFocus) this.edit_text_setting_team_domain.requestFocus()
+        if (isFocus) this.edit_text_setting_team.requestFocus()
     }
 }

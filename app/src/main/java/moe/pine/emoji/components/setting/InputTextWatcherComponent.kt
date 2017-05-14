@@ -12,7 +12,7 @@ import moe.pine.emoji.fragment.setting.AddTeamFragment
  */
 class InputTextWatcherComponent(val fragment: AddTeamFragment) : TextWatcher {
     fun onActivityCreated(savedInstanceState: Bundle?) {
-        this.fragment.edit_text_setting_team_domain.addTextChangedListener(this)
+        this.fragment.edit_text_setting_team.addTextChangedListener(this)
         this.fragment.edit_text_setting_email.addTextChangedListener(this)
         this.fragment.edit_text_setting_password.addTextChangedListener(this)
     }
@@ -29,7 +29,7 @@ class InputTextWatcherComponent(val fragment: AddTeamFragment) : TextWatcher {
 
     private val isOk: Boolean
         get() {
-            return this.fragment.edit_text_setting_team_domain.text.isNotEmpty() &&
+            return this.fragment.edit_text_setting_team.text.isNotEmpty() &&
                     this.fragment.edit_text_setting_email.text.isNotEmpty() &&
                     this.fragment.edit_text_setting_password.text.isNotEmpty()
         }

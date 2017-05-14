@@ -30,11 +30,11 @@
             <TextView
                 style="@style/AppTheme.Setting.HeadingCell"
                 android:layout_column="0"
-                android:labelFor="@+id/edit_text_setting_team_domain"
+                android:labelFor="@+id/edit_text_setting_team"
                 android:text="@string/setting_team_domain_label" />
 
             <EditText
-                android:id="@+id/edit_text_setting_team_domain"
+                android:id="@+id/edit_text_setting_team"
                 style="@style/AppTheme.Setting.TextInput"
                 android:layout_column="1"
                 android:inputType="textEmailAddress" />

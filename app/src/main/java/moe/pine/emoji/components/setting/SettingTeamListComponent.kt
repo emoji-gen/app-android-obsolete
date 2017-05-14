@@ -25,7 +25,7 @@ class SettingTeamListComponent(
     private lateinit var realm: Realm
 
     private val teams: List<SlackTeam>
-        get() = this.realm.where(SlackTeam::class.java).findAllSorted("domain", Sort.ASCENDING)
+        get() = this.realm.where(SlackTeam::class.java).findAllSorted("team", Sort.ASCENDING)
 
     fun onActivityCreated(savedInstanceState: Bundle?) {
         this.realm = Realm.getDefaultInstance()
@@ -60,7 +60,7 @@ class SettingTeamListComponent(
 
     private fun removeTeam(domain: String) {
         val team: SlackTeam? = this.realm.where(SlackTeam::class.java)
-                .equalTo("domain", domain)
+                .equalTo("team", domain)
                 .findFirst()
 
         team ?: return

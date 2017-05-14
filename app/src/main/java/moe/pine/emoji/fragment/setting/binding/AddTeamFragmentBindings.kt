@@ -9,15 +9,15 @@ import moe.pine.emoji.fragment.setting.AddTeamFragment
  */
 
 fun AddTeamFragment.clear() {
-    this.teamDomain = ""
+    this.team = ""
     this.email = ""
     this.password = ""
 }
 
-var AddTeamFragment.teamDomain: String
-    get() = this.edit_text_setting_team_domain.text.toString()
+var AddTeamFragment.team: String
+    get() = this.edit_text_setting_team.text.toString()
     set(value) {
-        this.edit_text_setting_team_domain.setText(value)
+        this.edit_text_setting_team.setText(value)
     }
 
 var AddTeamFragment.email: String
