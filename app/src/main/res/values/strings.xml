@@ -8,8 +8,11 @@
     <!-- Menu -->
     <string name="menu_my_history">マイ絵文字</string>
     <string name="menu_our_history">みんなの生成履歴</string>
-    <string name="menu_setting">設定</string>
+    <string name="menu_setting">チーム設定</string>
     <string name="menu_other">その他</string>
+    <string name="menu_contact">お問い合わせ</string>
+    <string name="menu_copyright">著作権表記</string>
+    <string name="menu_version_info">バージョン情報</string>
 
     <!-- Splash -->
     <string name="splash_startup_error_title">起動エラー</string>
@@ -40,7 +43,7 @@
     <string name="generator_add_team_button">新規追加</string>
 
     <!-- Setting -->
-    <string name="setting_title">設定</string>
+    <string name="setting_title">チーム設定</string>
     <string name="setting_add_team_title">新規登録</string>
     <string name="setting_add_team_description">追加したい Slack チームの情報を入力して下さい。</string>
     <string name="setting_team_list_title">一覧</string>
