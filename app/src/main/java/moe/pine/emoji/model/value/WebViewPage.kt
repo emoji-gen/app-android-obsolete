@@ -1,4 +1,4 @@
-package moe.pine.emoji.model.internal
+package moe.pine.emoji.model.value
 
 /**
  * Model for WebViewPage

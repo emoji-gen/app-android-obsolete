@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_webview.*
 import moe.pine.emoji.R
 import moe.pine.emoji.components.ActionBarBackButtonComponent
 import moe.pine.emoji.components.SupportActionBarComponent
-import moe.pine.emoji.model.internal.WebViewPage
+import moe.pine.emoji.model.value.WebViewPage
 
 /**
  * Activity for WebView

@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import io.realm.Realm
 import io.realm.Sort
 import moe.pine.emoji.R
-import moe.pine.emoji.model.internal.SlackTeam
+import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.view.setting.TeamListItemView
 
 /**

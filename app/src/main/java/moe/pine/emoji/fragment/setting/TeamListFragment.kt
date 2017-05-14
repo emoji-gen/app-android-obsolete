@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_setting_team_list.*
 import moe.pine.emoji.R
 import moe.pine.emoji.adapter.SettingTeamListAdapter
 import moe.pine.emoji.components.setting.SettingTeamListComponent
-import moe.pine.emoji.model.internal.SlackTeam
+import moe.pine.emoji.model.realm.SlackTeam
 
 /**
  * Fragment for slack team list

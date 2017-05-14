@@ -8,7 +8,7 @@ import moe.pine.emoji.fragment.setting.AddTeamFragment
 import moe.pine.emoji.fragment.setting.binding.email
 import moe.pine.emoji.fragment.setting.binding.password
 import moe.pine.emoji.fragment.setting.binding.teamDomain
-import moe.pine.emoji.model.internal.SlackTeam
+import moe.pine.emoji.model.realm.SlackTeam
 
 /**
  * Component for setting saver

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <moe.pine.emoji.view.setting.TeamListItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingBottom="14dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="14dp">
+    android:paddingTop="14dp"
+    tools:ignore="RtlHardcoded">
 
     <TextView
         android:id="@+id/text_view_setting_team_domain"
@@ -14,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
+        android:textColor="@color/color_black"
         android:textSize="@dimen/text_size_small" />
 
     <Button
@@ -22,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
         android:background="@drawable/selector_red"
         android:minHeight="0dp"
         android:minWidth="0dp"
@@ -29,7 +33,7 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:paddingTop="6dp"
-        android:text="削除"
+        android:text="@string/setting_remove_team_button"
         android:textColor="@color/color_white"
         android:textSize="@dimen/text_size_xsmall" />
 
@@ -38,9 +42,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="8dp"
         android:layout_toLeftOf="@id/button_setting_team_delete"
         android:layout_toRightOf="@id/text_view_setting_team_domain"
+        android:textColor="@color/color_black"
         android:textSize="@dimen/text_size_small" />
 
 

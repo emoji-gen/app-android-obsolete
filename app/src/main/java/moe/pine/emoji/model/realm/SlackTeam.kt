@@ -1,4 +1,4 @@
-package moe.pine.emoji.model.internal
+package moe.pine.emoji.model.realm
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey

@@ -10,7 +10,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.crashlytics.android.Crashlytics
 import moe.pine.emoji.BuildConfig
-import moe.pine.emoji.model.internal.WebViewPage
+import moe.pine.emoji.model.value.WebViewPage
 
 /**
  * WebView

@@ -48,4 +48,5 @@
     <string name="setting_email_label">メールアドレス</string>
     <string name="setting_password_label">パスワード</string>
     <string name="setting_add_team_button">登録</string>
+    <string name="setting_remove_team_button">削除</string>
 </resources>
