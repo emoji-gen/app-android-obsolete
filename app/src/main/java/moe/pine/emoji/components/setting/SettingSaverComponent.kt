@@ -11,7 +11,8 @@ import moe.pine.emoji.fragment.setting.binding.password
 import moe.pine.emoji.fragment.setting.binding.teamDomain
 import moe.pine.emoji.model.event.TeamUpdateEvent
 import moe.pine.emoji.model.realm.SlackTeam
-import moe.pine.emoji.util.rgba.eventBus
+import moe.pine.emoji.util.eventBus
+import moe.pine.emoji.util.hideSoftInput
 
 /**
  * Component for setting saver
@@ -40,6 +41,7 @@ class SettingSaverComponent(
 
             this.eventBus.post(TeamUpdateEvent())
             this.fragment.clear()
+            this.fragment.hideSoftInput()
         }
     }
 }

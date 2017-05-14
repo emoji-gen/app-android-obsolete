@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import moe.pine.emoji.R
 import moe.pine.emoji.model.event.TeamDeleteEvent
-import moe.pine.emoji.util.rgba.eventBus
+import moe.pine.emoji.util.eventBus
 
 /**
  * Fragment for delete team dialog
@@ -16,7 +16,7 @@ class DeleteTeamDialogFragment : DialogFragment() {
     companion object {
         val DOMAIN_KEY = "domain"
 
-        fun newInstance(domain: String) : DeleteTeamDialogFragment{
+        fun newInstance(domain: String): DeleteTeamDialogFragment {
             val fragment = DeleteTeamDialogFragment()
             val arguments = Bundle()
             arguments.putString(DOMAIN_KEY, domain)

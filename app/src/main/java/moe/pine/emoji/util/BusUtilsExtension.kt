@@ -1,4 +1,4 @@
-package moe.pine.emoji.util.rgba
+package moe.pine.emoji.util
 
 import com.squareup.otto.Bus
 

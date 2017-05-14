@@ -10,7 +10,7 @@ import moe.pine.emoji.adapter.SettingTeamListAdapter
 import moe.pine.emoji.model.event.TeamDeleteEvent
 import moe.pine.emoji.model.event.TeamUpdateEvent
 import moe.pine.emoji.model.realm.SlackTeam
-import moe.pine.emoji.util.rgba.eventBus
+import moe.pine.emoji.util.eventBus
 
 /**
  * Component for setting team list
