@@ -11,7 +11,6 @@ import moe.pine.emoji.fragment.setting.AddTeamFragment
  * Created by pine on May 14, 2017.
  */
 class InputTextWatcherComponent(val fragment: AddTeamFragment) : TextWatcher {
-
     fun onActivityCreated(savedInstanceState: Bundle?) {
         this.fragment.edit_text_setting_team_domain.addTextChangedListener(this)
         this.fragment.edit_text_setting_email.addTextChangedListener(this)
