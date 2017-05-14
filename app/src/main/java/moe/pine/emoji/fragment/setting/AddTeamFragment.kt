@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_setting_add_team.*
+import kotlinx.android.synthetic.main.view_setting_team_list_item.*
 import moe.pine.emoji.R
 import moe.pine.emoji.components.common.SoftInputManagerComponent
 import moe.pine.emoji.components.setting.InputTextWatcherComponent
@@ -18,7 +19,15 @@ import moe.pine.emoji.components.setting.SettingSaverComponent
 
 class AddTeamFragment : Fragment() {
     companion object {
-        fun newInstance() = AddTeamFragment()
+        private val IS_FOCUS_KEY = "isFocus"
+
+        fun newInstance(isFocus: Boolean = false): AddTeamFragment {
+            val fragment = AddTeamFragment()
+            val arguments = Bundle()
+            arguments.putBoolean(IS_FOCUS_KEY, isFocus)
+            fragment.arguments = arguments
+            return fragment
+        }
     }
 
     private val inputTextWatcher by lazy { InputTextWatcherComponent(this) }
@@ -34,5 +43,8 @@ class AddTeamFragment : Fragment() {
         this.inputTextWatcher.onActivityCreated(savedInstanceState)
         this.softInputManager.onActivityCreated(savedInstanceState)
         this.settingSaver.onActivityCreated(savedInstanceState)
+
+        val isFocus = this.arguments.getBoolean(IS_FOCUS_KEY, false)
+        if (isFocus) this.edit_text_setting_team_domain.requestFocus()
     }
 }

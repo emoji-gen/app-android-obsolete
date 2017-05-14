@@ -15,11 +15,14 @@ import moe.pine.emoji.fragment.setting.TeamListFragment
 
 class SettingFragmentPagerAdapter(
         fm: FragmentManager?,
-        val context: Context
+        private val context: Context,
+        private val isInitialFocus: Boolean
 ) : FragmentPagerAdapter(fm) {
+    private var isFocus: Boolean = this.isInitialFocus
+
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> AddTeamFragment.newInstance()
+            0 -> AddTeamFragment.newInstance(this.isFocus).also { this.isFocus = false }
             1 -> TeamListFragment.newInstance()
             else -> throw IllegalArgumentException()
         }

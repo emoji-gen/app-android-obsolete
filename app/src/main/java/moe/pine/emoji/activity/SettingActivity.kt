@@ -17,7 +17,13 @@ import moe.pine.emoji.components.SupportActionBarComponent
  */
 class SettingActivity : AppCompatActivity() {
     companion object {
-        fun createIntent(context: Context): Intent = Intent(context, SettingActivity::class.java)
+        private val IS_FOCUS_KEY = "isFocus"
+
+        fun createIntent(context: Context, focus: Boolean = false): Intent {
+            return Intent(context, SettingActivity::class.java).also { intent ->
+                intent.putExtra(IS_FOCUS_KEY, focus)
+            }
+        }
     }
 
     private val actionBar by lazy { SupportActionBarComponent(this) }
@@ -28,7 +34,8 @@ class SettingActivity : AppCompatActivity() {
         this.setContentView(R.layout.activity_setting)
         this.actionBar.onCreate()
 
-        val adapter = SettingFragmentPagerAdapter(this.supportFragmentManager, this)
+        val isFocus = this.intent.extras.getBoolean(IS_FOCUS_KEY, false)
+        val adapter = SettingFragmentPagerAdapter(this.supportFragmentManager, this, isFocus)
         this.view_pager.adapter = adapter
         this.tab_layout.setupWithViewPager(this.view_pager)
     }

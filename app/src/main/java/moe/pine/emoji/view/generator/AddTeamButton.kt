@@ -17,7 +17,7 @@ class AddTeamButton : AppCompatButton {
     override fun onFinishInflate() {
         super.onFinishInflate()
         this.setOnClickListener {
-            this.context.startActivity(SettingActivity.createIntent(this.context))
+            this.context.startActivity(SettingActivity.createIntent(this.context, true))
         }
     }
 }
