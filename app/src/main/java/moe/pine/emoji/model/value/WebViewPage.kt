@@ -9,7 +9,7 @@ enum class WebViewPage(
         val url: String
 ) {
     CONTACT("お問い合わせ", "http://app.static.emoji.pine.moe/contact.html"),
-    COPYRIGHT("著作権表記", "http://app.static.emoji.pine.moe/copyright.html");
+    COPYRIGHT("著作権表記", "http://app.static.emoji.pine.moe/copyright_android.html");
 
     companion object {
         val urls: List<String> by lazy { WebViewPage.values().map { it.url } }
