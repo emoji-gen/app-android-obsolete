@@ -2,10 +2,12 @@ package moe.pine.emoji.components.setting
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.LayoutInflater
 import com.squareup.otto.Subscribe
 import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.fragment_setting_team_list.*
+import moe.pine.emoji.R
 import moe.pine.emoji.adapter.SettingTeamListAdapter
 import moe.pine.emoji.model.event.TeamDeleteEvent
 import moe.pine.emoji.model.event.TeamUpdateEvent
@@ -31,6 +33,7 @@ class SettingTeamListComponent(
 
         val adapter = SettingTeamListAdapter(this.fragment.context)
         this.fragment.list_view_setting.adapter = adapter
+
         this.update()
     }
 

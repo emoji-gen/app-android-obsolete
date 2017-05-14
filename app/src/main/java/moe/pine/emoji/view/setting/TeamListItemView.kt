@@ -3,7 +3,7 @@ package moe.pine.emoji.view.setting
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.util.AttributeSet
-import android.widget.RelativeLayout
+import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_setting_team_list_item.view.*
 import moe.pine.emoji.fragment.setting.DeleteTeamDialogFragment
 import moe.pine.emoji.model.realm.SlackTeam
@@ -12,7 +12,7 @@ import moe.pine.emoji.model.realm.SlackTeam
  * View for team list item
  * Created by pine on May 14, 2017.
  */
-class TeamListItemView : RelativeLayout {
+class TeamListItemView : LinearLayout {
     var team: SlackTeam? = null
         set(value) {
             this.text_view_setting_team_domain.text = value?.domain.orEmpty()

@@ -37,6 +37,7 @@ class SettingActivity : AppCompatActivity() {
         val isFocus = this.intent.extras.getBoolean(IS_FOCUS_KEY, false)
         val adapter = SettingFragmentPagerAdapter(this.supportFragmentManager, this, isFocus)
         this.view_pager.adapter = adapter
+        this.view_pager.offscreenPageLimit = 2
         this.tab_layout.setupWithViewPager(this.view_pager)
     }
 
