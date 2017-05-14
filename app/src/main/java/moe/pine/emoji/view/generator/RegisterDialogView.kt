@@ -28,6 +28,8 @@ class RegisterDialogView : LinearLayout {
 
     override fun onFinishInflate() {
         super.onFinishInflate()
+        if (this.isInEditMode) return
+
         this.realm = Realm.getDefaultInstance()
         this.eventBus.register(this)
 
