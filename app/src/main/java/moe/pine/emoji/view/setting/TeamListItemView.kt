@@ -1,12 +1,12 @@
 package moe.pine.emoji.view.setting
 
 import android.content.Context
+import android.support.v7.app.AppCompatActivity
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import kotlinx.android.synthetic.main.view_setting_team_list_item.view.*
-import moe.pine.emoji.model.event.TeamDeleteEvent
+import moe.pine.emoji.fragment.setting.DeleteTeamDialogFragment
 import moe.pine.emoji.model.realm.SlackTeam
-import moe.pine.emoji.util.rgba.eventBus
 
 /**
  * View for team list item
@@ -30,8 +30,9 @@ class TeamListItemView : RelativeLayout {
     }
 
     private fun remove() {
-        this.team?.let {
-            this.eventBus.post(TeamDeleteEvent(it.domain))
-        }
+        val domain = this.team?.domain ?: return
+        val activity = this.context as? AppCompatActivity
+        val dialog = DeleteTeamDialogFragment.newInstance(domain)
+        activity?.supportFragmentManager?.let { dialog.show(it, null) }
     }
 }
