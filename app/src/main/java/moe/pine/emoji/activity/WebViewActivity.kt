@@ -24,8 +24,8 @@ class WebViewActivity : AppCompatActivity() {
         }
     }
 
-    val actionBar by lazy { SupportActionBarComponent(this) }
-    val backButton by lazy { ActionBarBackButtonComponent(this) }
+    private val actionBar by lazy { SupportActionBarComponent(this) }
+    private val backButton by lazy { ActionBarBackButtonComponent(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
