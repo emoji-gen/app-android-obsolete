@@ -11,7 +11,7 @@ import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.fragment_setting_team_list.*
 import moe.pine.emoji.R
-import moe.pine.emoji.adapter.SettingTeamListAdapter
+import moe.pine.emoji.adapter.setting.SettingTeamListAdapter
 import moe.pine.emoji.components.setting.SettingTeamListComponent
 import moe.pine.emoji.model.realm.SlackTeam
 

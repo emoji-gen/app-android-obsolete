@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="絵文字の登録情報を入力して下さい。"
+        android:text="@string/generator_add_dialog_description"
         android:textColor="@color/color_gray"
         android:textSize="@dimen/text_size_small" />
 
@@ -30,12 +30,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="チーム"
+            android:text="@string/generator_add_team_label"
             android:textColor="@color/color_blue_dark"
             android:textSize="@dimen/text_size_medium"
             android:textStyle="bold" />
 
         <Spinner
+            android:id="@+id/spinner_generator_teams"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_marginTop="8dp"
@@ -64,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="絵文字の名前"
+            android:text="@string/generator_add_name_label"
             android:textColor="@color/color_blue_dark"
             android:textSize="@dimen/text_size_medium"
             android:textStyle="bold" />
@@ -74,16 +75,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_rounded_square_white_bordered_gray"
+            android:inputType="textEmailAddress"
             android:lines="1"
             android:maxLines="1"
             android:minHeight="0dp"
             android:minWidth="0dp"
-            android:paddingBottom="6dp"
+            android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingTop="6dp"
-            android:inputType="textEmailAddress"
-            android:textCursorDrawable="@drawable/shape_cursor_blue">
+            android:paddingTop="10dp"
+            android:textCursorDrawable="@drawable/shape_cursor_blue"
+            android:textSize="@dimen/text_size_small">
 
             <requestFocus />
         </EditText>

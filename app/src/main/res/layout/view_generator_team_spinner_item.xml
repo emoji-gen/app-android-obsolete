@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moe.pine.emoji.view.generator.TeamSpinnerItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
+
+    <TextView
+        android:id="@+id/text_view_generator_team_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/text_size_small" />
+</moe.pine.emoji.view.generator.TeamSpinnerItemView>

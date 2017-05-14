@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_setting.*
 import moe.pine.emoji.R
-import moe.pine.emoji.adapter.SettingFragmentPagerAdapter
+import moe.pine.emoji.adapter.setting.SettingFragmentPagerAdapter
 import moe.pine.emoji.components.ActionBarBackButtonComponent
 import moe.pine.emoji.components.SupportActionBarComponent
 
