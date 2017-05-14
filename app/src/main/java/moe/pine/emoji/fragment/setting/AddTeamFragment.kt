@@ -6,11 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_setting_add_team.*
-import kotlinx.android.synthetic.main.view_setting_team_list_item.*
 import moe.pine.emoji.R
 import moe.pine.emoji.components.common.SoftInputManagerComponent
 import moe.pine.emoji.components.setting.InputTextWatcherComponent
 import moe.pine.emoji.components.setting.SettingSaverComponent
+import moe.pine.emoji.components.setting.TeamInputClearComponent
 
 /**
  * Fragment for add slack team
@@ -33,6 +33,7 @@ class AddTeamFragment : Fragment() {
     private val inputTextWatcher by lazy { InputTextWatcherComponent(this) }
     private val softInputManager by lazy { SoftInputManagerComponent(this.fragment_setting_add_team) }
     private val settingSaver by lazy { SettingSaverComponent(this) }
+    private val inputClear by lazy { TeamInputClearComponent(this) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_setting_add_team, container, false)
@@ -43,8 +44,14 @@ class AddTeamFragment : Fragment() {
         this.inputTextWatcher.onActivityCreated(savedInstanceState)
         this.softInputManager.onActivityCreated(savedInstanceState)
         this.settingSaver.onActivityCreated(savedInstanceState)
+        this.inputClear.onActivityCreated(savedInstanceState)
 
         val isFocus = this.arguments.getBoolean(IS_FOCUS_KEY, false)
         if (isFocus) this.edit_text_setting_team.requestFocus()
+    }
+
+    override fun onDestroyView() {
+        this.inputClear.onDestroyView()
+        super.onDestroyView()
     }
 }

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.squareup.otto.Subscribe
 import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.fragment_setting_team_list.*

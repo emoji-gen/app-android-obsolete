@@ -17,6 +17,7 @@ import android.widget.Toast
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
 import moe.pine.emoji.activity.binding.text
+import moe.pine.emoji.util.setMessage
 import okhttp3.*
 import okio.Okio
 import java.io.File
@@ -54,10 +55,12 @@ class ShareProgressDialogFragment : DialogFragment(), Callback {
         this.client.newCall(request).enqueue(this)
 
         return ProgressDialog(this.context, R.style.AppTheme_ProgressDialog).also { dialog ->
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
+            dialog.isIndeterminate = true
+            dialog.setTitle(R.string.generator_share_download_title)
+            dialog.setMessage(R.string.generator_share_download_message)
             dialog.setCancelable(false)
             dialog.setCanceledOnTouchOutside(false)
-            dialog.setTitle(R.string.generator_share_download_title)
-            dialog.setMessage(this.getString(R.string.generator_share_download_message))
         }
     }
 

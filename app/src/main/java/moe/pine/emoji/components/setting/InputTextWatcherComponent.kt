@@ -15,6 +15,7 @@ class InputTextWatcherComponent(val fragment: AddTeamFragment) : TextWatcher {
         this.fragment.edit_text_setting_team.addTextChangedListener(this)
         this.fragment.edit_text_setting_email.addTextChangedListener(this)
         this.fragment.edit_text_setting_password.addTextChangedListener(this)
+        this.updateUI()
     }
 
     override fun afterTextChanged(s: Editable?) = Unit

@@ -54,4 +54,8 @@
     <string name="setting_remove_team_button">削除</string>
     <string name="setting_remove_team_message_title">登録削除</string>
     <string name="setting_remove_team_message_message">本当に登録を削除してもよろしいですか?</string>
+    <string name="setting_auth_progress_title">認証中</string>
+    <string name="setting_auth_progress_message">Slack への認証を試行しています。</string>
+    <string name="setting_auth_failed_message">認証に失敗しました。入力された情報が正しいか確認してください。</string>
+    <string name="setting_auth_succeeded_message">認証に成功しました。チーム一覧へ登録されました。</string>
 </resources>
