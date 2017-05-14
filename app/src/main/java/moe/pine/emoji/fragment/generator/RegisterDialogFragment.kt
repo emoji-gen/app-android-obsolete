@@ -5,7 +5,10 @@ import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
+import com.squareup.otto.Subscribe
 import moe.pine.emoji.R
+import moe.pine.emoji.model.event.EmojiRegisteredEvent
+import moe.pine.emoji.util.eventBus
 import moe.pine.emoji.view.generator.InputTextDialogView
 import moe.pine.emoji.view.generator.RegisterDialogView
 
@@ -28,14 +31,27 @@ class RegisterDialogFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        this.eventBus.register(this)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val inflater = LayoutInflater.from(this.context)
         val view = inflater.inflate(R.layout.dialog_register, null, false) as RegisterDialogView
+        view.emojiUri = this.arguments.getString(URI_KEY)
+
         val dialog = AlertDialog.Builder(this.activity)
                 .setView(view)
                 .create()
         return dialog
+    }
+
+    override fun onDestroyView() {
+        this.eventBus.unregister(this)
+        super.onDestroyView()
+    }
+
+    @Subscribe
+    fun onEmojiRegistered(event: EmojiRegisteredEvent) {
+        this.dismiss()
     }
 }

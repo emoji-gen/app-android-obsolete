@@ -44,6 +44,11 @@
     <string name="generator_add_dialog_description">絵文字の登録情報を入力して下さい。</string>
     <string name="generator_add_team_label">チーム</string>
     <string name="generator_add_name_label">絵文字の名前</string>
+    <string name="generator_register_progress_title">登録中</string>
+    <string name="generator_register_progress_message">絵文字を登録しています。</string>
+    <string name="generator_register_succeeded_message">絵文字を登録しました。</string>
+    <string name="generator_register_failed_title">登録失敗</string>
+    <string name="generator_register_unknown_error">未知のエラー</string>
 
     <!-- Setting -->
     <string name="setting_title">チーム設定</string>

@@ -8,6 +8,8 @@ import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.dialog_register.view.*
 import moe.pine.emoji.adapter.generator.GeneratorTeamListAdapter
+import moe.pine.emoji.components.generator.EmojiRegisterComponent
+import moe.pine.emoji.components.generator.InputChangedWatcherComponent
 import moe.pine.emoji.model.event.TeamAddedEvent
 import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.util.eventBus
@@ -19,6 +21,11 @@ import moe.pine.emoji.util.eventBus
 class RegisterDialogView : LinearLayout {
     private lateinit var realm: Realm
 
+    var emojiUri: String = ""
+
+    private val inputWatcher by lazy { InputChangedWatcherComponent(this) }
+    private val register by lazy { EmojiRegisterComponent(this) }
+
     private val teams: List<SlackTeam>
         get() = this.realm.where(SlackTeam::class.java).findAllSorted("team", Sort.ASCENDING)
 
@@ -29,6 +36,9 @@ class RegisterDialogView : LinearLayout {
     override fun onFinishInflate() {
         super.onFinishInflate()
         if (this.isInEditMode) return
+
+        this.inputWatcher.onFinishInflate()
+        this.register.onFinishInflate()
 
         this.realm = Realm.getDefaultInstance()
         this.eventBus.register(this)

@@ -71,6 +71,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/edit_text_generator_emoji_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -93,7 +94,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button_text_input_ok"
+        android:id="@+id/button_generator_register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
