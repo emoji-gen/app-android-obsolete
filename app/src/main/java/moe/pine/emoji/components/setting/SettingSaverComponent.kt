@@ -5,10 +5,13 @@ import android.support.annotation.UiThread
 import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_setting_add_team.*
 import moe.pine.emoji.fragment.setting.AddTeamFragment
+import moe.pine.emoji.fragment.setting.binding.clear
 import moe.pine.emoji.fragment.setting.binding.email
 import moe.pine.emoji.fragment.setting.binding.password
 import moe.pine.emoji.fragment.setting.binding.teamDomain
+import moe.pine.emoji.model.event.TeamUpdateEvent
 import moe.pine.emoji.model.realm.SlackTeam
+import moe.pine.emoji.util.rgba.eventBus
 
 /**
  * Component for setting saver
@@ -34,6 +37,9 @@ class SettingSaverComponent(
             realm.beginTransaction()
             realm.copyToRealmOrUpdate(slackTeam)
             realm.commitTransaction()
+
+            this.eventBus.post(TeamUpdateEvent())
+            this.fragment.clear()
         }
     }
 }

@@ -2,13 +2,13 @@ package moe.pine.emoji.components.setting
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import com.squareup.otto.Subscribe
 import io.realm.Realm
 import io.realm.Sort
 import kotlinx.android.synthetic.main.fragment_setting_team_list.*
 import moe.pine.emoji.adapter.SettingTeamListAdapter
 import moe.pine.emoji.model.event.TeamDeleteEvent
+import moe.pine.emoji.model.event.TeamUpdateEvent
 import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.util.rgba.eventBus
 
@@ -42,6 +42,11 @@ class SettingTeamListComponent(
     @Subscribe
     fun onTeamDelete(event: TeamDeleteEvent) {
         this.removeTeam(event.domain)
+        this.update()
+    }
+
+    @Subscribe
+    fun onTeamUpdate(event: TeamUpdateEvent) {
         this.update()
     }
 
