@@ -9,7 +9,7 @@ import moe.pine.emoji.fragment.generator.RegisterDialogFragment
 import moe.pine.emoji.fragment.generator.ShareProgressDialogFragment
 
 /**
- * Button view for register emoji
+ * Button fragment for register emoji
  * Created by pine on May 13, 2017.
  */
 class RegisterButtonView : LinearLayout {

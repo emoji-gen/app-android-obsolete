@@ -1,21 +1,15 @@
 package moe.pine.emoji.fragment.setting
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_setting_add_team.*
 import moe.pine.emoji.R
 import moe.pine.emoji.components.common.SoftInputManagerComponent
 import moe.pine.emoji.components.setting.InputTextWatcherComponent
+import moe.pine.emoji.components.setting.SettingSaverComponent
 
 /**
  * Fragment for add slack team
@@ -27,8 +21,9 @@ class AddTeamFragment : Fragment() {
         fun newInstance() = AddTeamFragment()
     }
 
-    val inputTextWatcher by lazy { InputTextWatcherComponent(this) }
-    val softInputManager by lazy { SoftInputManagerComponent(this.fragment_setting_add_team) }
+    private val inputTextWatcher by lazy { InputTextWatcherComponent(this) }
+    private val softInputManager by lazy { SoftInputManagerComponent(this.fragment_setting_add_team) }
+    private val settingSaver by lazy { SettingSaverComponent(this) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_setting_add_team, container, false)
@@ -38,9 +33,11 @@ class AddTeamFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         this.inputTextWatcher.onActivityCreated(savedInstanceState)
         this.softInputManager.onActivityCreated(savedInstanceState)
+        this.settingSaver.onActivityCreated(savedInstanceState)
+    }
 
-        this.button_setting_add_team.setOnClickListener {
-            //Realm.getDefaultInstance()
-        }
+    override fun onDestroyView() {
+        this.settingSaver.onDestroyView()
+        super.onDestroyView()
     }
 }

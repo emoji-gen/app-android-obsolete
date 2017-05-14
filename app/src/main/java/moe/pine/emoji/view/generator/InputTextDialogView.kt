@@ -8,7 +8,7 @@ import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.dialog_text_input.view.*
 
 /**
- * Dialog view for text input
+ * Dialog fragment for text input
  * Created by pine on May 6, 2017.
  */
 class InputTextDialogView : LinearLayout {

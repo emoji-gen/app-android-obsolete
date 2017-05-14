@@ -11,8 +11,7 @@ import java.util.*
  */
 @RealmClass
 class SlackTeam(
-        @PrimaryKey var id: String = UUID.randomUUID().toString(),
-        var domain: String,
+        @PrimaryKey var domain: String,
         var email: String,
         var password: String,
         var createdAt: Date = Date()
