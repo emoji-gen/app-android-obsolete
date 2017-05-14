@@ -11,6 +11,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_setting_add_team.*
 import moe.pine.emoji.R
 import moe.pine.emoji.components.common.SoftInputManagerComponent
@@ -37,5 +38,9 @@ class AddTeamFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         this.inputTextWatcher.onActivityCreated(savedInstanceState)
         this.softInputManager.onActivityCreated(savedInstanceState)
+
+        this.button_setting_add_team.setOnClickListener {
+            //Realm.getDefaultInstance()
+        }
     }
 }
