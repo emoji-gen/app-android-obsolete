@@ -1,5 +1,6 @@
-package moe.pine.emoji.components
+package moe.pine.emoji.components.common
 
+import android.R
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 
@@ -9,7 +10,7 @@ import android.view.MenuItem
  */
 class ActionBarBackButtonComponent(val activity: AppCompatActivity) {
     fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
+        if (item.itemId == R.id.home) {
             this.activity.onBackPressed()
             return true
         }

@@ -9,8 +9,8 @@ import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_main_navigation_view.*
 import moe.pine.emoji.R
-import moe.pine.emoji.components.ActionBarDrawerToggleComponent
-import moe.pine.emoji.components.SupportActionBarComponent
+import moe.pine.emoji.components.common.ActionBarDrawerToggleComponent
+import moe.pine.emoji.components.common.SupportActionBarComponent
 
 /**
  * Activity for main

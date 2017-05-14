@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_webview.*
 import moe.pine.emoji.R
-import moe.pine.emoji.components.ActionBarBackButtonComponent
-import moe.pine.emoji.components.SupportActionBarComponent
+import moe.pine.emoji.components.common.ActionBarBackButtonComponent
+import moe.pine.emoji.components.common.SupportActionBarComponent
 import moe.pine.emoji.model.value.WebViewPage
 
 /**

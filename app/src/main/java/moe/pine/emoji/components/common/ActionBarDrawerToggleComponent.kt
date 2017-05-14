@@ -1,4 +1,4 @@
-package moe.pine.emoji.components
+package moe.pine.emoji.components.common
 
 import android.content.res.Configuration
 import android.os.Bundle
