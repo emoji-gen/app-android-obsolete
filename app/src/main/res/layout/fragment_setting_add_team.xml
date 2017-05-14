@@ -87,4 +87,12 @@
         android:text="@string/setting_add_team_button"
         android:textColor="@color/color_white"
         android:textSize="@dimen/text_size_medium" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/setting_add_team_help_description"
+        android:textColor="@color/color_gray"
+        android:textSize="@dimen/text_size_small" />
 </LinearLayout>

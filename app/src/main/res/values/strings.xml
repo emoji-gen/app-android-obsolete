@@ -58,4 +58,5 @@
     <string name="setting_auth_progress_message">Slack への認証を試行しています。</string>
     <string name="setting_auth_failed_message">認証に失敗しました。入力された情報が正しいか確認してください。</string>
     <string name="setting_auth_succeeded_message">認証に成功しました。チーム一覧へ登録されました。</string>
+    <string name="setting_add_team_help_description">チーム欄には、XXX.slack.com の XXX の部分を入力してください。</string>
 </resources>
