@@ -35,9 +35,4 @@ class AddTeamFragment : Fragment() {
         this.softInputManager.onActivityCreated(savedInstanceState)
         this.settingSaver.onActivityCreated(savedInstanceState)
     }
-
-    override fun onDestroyView() {
-        this.settingSaver.onDestroyView()
-        super.onDestroyView()
-    }
 }

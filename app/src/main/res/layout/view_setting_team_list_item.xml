@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moe.pine.emoji.view.setting.TeamListItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="14dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="14dp">
+
+    <TextView
+        android:id="@+id/text_view_setting_team_domain"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/text_size_small" />
+
+    <Button
+        android:id="@+id/button_setting_team_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/selector_red"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:paddingBottom="6dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="6dp"
+        android:text="削除"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/text_size_xsmall" />
+
+    <TextView
+        android:id="@+id/text_view_setting_team_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/button_setting_team_delete"
+        android:layout_toRightOf="@id/text_view_setting_team_domain"
+        android:textSize="@dimen/text_size_small" />
+
+
+</moe.pine.emoji.view.setting.TeamListItemView>

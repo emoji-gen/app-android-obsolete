@@ -18,28 +18,22 @@ import moe.pine.emoji.model.internal.SlackTeam
 class SettingSaverComponent(
         val fragment: AddTeamFragment
 ) {
-    private lateinit var realm: Realm
-
     @UiThread
     fun onActivityCreated(savedInstanceState: Bundle?) {
-        this.realm = Realm.getDefaultInstance()
         this.fragment.button_setting_add_team.setOnClickListener { this.save() }
     }
 
     @UiThread
-    fun onDestroyView() {
-        this.realm.close()
-    }
-
-    @UiThread
     private fun save() {
-        val slackTeam = SlackTeam(
-                domain = this.fragment.teamDomain,
-                email = this.fragment.email,
-                password = this.fragment.password
-        )
-        this.realm.beginTransaction()
-        this.realm.copyToRealmOrUpdate(slackTeam)
-        this.realm.commitTransaction()
+        Realm.getDefaultInstance().use { realm ->
+            val slackTeam = SlackTeam(
+                    domain = this.fragment.teamDomain,
+                    email = this.fragment.email,
+                    password = this.fragment.password
+            )
+            realm.beginTransaction()
+            realm.copyToRealmOrUpdate(slackTeam)
+            realm.commitTransaction()
+        }
     }
 }
