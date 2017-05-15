@@ -9,7 +9,6 @@ import com.squareup.otto.Subscribe
 import moe.pine.emoji.R
 import moe.pine.emoji.model.event.EmojiRegisteredEvent
 import moe.pine.emoji.util.eventBus
-import moe.pine.emoji.view.generator.InputTextDialogView
 import moe.pine.emoji.view.generator.RegisterDialogView
 
 /**
@@ -38,6 +37,7 @@ class RegisterDialogFragment : DialogFragment() {
         val inflater = LayoutInflater.from(this.context)
         val view = inflater.inflate(R.layout.dialog_register, null, false) as RegisterDialogView
         view.emojiUri = this.arguments.getString(URI_KEY)
+        view.fragment = this
 
         val dialog = AlertDialog.Builder(this.activity)
                 .setView(view)

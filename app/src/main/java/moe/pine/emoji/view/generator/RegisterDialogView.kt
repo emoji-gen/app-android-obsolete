@@ -1,6 +1,7 @@
 package moe.pine.emoji.view.generator
 
 import android.content.Context
+import android.support.v4.app.Fragment
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.squareup.otto.Subscribe
@@ -22,6 +23,7 @@ class RegisterDialogView : LinearLayout {
     private lateinit var realm: Realm
 
     var emojiUri: String = ""
+    var fragment: Fragment? = null
 
     private val inputWatcher by lazy { InputChangedWatcherComponent(this) }
     private val register by lazy { EmojiRegisterComponent(this) }

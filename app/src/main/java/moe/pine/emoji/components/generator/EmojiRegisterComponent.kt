@@ -1,7 +1,5 @@
 package moe.pine.emoji.components.generator
 
-import android.content.Context
-import android.view.View
 import kotlinx.android.synthetic.main.dialog_register.view.*
 import moe.pine.emoji.task.RegisterAndSaveTask
 import moe.pine.emoji.util.hideSoftInput
@@ -16,9 +14,6 @@ import moe.pine.emoji.view.generator.binding.team
 class EmojiRegisterComponent(
         val view: RegisterDialogView
 ) {
-    private val context: Context
-        get() = this.view.context
-
     fun onFinishInflate() {
         this.view.button_generator_register_button.setOnClickListener { this.register() }
     }
@@ -26,13 +21,15 @@ class EmojiRegisterComponent(
     private fun register() {
         this.view.hideSoftInput()
 
+        val fragment = this.view.fragment ?: return
         val team = this.view.team ?: return
         val arguments = RegisterAndSaveTask.Arguments(
                 team = team,
                 emojiName = this.view.emojiName,
                 emojiUri = this.view.emojiUri
         )
-        val task = RegisterAndSaveTask(this.context, arguments)
+
+        val task = RegisterAndSaveTask(fragment, arguments)
         task.execute()
     }
 }

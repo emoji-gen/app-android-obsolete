@@ -3,7 +3,7 @@ package moe.pine.emoji.task
 import android.content.Context
 import android.os.AsyncTask
 import android.support.v4.app.DialogFragment
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
 import android.widget.Toast
 import io.realm.Realm
 import moe.pine.emoji.R
@@ -22,7 +22,7 @@ import java.io.IOException
  * Created by pine on May 14, 2017.
  */
 class RegisterAndSaveTask(
-        val context: Context,
+        val fragment: Fragment,
         val arguments: RegisterAndSaveTask.Arguments
 ) : AsyncTask<Unit, Unit, MessageResult>() {
     data class Arguments(
@@ -31,14 +31,16 @@ class RegisterAndSaveTask(
             val emojiUri: String
     )
 
+    val context: Context
+        get() = this.fragment.context
+
     lateinit var dialog: DialogFragment
 
     override fun onPreExecute() {
         super.onPreExecute()
 
-        val activity = this.context as AppCompatActivity
         this.dialog = RegisterProgressDialogFragment.newInstance().also { dialog ->
-            dialog.show(activity.supportFragmentManager, null)
+            dialog.show(this.fragment.childFragmentManager, null)
         }
     }
 
@@ -87,10 +89,9 @@ class RegisterAndSaveTask(
             Toast.makeText(this.context, R.string.generator_register_succeeded_message, Toast.LENGTH_LONG).show()
             this.eventBus.post(EmojiRegisteredEvent())
         } else {
-            val activity = this.context as AppCompatActivity
             val message = result.message ?: this.context.getString(R.string.generator_register_unknown_error)
             this.dialog = RegisterErrorDialogFragment.newInstance(message).also { dialog ->
-                dialog.show(activity.supportFragmentManager, null)
+                dialog.show(fragment.childFragmentManager, null)
             }
         }
     }
