@@ -33,7 +33,8 @@
         <activity
             android:name=".activity.SettingActivity"
             android:label="@string/setting_title"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".activity.WebViewActivity"
             android:label="@string/empty"
