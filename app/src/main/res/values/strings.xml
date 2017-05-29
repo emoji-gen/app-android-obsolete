@@ -63,8 +63,8 @@
     <string name="setting_password_label">パスワード</string>
     <string name="setting_add_team_button">登録</string>
     <string name="setting_remove_team_button">削除</string>
-    <string name="setting_remove_team_message_title">登録削除</string>
-    <string name="setting_remove_team_message_message">本当に登録を削除してもよろしいですか?</string>
+    <string name="setting_remove_team_message_title">削除確認</string>
+    <string name="setting_remove_team_message_message">本当にチーム「 %1$s 」を削除してもよろしいですか?</string>
     <string name="setting_auth_progress_title">認証中</string>
     <string name="setting_auth_progress_message">Slack への認証を試行しています。</string>
     <string name="setting_auth_failed_message">認証に失敗しました。入力された情報が正しいか確認してください。</string>

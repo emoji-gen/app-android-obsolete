@@ -13,4 +13,9 @@
     <style name="AppTheme.ProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/color_gray</item>
     </style>
+
+    <style name="AppTheme.Dialog.Red" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/color_red</item>
+    </style>
+
 </resources>
