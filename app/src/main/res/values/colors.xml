@@ -7,10 +7,8 @@
     <color name="color_green">#38BA91</color>
     <color name="color_blue">#6FCBDD</color>
     <color name="color_blue_dark">#FF3AB0C7</color>
-    <color name="color_blue_disabled">#95bcc4</color>
     <color name="color_red">#FFE11665</color>
     <color name="color_red_dark">#BE1C60</color>
-    <color name="color_red_disabled">#cc668d</color>
     <color name="color_yellow_dark">#AD780C</color>
     <color name="color_black">#505050</color>
     <color name="color_gray">#8C8C8C</color>
