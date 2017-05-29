@@ -19,12 +19,14 @@ fun GeneratorActivity.clear() {
     image_view_preview.setImageDrawable(null)
 }
 
+
 fun GeneratorActivity.updateUI() {
     Glide.with(this)
             .load(this.previewUri)
-            .crossFade()
+            .fitCenter()
             .into(this.image_view_preview)
 }
+
 
 var GeneratorActivity.text: String
     set(str) {
@@ -46,6 +48,7 @@ var GeneratorActivity.fontName: String
         view_generator_font.fontName = value
     }
     get() = view_generator_font.fontName
+
 
 var GeneratorActivity.fontKey: String
     set(value) {
