@@ -44,6 +44,7 @@
     <string name="generator_add_dialog_description">絵文字の登録情報を入力して下さい。</string>
     <string name="generator_add_team_label">チーム</string>
     <string name="generator_add_name_label">絵文字の名前</string>
+    <string name="generator_emoji_name_hint">emoji</string>
     <string name="generator_register_progress_title">登録中</string>
     <string name="generator_register_progress_message">絵文字を登録しています。</string>
     <string name="generator_register_succeeded_message">絵文字を登録しました。</string>
@@ -56,7 +57,9 @@
     <string name="setting_add_team_description">追加したい Slack チームの情報を入力して下さい。</string>
     <string name="setting_team_list_title">一覧</string>
     <string name="setting_team_domain_label">チーム</string>
+    <string name="setting_team_domain_hint">team</string>
     <string name="setting_email_label">メールアドレス</string>
+    <string name="setting_email_hint">example@example.com</string>
     <string name="setting_password_label">パスワード</string>
     <string name="setting_add_team_button">登録</string>
     <string name="setting_remove_team_button">削除</string>

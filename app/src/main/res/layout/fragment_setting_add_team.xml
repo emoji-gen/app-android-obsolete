@@ -37,6 +37,7 @@
                 android:id="@+id/edit_text_setting_team"
                 style="@style/AppTheme.Setting.TextInput"
                 android:layout_column="1"
+                android:hint="@string/setting_team_domain_hint"
                 android:inputType="textEmailAddress" />
         </TableRow>
 
@@ -54,6 +55,7 @@
                 android:id="@+id/edit_text_setting_email"
                 style="@style/AppTheme.Setting.TextInput"
                 android:layout_column="1"
+                android:hint="@string/setting_email_hint"
                 android:inputType="textEmailAddress" />
         </TableRow>
 
