@@ -3,15 +3,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_my_history"
-            android:icon="@android:drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_face_gray_24dp"
             android:title="@string/menu_my_history" />
         <item
             android:id="@+id/menu_our_history"
-            android:icon="@android:drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_people_gray_24dp"
             android:title="@string/menu_our_history" />
         <item
             android:id="@+id/menu_setting"
-            android:icon="@android:drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_settings_gray_24dp"
             android:title="@string/menu_setting" />
     </group>
     <item android:title="@string/menu_other">
