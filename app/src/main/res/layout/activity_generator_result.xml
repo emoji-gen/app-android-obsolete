@@ -4,32 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:paddingBottom="35dp"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
-    android:paddingTop="30dp"
+    android:paddingTop="40dp"
     tools:ignore="ContentDescription,RtlHardcoded">
 
     <ImageView
         android:id="@+id/image_view_preview"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
         android:src="@drawable/placeholder_emoji" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_marginLeft="45dp"
-        android:orientation="vertical">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
 
         <moe.pine.emoji.view.generator.RegisterButtonView
             android:id="@+id/view_generator_register_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
             android:background="@drawable/ripple_white"
             android:clickable="true"
             android:gravity="center_vertical"
