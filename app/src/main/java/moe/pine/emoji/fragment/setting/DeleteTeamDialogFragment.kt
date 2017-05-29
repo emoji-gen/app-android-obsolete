@@ -14,7 +14,7 @@ import moe.pine.emoji.util.eventBus
  */
 class DeleteTeamDialogFragment : DialogFragment() {
     companion object {
-        val DOMAIN_KEY = "team"
+        private val DOMAIN_KEY = "team"
 
         fun newInstance(domain: String): DeleteTeamDialogFragment {
             val fragment = DeleteTeamDialogFragment()
