@@ -3,9 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Emoji-Android.iml" filepath="$PROJECT_DIR$/Emoji-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Emoji-Android.iml" filepath="$PROJECT_DIR$/Emoji-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/example-slack/example-slack.iml" filepath="$PROJECT_DIR$/example-slack/example-slack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-slack/example-slack.iml" filepath="$PROJECT_DIR$/example-slack/example-slack.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib-emoji/lib-emoji.iml" filepath="$PROJECT_DIR$/lib-emoji/lib-emoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-emoji/lib-emoji.iml" filepath="$PROJECT_DIR$/lib-emoji/lib-emoji.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-slack/lib-slack.iml" filepath="$PROJECT_DIR$/lib-slack/lib-slack.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib-slack/lib-slack.iml" filepath="$PROJECT_DIR$/lib-slack/lib-slack.iml" />
     </modules>
   </component>
