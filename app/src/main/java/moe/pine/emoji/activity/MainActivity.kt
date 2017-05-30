@@ -5,10 +5,12 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_main_navigation_view.*
 import moe.pine.emoji.R
+import moe.pine.emoji.adapter.main.HistoryRecyclerAdapter
 import moe.pine.emoji.components.common.ActionBarDrawerToggleComponent
 import moe.pine.emoji.components.common.SupportActionBarComponent
 
@@ -30,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         this.toggle.onCreate()
         this.actionBar.onCreate()
         this.navigation_view_main.setupView(activity_main)
+
+        val adapter = HistoryRecyclerAdapter(this)
+        this.recycler_view.adapter = adapter
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
