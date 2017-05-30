@@ -3,6 +3,7 @@ package moe.pine.emoji.lib.emoji
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import moe.pine.emoji.lib.emoji.model.Font
+import moe.pine.emoji.lib.emoji.model.History
 
 /**
  * Json deserializer
@@ -13,4 +14,7 @@ object JsonDeserializer {
 
     fun fontsFromJson(str: String): List<Font> =
             this.gson.fromJson(str, object : TypeToken<List<Font>>() {}.type)
+
+    fun historiesFromJson(str: String): List<History> =
+            this.gson.fromJson(str, object : TypeToken<List<History>>() {}.type)
 }
