@@ -13,5 +13,5 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
-        android:src="@drawable/placeholder_emoji" />
+        android:src="@null" />
 </FrameLayout>

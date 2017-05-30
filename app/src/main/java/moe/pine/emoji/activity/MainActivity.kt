@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_main_navigation_view.*
@@ -13,6 +13,10 @@ import moe.pine.emoji.R
 import moe.pine.emoji.adapter.main.HistoryRecyclerAdapter
 import moe.pine.emoji.components.common.ActionBarDrawerToggleComponent
 import moe.pine.emoji.components.common.SupportActionBarComponent
+import moe.pine.emoji.lib.emoji.ApiCallback
+import moe.pine.emoji.lib.emoji.ApiClient
+import moe.pine.emoji.lib.emoji.model.History
+import java.io.IOException
 
 /**
  * Activity for main
@@ -36,6 +40,17 @@ class MainActivity : AppCompatActivity() {
         val adapter = HistoryRecyclerAdapter(this)
         this.recycler_view.adapter = adapter
 
+        val client = ApiClient()
+        client.fetchHistories(object : ApiCallback<List<History>> {
+            override fun onFailure(e: IOException?) {
+                super.onFailure(e)
+            }
+
+            override fun onResponse(response: List<History>) {
+                super.onResponse(response)
+                adapter.histories = response
+            }
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

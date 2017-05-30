@@ -15,11 +15,8 @@
         <moe.pine.emoji.view.main.HistoryRecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="12dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="12dp" />
+            android:layout_height="match_parent" />
+
 
         <include layout="@layout/view_main_floating_action_button" />
     </FrameLayout>
