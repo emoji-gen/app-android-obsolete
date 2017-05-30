@@ -11,8 +11,8 @@ import android.view.View
  */
 class HistoryRecyclerDecoration : RecyclerView.ItemDecoration() {
     companion object {
-        val PADDING_HORIZONTAL = 12
-        val PADDING_VERTICAL = 12
+        val PADDING_HORIZONTAL_DP = 12
+        val PADDING_VERTICAL_DP = 12
     }
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
@@ -25,16 +25,16 @@ class HistoryRecyclerDecoration : RecyclerView.ItemDecoration() {
         val density = view.context.resources.displayMetrics.density
 
         if (position < spanCount) {
-            outRect.top = (PADDING_VERTICAL * density).toInt()
+            outRect.top = (PADDING_VERTICAL_DP * density).toInt()
         }
         if (position % spanCount == 0) {
-            outRect.left = (PADDING_HORIZONTAL * density).toInt()
+            outRect.left = (PADDING_HORIZONTAL_DP * density).toInt()
         }
         if (position % spanCount == spanCount - 1) {
-            outRect.right = (PADDING_HORIZONTAL * density).toInt()
+            outRect.right = (PADDING_HORIZONTAL_DP * density).toInt()
         }
         if (position / spanCount == rows - 1) {
-            outRect.bottom = (PADDING_VERTICAL * density).toInt()
+            outRect.bottom = (PADDING_VERTICAL_DP * density).toInt()
         }
     }
 }

@@ -31,7 +31,7 @@ class HistoryRecyclerView : RecyclerView {
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
         super.onMeasure(widthSpec, heightSpec)
 
-        val padding = HistoryRecyclerDecoration.PADDING_HORIZONTAL * 2
+        val padding = HistoryRecyclerDecoration.PADDING_HORIZONTAL_DP * 2
         val width = MeasureSpec.getSize(widthSpec) - padding
         if (width != 0) {
             val spanCount = width / this.itemWidth
