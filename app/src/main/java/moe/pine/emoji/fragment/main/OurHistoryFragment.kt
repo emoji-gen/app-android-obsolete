@@ -2,6 +2,7 @@ package moe.pine.emoji.fragment.main
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,7 +44,10 @@ class OurHistoryFragment : Fragment(), ApiCallback<List<History>> {
     override fun onResponse(response: List<History>) {
         super.onResponse(response)
 
-        val adapter = this.recycler_view.adapter as? HistoryRecyclerAdapter
+        val recyclerView: RecyclerView? = this.recycler_view
+        recyclerView ?: return
+
+        val adapter = recyclerView.adapter as? HistoryRecyclerAdapter
         adapter?.histories = response.map { it.emojiUrl }
     }
 }
