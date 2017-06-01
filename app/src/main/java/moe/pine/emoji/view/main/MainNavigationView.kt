@@ -16,6 +16,7 @@ import moe.pine.emoji.model.event.main.ShowMyHistoryEvent
 import moe.pine.emoji.model.event.main.ShowOurHistoryEvent
 import moe.pine.emoji.model.value.WebViewPage
 import moe.pine.emoji.util.BusUtils
+import moe.pine.emoji.util.eventBus
 
 /**
  * MainNavigationView
@@ -48,10 +49,10 @@ class MainNavigationView : NavigationView {
 
         when (item.itemId) {
             R.id.menu_my_history -> {
-                BusUtils.INSTANCE.post(ShowMyHistoryEvent())
+                this.eventBus.post(ShowMyHistoryEvent())
             }
             R.id.menu_our_history -> {
-                BusUtils.INSTANCE.post(ShowOurHistoryEvent())
+                this.eventBus.post(ShowOurHistoryEvent())
             }
             R.id.menu_setting -> {
                 this.context.startActivity(SettingActivity.createIntent(this.context))

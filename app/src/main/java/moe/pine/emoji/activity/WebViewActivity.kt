@@ -1,21 +1,19 @@
 package moe.pine.emoji.activity
 
 import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
-import android.webkit.WebView
 import kotlinx.android.synthetic.main.activity_webview.*
 import moe.pine.emoji.R
 import moe.pine.emoji.components.common.ActionBarBackButtonComponent
 import moe.pine.emoji.components.common.SupportActionBarComponent
 import moe.pine.emoji.model.value.WebViewPage
-import android.view.View.GONE
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 
 
 /**

@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package moe.pine.emoji.util
 
 import com.squareup.otto.Bus
