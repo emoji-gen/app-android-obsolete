@@ -17,7 +17,7 @@ import moe.pine.emoji.lib.emoji.model.History
 class HistoryRecyclerAdapter(
         val context: Context
 ) : RecyclerView.Adapter<HistoryRecyclerAdapter.ViewHolder>() {
-    var histories: List<History> = emptyList()
+    var histories: List<String> = emptyList()
         set(value) {
             field = value
             this.notifyDataSetChanged()
@@ -32,7 +32,7 @@ class HistoryRecyclerAdapter(
             holder.itemView.image_view_emoji.setImageDrawable(null)
         } else {
             Glide.with(this.context)
-                    .load(item.emojiUrl)
+                    .load(item)
                     .fitCenter()
                     .into(holder.itemView.image_view_emoji)
         }

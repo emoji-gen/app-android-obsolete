@@ -44,6 +44,6 @@ class OurHistoryFragment : Fragment(), ApiCallback<List<History>> {
         super.onResponse(response)
 
         val adapter = this.recycler_view.adapter as? HistoryRecyclerAdapter
-        adapter?.histories = response
+        adapter?.histories = response.map { it.emojiUrl }
     }
 }
