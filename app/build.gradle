@@ -29,7 +29,7 @@ android {
         apply from: "$privateDir/fabric.gradle", to: android
         apply from: "$privateDir/firebase.gradle", to: android
     } else {
-        throw new GradleException("$privateDir is not found\n" +
+        throw new RuntimeException("$privateDir is not found\n" +
                 "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
     }
 
