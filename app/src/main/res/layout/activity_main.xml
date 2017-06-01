@@ -12,8 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <moe.pine.emoji.view.main.HistoryRecyclerView
-            android:id="@+id/recycler_view"
+
+        <FrameLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -7,15 +7,22 @@ import android.os.Bundle
 import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.squareup.otto.Subscribe
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_main_navigation_view.*
 import moe.pine.emoji.R
 import moe.pine.emoji.adapter.main.HistoryRecyclerAdapter
 import moe.pine.emoji.components.common.ActionBarDrawerToggleComponent
 import moe.pine.emoji.components.common.SupportActionBarComponent
+import moe.pine.emoji.components.main.FragmentSwitcherComponent
+import moe.pine.emoji.fragment.main.MyHistoryFragment
+import moe.pine.emoji.fragment.main.OurHistoryFragment
 import moe.pine.emoji.lib.emoji.ApiCallback
 import moe.pine.emoji.lib.emoji.ApiClient
 import moe.pine.emoji.lib.emoji.model.History
+import moe.pine.emoji.model.event.main.ShowMyHistoryEvent
+import moe.pine.emoji.model.event.main.ShowOurHistoryEvent
+import moe.pine.emoji.util.BusUtils
 import java.io.IOException
 
 /**
@@ -29,28 +36,20 @@ class MainActivity : AppCompatActivity() {
 
     val toggle by lazy { ActionBarDrawerToggleComponent(this, this.activity_main, R.string.app_name, R.string.app_name) }
     val actionBar by lazy { SupportActionBarComponent(this) }
+    val switcher by lazy { FragmentSwitcherComponent(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(moe.pine.emoji.R.layout.activity_main)
         this.toggle.onCreate()
         this.actionBar.onCreate()
+        this.switcher.onCreate()
         this.navigation_view_main.setupView(activity_main)
+    }
 
-        val adapter = HistoryRecyclerAdapter(this)
-        this.recycler_view.adapter = adapter
-
-        val client = ApiClient()
-        client.fetchHistories(object : ApiCallback<List<History>> {
-            override fun onFailure(e: IOException?) {
-                super.onFailure(e)
-            }
-
-            override fun onResponse(response: List<History>) {
-                super.onResponse(response)
-                adapter.histories = response
-            }
-        })
+    override fun onDestroy() {
+        super.onDestroy()
+        this.switcher.onDestroy()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -66,4 +65,5 @@ class MainActivity : AppCompatActivity() {
         super.onConfigurationChanged(newConfig)
         this.toggle.onConfigurationChanged(newConfig)
     }
+
 }
