@@ -73,7 +73,8 @@
                 android:id="@+id/edit_text_setting_password"
                 style="@style/AppTheme.Setting.TextInput"
                 android:layout_column="1"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:hint="@string/setting_password_hint"/>
         </TableRow>
 
     </TableLayout>
