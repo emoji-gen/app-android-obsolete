@@ -12,6 +12,7 @@ import moe.pine.emoji.fragment.generator.RegisterProgressDialogFragment
 import moe.pine.emoji.lib.slack.MessageResult
 import moe.pine.emoji.lib.slack.RegisterClient
 import moe.pine.emoji.model.event.EmojiRegisteredEvent
+import moe.pine.emoji.model.realm.History
 import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.util.eventBus
 import java.io.FileNotFoundException
@@ -76,6 +77,14 @@ class RegisterAndSaveTask(
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+
+            val history = History(
+                    emojiName = this.arguments.emojiName,
+                    emojiUri = this.arguments.emojiUri
+            )
+            realm.beginTransaction()
+            realm.copyToRealmOrUpdate(history)
+            realm.commitTransaction()
 
             return result
         }
