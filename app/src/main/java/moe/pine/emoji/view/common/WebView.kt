@@ -18,7 +18,7 @@ import moe.pine.emoji.model.value.WebViewPage
  */
 @SuppressWarnings("JavaScriptEnabled")
 class WebView : WebView {
-    var onPageFinishedListener: ((view: WebView, url: String) -> Unit)? = null
+    var onPageFinishedListener: (()-> Unit)? = null
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
@@ -27,7 +27,7 @@ class WebView : WebView {
     private val client by lazy {
         object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
-                this@WebView.onPageFinishedListener?.invoke(view, url)
+                this@WebView.onPageFinishedListener?.invoke()
             }
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
