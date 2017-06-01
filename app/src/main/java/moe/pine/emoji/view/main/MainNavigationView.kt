@@ -8,14 +8,12 @@ import android.util.AttributeSet
 import android.view.MenuItem
 import android.view.View
 import moe.pine.emoji.R
-import moe.pine.emoji.activity.MainActivity
 import moe.pine.emoji.activity.SettingActivity
 import moe.pine.emoji.activity.WebViewActivity
 import moe.pine.emoji.fragment.main.VersionInfoDialogFragment
 import moe.pine.emoji.model.event.main.ShowMyHistoryEvent
 import moe.pine.emoji.model.event.main.ShowOurHistoryEvent
 import moe.pine.emoji.model.value.WebViewPage
-import moe.pine.emoji.util.BusUtils
 import moe.pine.emoji.util.eventBus
 
 /**
