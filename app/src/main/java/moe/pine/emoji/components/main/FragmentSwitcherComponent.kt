@@ -1,15 +1,13 @@
 package moe.pine.emoji.components.main
 
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.squareup.otto.Bus
 import com.squareup.otto.Subscribe
 import moe.pine.emoji.R
 import moe.pine.emoji.fragment.main.MyHistoryFragment
 import moe.pine.emoji.fragment.main.OurHistoryFragment
 import moe.pine.emoji.model.event.main.ShowMyHistoryEvent
 import moe.pine.emoji.model.event.main.ShowOurHistoryEvent
-import moe.pine.emoji.util.BusUtils
+import moe.pine.emoji.util.eventBus
 
 /**
  * Component for fragment switcher
@@ -20,12 +18,12 @@ class FragmentSwitcherComponent(
 ) {
 
     fun onCreate() {
-        BusUtils.INSTANCE.register(this)
+        this.eventBus.register(this)
         this.showMyHistory()
     }
 
     fun onDestroy() {
-        BusUtils.INSTANCE.unregister(this)
+        this.eventBus.unregister(this)
     }
 
     @Subscribe
