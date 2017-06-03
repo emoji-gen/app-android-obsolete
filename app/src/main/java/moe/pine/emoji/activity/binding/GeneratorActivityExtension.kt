@@ -6,6 +6,7 @@ import kotlinx.android.synthetic.main.activity_generator.*
 import kotlinx.android.synthetic.main.activity_generator_result.*
 import kotlinx.android.synthetic.main.view_generator_background_color.*
 import kotlinx.android.synthetic.main.view_generator_font.*
+import kotlinx.android.synthetic.main.view_generator_public_flag.*
 import kotlinx.android.synthetic.main.view_generator_text_color.*
 import moe.pine.emoji.R
 import moe.pine.emoji.activity.GeneratorActivity
@@ -77,6 +78,10 @@ var GeneratorActivity.backgroundColor: Int
     get() = view_generator_background_color.color
 
 
+val GeneratorActivity.publicFlag: Boolean
+    get() = this.view_generator_public_flag.checked
+
+
 val GeneratorActivity.previewUri: Uri
     get() {
         return Uri.Builder()
@@ -101,5 +106,6 @@ val GeneratorActivity.downloadUri: Uri
                 .appendQueryParameter("font", this.fontKey)
                 .appendQueryParameter("color", this.textColor.toRgba())
                 .appendQueryParameter("back_color", this.backgroundColor.toRgba())
+                .appendQueryParameter("public_fg", if (this.publicFlag) "true" else "false")
                 .build()
     }
