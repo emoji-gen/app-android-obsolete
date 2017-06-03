@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import io.realm.Realm
 import io.realm.RealmChangeListener
 import io.realm.RealmResults
@@ -52,8 +53,19 @@ class MyHistoryFragment : Fragment(), RealmChangeListener<RealmResults<History>>
         val recyclerView: RecyclerView? = this.recycler_view
         recyclerView ?: return
 
+        val textViewEmpty: TextView? = this.text_view_my_history_empty
+        textViewEmpty ?: return
+
         val histories = element.toList()
-        val adapter = recyclerView.adapter as HistoryRecyclerAdapter
-        adapter.histories = histories.map { it.emojiUri }
+        if (histories.isEmpty()) {
+            recyclerView.visibility = View.GONE
+            textViewEmpty.visibility = View.VISIBLE
+        } else {
+            recyclerView.visibility = View.VISIBLE
+            textViewEmpty.visibility = View.GONE
+
+            val adapter = recyclerView.adapter as HistoryRecyclerAdapter
+            adapter.histories = histories.map { it.emojiUri }
+        }
     }
 }
