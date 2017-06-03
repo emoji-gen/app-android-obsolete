@@ -9,6 +9,7 @@ enum class WebViewPage(
         val url: String
 ) {
     CONTACT("お問い合わせ", "http://app.static.emoji.pine.moe/contact.html"),
+    PRIVACY("プライバシーポリシー", "http://app.static.emoji.pine.moe/privacy.html"),
     COPYRIGHT("著作権表記", "http://app.static.emoji.pine.moe/copyright_android.html");
 
     companion object {

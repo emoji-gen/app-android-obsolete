@@ -11,6 +11,7 @@
     <string name="menu_setting">チーム設定</string>
     <string name="menu_other">その他</string>
     <string name="menu_contact">お問い合わせ</string>
+    <string name="menu_privacy">プライバシーポリシー</string>
     <string name="menu_copyright">著作権表記</string>
     <string name="menu_version_info">バージョン情報</string>
 

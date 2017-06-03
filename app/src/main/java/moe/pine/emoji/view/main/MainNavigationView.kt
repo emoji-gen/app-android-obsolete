@@ -59,6 +59,10 @@ class MainNavigationView : NavigationView {
                 val intent = WebViewActivity.createIntent(this.context, WebViewPage.CONTACT)
                 this.context.startActivity(intent)
             }
+            R.id.menu_privacy -> {
+                val intent = WebViewActivity.createIntent(this.context, WebViewPage.PRIVACY)
+                this.context.startActivity(intent)
+            }
             R.id.menu_copyright -> {
                 val intent = WebViewActivity.createIntent(this.context, WebViewPage.COPYRIGHT)
                 this.context.startActivity(intent)
