@@ -14,9 +14,9 @@ import java.io.IOException
  */
 class ApiClient {
     companion object {
-        val BASE_URL = "https://emoji.pine.moe/api/v1/"
-        val FONTS_URL = BASE_URL + "fonts"
-        val HISTORY_URL = BASE_URL + "histories"
+        private val BASE_URL = "https://emoji.pine.moe/api/v1/"
+        private val FONTS_URL = BASE_URL + "fonts"
+        private val HISTORY_URL = BASE_URL + "histories"
     }
 
     private val client: OkHttpClient by lazy { OkHttpClient() }
