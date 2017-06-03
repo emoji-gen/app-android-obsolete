@@ -3,7 +3,7 @@
     package="moe.pine.emoji">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MainApplication"
@@ -13,32 +13,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:label="@string/app_short_name"
             android:name=".activity.SplashActivity"
+            android:label="@string/app_short_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/empty"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activity.GeneratorActivity"
             android:label="@string/generator_title"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustNothing"/>
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".activity.SettingActivity"
             android:label="@string/setting_title"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activity.WebViewActivity"
             android:label="@string/empty"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <meta-data
