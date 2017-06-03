@@ -96,6 +96,9 @@ dependencies {
     })
 }
 
+// -------------------------------------------------------------------------------------------------
+
+apply plugin: 'com.getkeepsafe.dexcount'
 apply plugin: 'com.google.gms.google-services'
 
 allOpen {
