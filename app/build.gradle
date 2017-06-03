@@ -42,7 +42,7 @@ android {
                 manifestPlaceholders = [fabricApiKey: fabricApiKey]
             }
             release {
-                minifyEnabled false
+                minifyEnabled true
                 proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
                 signingConfig signingConfigs.release
                 manifestPlaceholders = [fabricApiKey: fabricApiKey]
