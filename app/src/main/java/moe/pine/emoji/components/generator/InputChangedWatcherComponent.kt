@@ -16,7 +16,7 @@ class InputChangedWatcherComponent(
 ) : TextWatcher, AdapterView.OnItemSelectedListener {
     private val isOk: Boolean
         get() {
-            return this.view.emojiUri.isNotEmpty() &&
+            return this.view.previewUri.isNotEmpty() &&
                     this.view.edit_text_generator_emoji_name.text.isNotEmpty() &&
                     this.view.spinner_generator_teams.selectedItemPosition >= 0
         }

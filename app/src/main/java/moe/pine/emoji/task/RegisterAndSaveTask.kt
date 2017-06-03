@@ -29,7 +29,8 @@ class RegisterAndSaveTask(
     data class Arguments(
             val team: String,
             val emojiName: String,
-            val emojiUri: String
+            val previewUri: String,
+            val downloadUri: String
     )
 
     val context: Context
@@ -68,7 +69,7 @@ class RegisterAndSaveTask(
                     team.email,
                     team.password,
                     this.arguments.emojiName,
-                    this.arguments.emojiUri
+                    this.arguments.downloadUri
             )
 
             try {
@@ -80,7 +81,7 @@ class RegisterAndSaveTask(
 
             val history = History(
                     emojiName = this.arguments.emojiName,
-                    emojiUri = this.arguments.emojiUri
+                    emojiUri = this.arguments.previewUri
             )
             realm.beginTransaction()
             realm.copyToRealmOrUpdate(history)

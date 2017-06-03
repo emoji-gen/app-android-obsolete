@@ -17,12 +17,14 @@ import moe.pine.emoji.view.generator.RegisterDialogView
  */
 class RegisterDialogFragment : DialogFragment() {
     companion object {
-        private val URI_KEY = "uri"
+        private val PREVIEW_URI_KEY = "previewUri"
+        private val DOWNLOAD_URI_KEY = "downloadUri"
 
-        fun newInstance(uri: String): RegisterDialogFragment {
+        fun newInstance(previewUri: String, downloadUri: String): RegisterDialogFragment {
             val fragment = RegisterDialogFragment()
             val arguments = Bundle()
-            arguments.putString(URI_KEY, uri)
+            arguments.putString(PREVIEW_URI_KEY, previewUri)
+            arguments.putString(DOWNLOAD_URI_KEY, downloadUri)
             fragment.arguments = arguments
             return fragment
         }
@@ -36,7 +38,8 @@ class RegisterDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val inflater = LayoutInflater.from(this.context)
         val view = inflater.inflate(R.layout.dialog_register, null, false) as RegisterDialogView
-        view.emojiUri = this.arguments.getString(URI_KEY)
+        view.previewUri = this.arguments.getString(PREVIEW_URI_KEY)
+        view.downloadUri = this.arguments.getString(DOWNLOAD_URI_KEY)
         view.fragment = this
 
         val dialog = AlertDialog.Builder(this.activity)

@@ -26,8 +26,9 @@ class EmojiRegisterComponent(
         val arguments = RegisterAndSaveTask.Arguments(
                 team = team,
                 emojiName = this.view.emojiName,
-                emojiUri = this.view.emojiUri
-        )
+                previewUri = this.view.previewUri,
+                downloadUri = this.view.downloadUri
+                )
 
         val task = RegisterAndSaveTask(fragment, arguments)
         task.execute()

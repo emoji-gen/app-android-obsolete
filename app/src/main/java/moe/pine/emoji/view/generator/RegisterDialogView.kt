@@ -23,7 +23,8 @@ import moe.pine.emoji.util.eventBus
 class RegisterDialogView : LinearLayout {
     private lateinit var realm: Realm
 
-    var emojiUri: String = ""
+    var previewUri: String = ""
+    var downloadUri: String = ""
     var fragment: Fragment? = null
 
     private val inputWatcher by lazy { InputChangedWatcherComponent(this) }
