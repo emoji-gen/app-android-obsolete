@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/main_title"
+            android:label="@string/empty"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".activity.GeneratorActivity"

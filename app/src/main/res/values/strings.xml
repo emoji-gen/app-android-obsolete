@@ -25,6 +25,8 @@
     <string name="main_version_url">https://emoji.pine.moe</string>
     <string name="main_version_copyright">&#169; 2017 Emoji Generator</string>
     <string name="main_version_prefix">v</string>
+    <string name="main_my_history_title">マイ絵文字</string>
+    <string name="main_our_history_title">みんなの生成履歴</string>
     <string name="main_my_history_empty_message">過去の生成履歴がありません。\n新しく絵文字を生成してみましょう。</string>
 
     <!-- Generator -->
