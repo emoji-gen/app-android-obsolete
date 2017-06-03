@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="5dp"
-            android:text="生成履歴に表示"
+            android:text="@string/generator_public_flag_on_label"
             android:textColor="@color/color_gray"
             android:textSize="@dimen/text_size_small" />
 
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="5dp"
-            android:text="生成履歴に表示しない"
+            android:text="@string/generator_public_flag_off_label"
             android:textColor="@color/color_gray"
             android:textSize="@dimen/text_size_small"
             android:visibility="gone" />
