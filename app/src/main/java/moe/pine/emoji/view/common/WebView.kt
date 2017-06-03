@@ -42,8 +42,8 @@ class WebView : WebView {
 
             private fun shouldOverrideUrlLoadingImpl(view: WebView, url: String): Boolean {
                 // Twitter
-                if (url.startsWith("twitter://")) {
-                    val twitterRegexp = "^twitter://user\\?screen_name=(.+)$".toRegex()
+                if (url.startsWith("https://twitter.com/")) {
+                    val twitterRegexp = "^https://twitter\\.com/(.+)$".toRegex()
                     if (twitterRegexp.matches(url)) {
                         val screenName = twitterRegexp.find(url)?.groupValues?.lastOrNull()
                         try {
@@ -58,8 +58,9 @@ class WebView : WebView {
                                 Crashlytics.logException(e)
                             }
                         }
+                        return true
                     }
-                    return true
+                    return false
                 }
 
                 // External Links
