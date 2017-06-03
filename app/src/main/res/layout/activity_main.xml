@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="moe.pine.emoji.activity.SplashActivity"
-    tools:ignore="RtlHardcoded">
+    tools:ignore="RtlHardcoded"
+    android:background="@color/color_white">
 
     <FrameLayout
         android:id="@+id/content_frame"
