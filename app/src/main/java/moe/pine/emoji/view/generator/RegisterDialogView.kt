@@ -12,6 +12,7 @@ import moe.pine.emoji.adapter.generator.GeneratorTeamListAdapter
 import moe.pine.emoji.components.generator.EmojiRegisterComponent
 import moe.pine.emoji.components.generator.InputChangedWatcherComponent
 import moe.pine.emoji.model.event.TeamAddedEvent
+import moe.pine.emoji.model.event.TeamDeleteEvent
 import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.util.eventBus
 
@@ -58,6 +59,11 @@ class RegisterDialogView : LinearLayout {
 
     @Subscribe
     fun onTeamAdded(event: TeamAddedEvent) {
+        this.update()
+    }
+
+    @Subscribe
+    fun onTeamDeleted(event: TeamDeleteEvent) {
         this.update()
     }
 

@@ -54,6 +54,7 @@
     <string name="generator_register_succeeded_message">絵文字を登録しました。</string>
     <string name="generator_register_failed_title">登録失敗</string>
     <string name="generator_register_unknown_error">未知のエラー</string>
+    <string name="generator_register_empty_team">チームが登録されていません</string>
 
     <!-- Setting -->
     <string name="setting_title">チーム設定</string>

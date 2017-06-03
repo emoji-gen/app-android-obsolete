@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moe.pine.emoji.view.generator.TeamSpinnerItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:id="@+id/text_view_generator_team_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_toLeftOf="@+id/image_view_arrow_down"
+        android:text="@string/generator_register_empty_team"
+        android:textColor="@color/color_gray"
+        android:textSize="@dimen/text_size_small" />
+</moe.pine.emoji.view.generator.TeamSpinnerItemView>

@@ -20,7 +20,7 @@ class GeneratorTeamListAdapter(
         val inflater = LayoutInflater.from(this.context)
 
         if (super.getCount() == 0) {
-            return inflater.inflate(R.layout.view_empty, parent, false)
+            return inflater.inflate(R.layout.view_generator_team_spinner_empty_item, parent, false)
         }
 
         var view = convertView as? TeamSpinnerItemView
