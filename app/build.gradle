@@ -18,6 +18,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
     // ---------------------------------------------------------------------------------------------
 
     def privateDir = new File("${System.env.HOME}/project/Emoji-Android-Private")
@@ -28,25 +32,35 @@ android {
         apply from: "$privateDir/signing.gradle", to: android
         apply from: "$privateDir/fabric.gradle", to: android
         apply from: "$privateDir/firebase.gradle", to: android
-    } else {
-        throw new RuntimeException("$privateDir is not found\n" +
-                "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
-    }
 
-    // ---------------------------------------------------------------------------------------------
-
-    def fabricApiKey = ext.fabricApiKey
-    buildTypes {
-        debug {
-            applicationIdSuffix ".debug"
-            signingConfig signingConfigs.debug
-            manifestPlaceholders = [fabricApiKey: fabricApiKey]
+        def fabricApiKey = ext.fabricApiKey
+        buildTypes {
+            debug {
+                applicationIdSuffix '.debug'
+                signingConfig signingConfigs.debug
+                manifestPlaceholders = [fabricApiKey: fabricApiKey]
+            }
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.release
+                manifestPlaceholders = [fabricApiKey: fabricApiKey]
+            }
         }
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-            manifestPlaceholders = [fabricApiKey: fabricApiKey]
+    } else {
+        logger.warn("$privateDir is not found\n" +
+                "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
+
+        def fabricApiKey = System.getenv('FABRIC_API_KEY')
+        buildTypes {
+            debug {
+                applicationIdSuffix '.debug'
+                manifestPlaceholders = [fabricApiKey: fabricApiKey]
+            }
+            release {
+                minifyEnabled false
+                manifestPlaceholders = [fabricApiKey: fabricApiKey]
+            }
         }
     }
 }
