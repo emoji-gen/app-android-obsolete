@@ -7,12 +7,13 @@ apply plugin: 'io.fabric'
 apply plugin: 'realm-android'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion COMPILE_SDK_VERSION
+    buildToolsVersion BUILD_TOOLS_VERSION
+
     defaultConfig {
-        applicationId "moe.pine.emoji"
-        minSdkVersion 21
-        targetSdkVersion 25
+        applicationId 'moe.pine.emoji'
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
