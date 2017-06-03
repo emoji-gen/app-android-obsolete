@@ -4,9 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import moe.pine.emoji.activity.GeneratorActivity
-import moe.pine.emoji.activity.binding.previewUri
+import moe.pine.emoji.activity.binding.downloadUri
 import moe.pine.emoji.fragment.generator.RegisterDialogFragment
-import moe.pine.emoji.fragment.generator.ShareProgressDialogFragment
 
 /**
  * Button fragment for register emoji
@@ -24,7 +23,7 @@ class RegisterButtonView : LinearLayout {
 
     private fun register() {
         val activity = this.context as GeneratorActivity
-        val dialog = RegisterDialogFragment.newInstance(activity.previewUri.toString())
+        val dialog = RegisterDialogFragment.newInstance(activity.downloadUri.toString())
         activity.supportFragmentManager?.let { dialog.show(it, null) }
     }
 }

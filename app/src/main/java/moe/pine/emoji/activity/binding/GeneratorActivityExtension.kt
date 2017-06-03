@@ -83,7 +83,21 @@ val GeneratorActivity.previewUri: Uri
                 .scheme("https")
                 .authority("emoji.pine.moe")
                 .path("emoji")
-                .appendQueryParameter("text", this.text_view_generator_text.text.toString())
+                .appendQueryParameter("text", this.text)
+                .appendQueryParameter("font", this.fontKey)
+                .appendQueryParameter("color", this.textColor.toRgba())
+                .appendQueryParameter("back_color", this.backgroundColor.toRgba())
+                .build()
+    }
+
+
+val GeneratorActivity.downloadUri: Uri
+    get() {
+        return Uri.Builder()
+                .scheme("https")
+                .authority("emoji.pine.moe")
+                .path("emoji_download")
+                .appendQueryParameter("text", this.text)
                 .appendQueryParameter("font", this.fontKey)
                 .appendQueryParameter("color", this.textColor.toRgba())
                 .appendQueryParameter("back_color", this.backgroundColor.toRgba())
