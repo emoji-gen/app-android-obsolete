@@ -1,5 +1,6 @@
 package moe.pine.emoji.lib.emoji
 
+import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import moe.pine.emoji.lib.emoji.model.Font
@@ -36,8 +37,12 @@ class ApiClient {
         })
     }
 
-    fun fetchHistories(callback: ApiCallback<List<History>>) {
-        val request = Request.Builder().url(HISTORY_URL).build()
+    fun fetchHistories(limit: Int = 100, offset: Int = 0, callback: ApiCallback<List<History>>) {
+        val uri = Uri.parse(HISTORY_URL)
+                .buildUpon()
+                .appendQueryParameter("limit", limit.toString())
+                .build()
+        val request = Request.Builder().url(uri.toString()).build()
         this.client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) {
                 this@ApiClient.handler.post { callback.onFailure(e) }

@@ -35,7 +35,7 @@ class OurHistoryFragment : Fragment(), ApiCallback<List<History>> {
         this.recycler_view.adapter = adapter
 
         val client = ApiClient()
-        client.fetchHistories(this)
+        client.fetchHistories(callback = this)
     }
 
     override fun onFailure(e: IOException?) {
