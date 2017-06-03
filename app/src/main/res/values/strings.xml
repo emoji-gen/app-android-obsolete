@@ -39,6 +39,7 @@
     <string name="generator_text_color_initial">EC71A1FF</string>
     <string name="generator_background_color_label">背景色</string>
     <string name="generator_background_color_initial">00000000</string>
+    <string name="generator_public_flag_label">公開設定</string>
     <string name="generator_share_dialog_title">生成した絵文字を共有</string>
     <string name="generator_share_download_title">ダウンロード中</string>
     <string name="generator_share_download_message">絵文字をダウンロードしています</string>

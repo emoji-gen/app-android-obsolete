@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<moe.pine.emoji.view.generator.PublicFlagView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_generator_background_color"
+    style="@style/AppTheme.Generator.MenuItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="RtlHardcoded,ContentDescription">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_open_lock" />
+
+    <TextView
+        style="@style/AppTheme.Generator.MenuTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/generator_public_flag_label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_view_public_flag_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:text="生成履歴に表示"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/text_view_public_flag_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:text="生成履歴に表示しない"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/switch_public_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:clickable="false"
+            android:theme="@style/AppTheme.Switch" />
+
+    </LinearLayout>
+</moe.pine.emoji.view.generator.PublicFlagView>

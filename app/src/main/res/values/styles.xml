@@ -18,4 +18,8 @@
         <item name="colorAccent">@color/color_red</item>
     </style>
 
+    <style name="AppTheme.Switch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/color_blue</item>
+        <item name="colorSwitchThumbNormal">@color/color_gray</item>
+    </style>
 </resources>

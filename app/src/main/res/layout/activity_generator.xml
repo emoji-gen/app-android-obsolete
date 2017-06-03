@@ -76,6 +76,10 @@
 
             <include layout="@layout/view_generator_background_color" />
 
+            <include layout="@layout/activity_generator_hr2" />
+
+            <include layout="@layout/view_generator_public_flag" />
+ø
         </LinearLayout>
 
     </ScrollView>
