@@ -1,4 +1,5 @@
-## Emoji-Android
+## Emoji-Android &nbsp;[![Build Status](https://www.bitrise.io/app/a603dcc666e85648/status.svg?token=QMmAP0aS5cJXsAyT74AhPw&branch=master)](https://www.bitrise.io/app/a603dcc666e85648)
+
 :tada: Ultimate Android Application
 
 ## Requirements
