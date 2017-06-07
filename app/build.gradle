@@ -1,10 +1,20 @@
+def privateDir = new File("${System.env.HOME}/project/Emoji-Android-Private")
+def hasPrivateDir = privateDir.exists()
+
+// -------------------------------------------------------------------------------------------------
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-allopen'
 apply plugin: 'kotlin-noarg'
-apply plugin: 'io.fabric'
 apply plugin: 'realm-android'
+
+if (hasPrivateDir) {
+    apply plugin: 'io.fabric'
+}
+
+// -------------------------------------------------------------------------------------------------
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION
@@ -25,11 +35,10 @@ android {
 
     // ---------------------------------------------------------------------------------------------
 
-    def privateDir = new File("${System.env.HOME}/project/Emoji-Android-Private")
-    ext.PROJECT_ROOT_DIR = projectDir.parent
-    ext.PROJECT_PRIVATE_DIR = privateDir.absolutePath
+    if (hasPrivateDir) {
+        ext.PROJECT_ROOT_DIR = projectDir.parent
+        ext.PROJECT_PRIVATE_DIR = privateDir.absolutePath
 
-    if (privateDir.exists()) {
         apply from: "$privateDir/signing.gradle", to: android
         apply from: "$privateDir/fabric.gradle", to: android
         apply from: "$privateDir/firebase.gradle", to: android
@@ -48,19 +57,21 @@ android {
                 manifestPlaceholders = [fabricApiKey: fabricApiKey]
             }
         }
-    } else {
-        logger.warn("$privateDir is not found\n" +
-                "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`")
+    }
 
-        def fabricApiKey = System.getenv('FABRIC_API_KEY')
+    else {
+        logger.warn("@@@@@@@@@@@@@@@@@@@@ WARNING @@@@@@@@@@@@@@@@@@@@\n" +
+                "$privateDir is not found\n" +
+                "Please execute `git clone git@github.com:pine/Emoji-Android-Private.git ~/project/Emoji-Android-Private`\n")
+
         buildTypes {
             debug {
                 applicationIdSuffix '.debug'
-                manifestPlaceholders = [fabricApiKey: fabricApiKey]
+                manifestPlaceholders = [fabricApiKey: ""]
             }
             release {
                 minifyEnabled false
-                manifestPlaceholders = [fabricApiKey: fabricApiKey]
+                manifestPlaceholders = [fabricApiKey: ""]
             }
         }
     }
@@ -99,7 +110,10 @@ dependencies {
 // -------------------------------------------------------------------------------------------------
 
 apply plugin: 'com.getkeepsafe.dexcount'
-apply plugin: 'com.google.gms.google-services'
+
+if (hasPrivateDir) {
+    apply plugin: 'com.google.gms.google-services'
+}
 
 allOpen {
     annotation('io.realm.annotations.RealmClass')
