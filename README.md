@@ -2,6 +2,8 @@
 
 :tada: Ultimate Android Application
 
+<img src="assets/ss1.png" width="270" height="480" alt=""> <img src="assets/ss2.png" width="270" height="480" alt=""> <img src="assets/ss3.png" width="270" height="480" alt="">
+
 ## Requirements
 
 - Android SDK
