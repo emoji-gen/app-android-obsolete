@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         this.setContentView(moe.pine.emoji.R.layout.activity_main)
         this.toggle.onCreate()
         this.actionBar.onCreate()
-        this.switcher.onCreate()
+        this.switcher.onCreate(savedInstanceState)
         this.navigation_view_main.setupView(activity_main)
     }
 

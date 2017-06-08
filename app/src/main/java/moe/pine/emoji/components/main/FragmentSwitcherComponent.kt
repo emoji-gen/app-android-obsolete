@@ -1,5 +1,6 @@
 package moe.pine.emoji.components.main
 
+import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.squareup.otto.Subscribe
 import moe.pine.emoji.R
@@ -16,10 +17,12 @@ import moe.pine.emoji.util.eventBus
 class FragmentSwitcherComponent(
         val activity: AppCompatActivity
 ) {
-
-    fun onCreate() {
+    fun onCreate(savedInstanceState: Bundle?) {
         this.eventBus.register(this)
-        this.showMyHistory()
+
+        if (savedInstanceState == null) {
+            this.showMyHistory()
+        }
     }
 
     fun onDestroy() {
