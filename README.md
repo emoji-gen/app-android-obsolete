@@ -15,5 +15,11 @@
 $ ./gradlew clean :app:installDebug
 ```
 
+## Release Build
+
+```
+$ ./gradlew clean :app:assembleRelease
+```
+
 ## License
 MIT &copy; [Emoji Generator](https://emoji.pine.moe/)
