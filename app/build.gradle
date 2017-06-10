@@ -98,7 +98,7 @@ dependencies {
     compile 'com.github.QuadFlask:colorpicker:0.0.13'
 
     // Fabric
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
         transitive = true;
     }
 
