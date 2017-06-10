@@ -3,6 +3,7 @@ package moe.pine.emoji.view.generator.binding
 import kotlinx.android.synthetic.main.dialog_register.view.*
 import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.view.generator.RegisterDialogView
+import java.lang.IndexOutOfBoundsException
 
 /**
  * Extensions for RegisterDialogView
@@ -11,8 +12,13 @@ import moe.pine.emoji.view.generator.RegisterDialogView
 
 val RegisterDialogView.team: String?
     get() {
-        val team = this.spinner_generator_teams.selectedItem as? SlackTeam?
-        return team?.team
+        try {
+            val spinner = this.spinner_generator_teams
+            val team = spinner.selectedItem as? SlackTeam
+            return team?.team
+        } catch (e: IndexOutOfBoundsException) {
+            return null
+        }
     }
 
 
