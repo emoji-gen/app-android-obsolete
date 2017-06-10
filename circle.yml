@@ -5,4 +5,4 @@ dependencies:
 
 test:
   override:
-    - ./gradlew :app:assembleRelease checkRelease
+    - ./gradlew :app:assembleRelease
