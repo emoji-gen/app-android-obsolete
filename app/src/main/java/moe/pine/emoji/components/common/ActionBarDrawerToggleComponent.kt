@@ -2,12 +2,12 @@ package moe.pine.emoji.components.common
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.annotation.StringRes
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
+import moe.pine.emoji.R
 
 /**
  * Component for ActionBarToggle
@@ -15,16 +15,14 @@ import android.view.View
  */
 class ActionBarDrawerToggleComponent(
         val activity: AppCompatActivity,
-        val drawerLayout: DrawerLayout,
-        @StringRes val openDrawerContentDescRes: Int,
-        @StringRes val closeDrawerContentDescRes: Int
+        val drawerLayout: DrawerLayout
 ) {
     private val drawerToggle by lazy {
         object : ActionBarDrawerToggle(
                 activity,
                 drawerLayout,
-                openDrawerContentDescRes,
-                closeDrawerContentDescRes
+                R.string.open,
+                R.string.close
         ) {
             override fun onDrawerClosed(drawerView: View?) {
                 activity.invalidateOptionsMenu()

@@ -4,6 +4,8 @@
     <string name="cancel">キャンセル</string>
     <string name="color_code_prefix">#</string>
     <string name="network_error_message">通信に失敗しました。時間を置いて再度お試しください。</string>
+    <string name="open">開く</string>
+    <string name="close">閉じる</string>
 
     <!-- Menu -->
     <string name="menu_my_history">マイ絵文字</string>

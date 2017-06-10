@@ -27,9 +27,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val toggle by lazy { ActionBarDrawerToggleComponent(this, this.activity_main, R.string.app_name, R.string.app_name) }
-    val actionBar by lazy { SupportActionBarComponent(this) }
-    val switcher by lazy { FragmentSwitcherComponent(this) }
+    private val toggle by lazy {
+        ActionBarDrawerToggleComponent(this, this.activity_main)
+    }
+    private val actionBar by lazy { SupportActionBarComponent(this) }
+    private val switcher by lazy { FragmentSwitcherComponent(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
