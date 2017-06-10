@@ -1,4 +1,4 @@
-## Emoji-Android &nbsp;[![Build Status](https://www.bitrise.io/app/a603dcc666e85648/status.svg?token=QMmAP0aS5cJXsAyT74AhPw&branch=master)](https://www.bitrise.io/app/a603dcc666e85648)
+## Emoji-Android &nbsp;[![CircleCI](https://circleci.com/gh/emoji-gen/Emoji-Android/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/Emoji-Android/tree/master)
 
 :tada: Ultimate Android Application
 
