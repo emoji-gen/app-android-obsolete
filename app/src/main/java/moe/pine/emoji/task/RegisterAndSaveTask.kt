@@ -93,7 +93,7 @@ class RegisterAndSaveTask(
 
     override fun onPostExecute(result: MessageResult) {
         super.onPostExecute(result)
-        this.dialog.dismiss()
+        this.dialog.dismissAllowingStateLoss()
 
         if (result.ok) {
             Toast.makeText(this.context, R.string.generator_register_succeeded_message, Toast.LENGTH_LONG).show()
