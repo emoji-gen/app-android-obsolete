@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_webview_lazy.*
 import moe.pine.emoji.R
+import moe.pine.emoji.view.common.WebView
 
 /**
  * Fragment for lazy loaded web view
@@ -39,8 +40,11 @@ class WebViewLazyFragment : Fragment() {
     }
 
     private fun onPageFinishedListener() {
-        val showAnimator = ObjectAnimator.ofFloat(this.web_view, View.ALPHA, 0f, 1f)
-        this.web_view.visibility = View.VISIBLE
+        val webView: WebView? = this.web_view
+        webView ?: return
+
+        val showAnimator = ObjectAnimator.ofFloat(webView, View.ALPHA, 0f, 1f)
+        webView.visibility = View.VISIBLE
         showAnimator.duration = 800
         showAnimator.start()
     }
