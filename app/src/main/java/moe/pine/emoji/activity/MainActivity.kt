@@ -19,7 +19,12 @@ import moe.pine.emoji.components.main.FragmentSwitcherComponent
  */
 class MainActivity : AppCompatActivity() {
     companion object {
-        fun createIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
+        fun createIntent(context: Context): Intent {
+            return Intent(context, MainActivity::class.java).also { intent ->
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            }
+        }
     }
 
     val toggle by lazy { ActionBarDrawerToggleComponent(this, this.activity_main, R.string.app_name, R.string.app_name) }

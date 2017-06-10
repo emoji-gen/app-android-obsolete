@@ -85,11 +85,9 @@ class SplashActivity : AppCompatActivity(), ApiCallback<List<Font>> {
 
         if (diffMs > SPLASH_DELAY_MS) {
             this.startActivity(MainActivity.createIntent(this))
-            this.finish()
         } else {
             this.handler.postDelayed({
                 this.startActivity(MainActivity.createIntent(this))
-                this.finish()
             }, SPLASH_DELAY_MS - diffMs)
         }
     }
