@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_main_navigation_view.*
-import moe.pine.emoji.R
 import moe.pine.emoji.components.common.ActionBarDrawerToggleComponent
 import moe.pine.emoji.components.common.SupportActionBarComponent
 import moe.pine.emoji.components.main.FragmentSwitcherComponent
