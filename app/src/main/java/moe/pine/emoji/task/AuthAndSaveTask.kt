@@ -5,13 +5,16 @@ import android.os.AsyncTask
 import android.support.annotation.UiThread
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import com.crashlytics.android.Crashlytics
 import io.realm.Realm
+import moe.pine.emoji.BuildConfig
 import moe.pine.emoji.R
 import moe.pine.emoji.fragment.setting.AuthProgressDialogFragment
 import moe.pine.emoji.lib.slack.AuthClient
 import moe.pine.emoji.model.event.TeamAddedEvent
 import moe.pine.emoji.model.realm.SlackTeam
 import moe.pine.emoji.util.eventBus
+import java.io.IOException
 
 /**
  * Task for auth
@@ -36,7 +39,13 @@ class AuthAndSaveTask(
 
     override fun doInBackground(vararg params: Unit): Boolean {
         val client = AuthClient()
-        return client.auth(this.arguments.team, this.arguments.email, this.arguments.password)
+        try {
+            return client.auth(this.arguments.team, this.arguments.email, this.arguments.password)
+        } catch (e: IOException) {
+            Crashlytics.logException(e)
+            if (BuildConfig.DEBUG) e.printStackTrace()
+        }
+        return false
     }
 
     @UiThread
