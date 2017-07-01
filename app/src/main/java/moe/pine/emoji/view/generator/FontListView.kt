@@ -17,9 +17,9 @@ import moe.pine.emoji.value.LogicValues
 class FontListView : LinearLayout {
     var fontName: String
         set(value) {
-            text_view_generator_font_name.text = value
+            this.text_view_generator_font_name.text = value
         }
-        get() = text_view_generator_font_name.text.toString()
+        get() = this.text_view_generator_font_name.text.toString()
 
     var fontKey: String = ""
 
@@ -35,7 +35,7 @@ class FontListView : LinearLayout {
         val pref = PreferenceManager.getDefaultSharedPreferences(this.context)
         val fonts = JsonDeserializer.fontsFromJson(pref.getString(LogicValues.SharedPreferences.FONTS_KEY, "[]"))
 
-        view_generator_font.setOnClickListener {
+        this.view_generator_font.setOnClickListener {
             val dialog = SelectFontDialogFragment.newInstance(fonts)
             val activity = this.context as AppCompatActivity
             activity.supportFragmentManager?.let { dialog.show(it, null) }
