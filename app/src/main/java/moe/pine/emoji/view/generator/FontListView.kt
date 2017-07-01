@@ -11,6 +11,7 @@ import moe.pine.emoji.lib.emoji.JsonDeserializer
 import moe.pine.emoji.value.LogicValues
 
 /**
+ * View for font list
  * Created by pine on May 7, 2017.
  */
 class FontListView : LinearLayout {
