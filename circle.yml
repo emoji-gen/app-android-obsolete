@@ -1,7 +1,7 @@
 dependencies:
   pre:
     - echo y | android -s update sdk -u -a -t "tools"
-    - (while sleep 1; do echo y; done) | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools" "extras;android;m2repository"
+    - (while sleep 1; do echo y; done) | $ANDROID_HOME/tools/bin/sdkmanager "platform-tools" "build-tools;26.0.1" "extras;android;m2repository"
 
 test:
   override:
