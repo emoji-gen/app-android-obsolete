@@ -32,11 +32,6 @@ class GeneratorActivity : AppCompatActivity() {
 
         this.clear()
         this.updateUI()
-
-        view_emoji_text.setOnClickListener {
-            val dialog = InputTextDialogFragment.newInstance(text_view_generator_text.text.toString())
-            this.supportFragmentManager?.let { dialog.show(it, null) }
-        }
     }
 
     override fun onResume() {

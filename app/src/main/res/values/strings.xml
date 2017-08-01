@@ -35,6 +35,7 @@
     <string name="generator_title">絵文字の生成</string>
     <string name="generator_register">登録</string>
     <string name="generator_share">シェア</string>
+    <string name="generator_emoji_text_label">テキスト</string>
     <string name="generator_font_label">フォント</string>
     <string name="generator_text_placeholder">絵文\n字。</string>
     <string name="generator_text_color_label">文字色</string>
