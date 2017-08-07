@@ -6,8 +6,8 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_generator_text_color.view.*
 import moe.pine.emoji.fragment.generator.SelectColorDialogFragment
-import moe.pine.emoji.util.rgba.toColor
-import moe.pine.emoji.util.rgba.toRgba
+import moe.pine.rgba.toColor
+import moe.pine.rgba.toRGBA
 
 /**
  * TextColorView
@@ -16,7 +16,7 @@ import moe.pine.emoji.util.rgba.toRgba
 class TextColorView : LinearLayout {
     var color: Int
         set(value) {
-            text_view_generator_text_color.text = value.toRgba()
+            text_view_generator_text_color.text = value.toRGBA()
             view_generator_text_color_square.setBackgroundColor(value)
         }
         get() = text_view_generator_text_color.text.toString().toColor()

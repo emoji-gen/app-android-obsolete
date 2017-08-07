@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.view_generator_font.*
 import kotlinx.android.synthetic.main.view_generator_public_flag.*
 import kotlinx.android.synthetic.main.view_generator_text_color.*
 import moe.pine.emoji.activity.GeneratorActivity
-import moe.pine.emoji.util.rgba.toRgba
+import moe.pine.rgba.toRGBA
 
 /**
  * Extension for GeneratorActivity
@@ -30,7 +30,7 @@ fun GeneratorActivity.updateUI() {
 
 var GeneratorActivity.text: String
     set(str) {
-        val changed = this.view_emoji_text. text != str
+        val changed = this.view_emoji_text.text != str
         this.view_emoji_text.text = str
         if (changed) this.updateUI()
     }
@@ -83,8 +83,8 @@ val GeneratorActivity.previewUri: Uri
                 .path("emoji")
                 .appendQueryParameter("text", this.text)
                 .appendQueryParameter("font", this.fontKey)
-                .appendQueryParameter("color", this.textColor.toRgba())
-                .appendQueryParameter("back_color", this.backgroundColor.toRgba())
+                .appendQueryParameter("color", this.textColor.toRGBA())
+                .appendQueryParameter("back_color", this.backgroundColor.toRGBA())
                 .build()
     }
 
@@ -97,8 +97,8 @@ val GeneratorActivity.downloadUri: Uri
                 .path("emoji_download")
                 .appendQueryParameter("text", this.text)
                 .appendQueryParameter("font", this.fontKey)
-                .appendQueryParameter("color", this.textColor.toRgba())
-                .appendQueryParameter("back_color", this.backgroundColor.toRgba())
+                .appendQueryParameter("color", this.textColor.toRGBA())
+                .appendQueryParameter("back_color", this.backgroundColor.toRGBA())
                 .appendQueryParameter("public_fg", if (this.publicFlag) "true" else "false")
                 .build()
     }
