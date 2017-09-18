@@ -1,4 +1,4 @@
-## Emoji-Android &nbsp;[![CircleCI](https://circleci.com/gh/emoji-gen/Emoji-Android/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/Emoji-Android/tree/master)
+## Emoji-Android &nbsp;[![CircleCI](https://circleci.com/gh/emoji-gen/Emoji-Android/tree/master.svg?style=shield)](https://circleci.com/gh/emoji-gen/Emoji-Android/tree/master) [![codebeat badge](https://codebeat.co/badges/6fcc29b1-5059-4754-9422-2aaa0933813c)](https://codebeat.co/projects/github-com-emoji-gen-emoji-android-master)
 
 :tada: Ultimate Android Application
 
