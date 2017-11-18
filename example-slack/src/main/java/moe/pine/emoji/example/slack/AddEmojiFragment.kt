@@ -45,7 +45,7 @@ class AddEmojiFragment : Fragment() {
             return
         }
 
-        val task = AddEmojiTask(this.context)
+        val task = AddEmojiTask(this.context!!)
         val arguments = AddEmojiTask.Arguments(
                 edit_text_team.text.toString(),
                 edit_text_email.text.toString(),

@@ -42,7 +42,7 @@ class AuthFragment : Fragment() {
             return
         }
 
-        val task = AuthTask(this.context)
+        val task = AuthTask(this.context!!)
         val arguments = AuthTask.Arguments(
                 edit_text_team.text.toString(),
                 edit_text_email.text.toString(),
