@@ -31,7 +31,7 @@ class MainNavigationView : NavigationView {
         this.layout = layout
 
         layout.addDrawerListener(object : DrawerLayout.SimpleDrawerListener() {
-            override fun onDrawerClosed(drawerView: View?) {
+            override fun onDrawerClosed(drawerView: View) {
                 this@MainNavigationView.clear()
             }
         })

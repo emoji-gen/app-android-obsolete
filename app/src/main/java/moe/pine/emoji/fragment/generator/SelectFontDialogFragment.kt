@@ -37,8 +37,8 @@ class SelectFontDialogFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.fontNames = this.arguments.getStringArray(FONT_NAMES_KEY)
-        this.fontKeys = this.arguments.getStringArray(FONT_KEYS_KEY)
+        this.fontNames = this.arguments!!.getStringArray(FONT_NAMES_KEY)
+        this.fontKeys = this.arguments!!.getStringArray(FONT_KEYS_KEY)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

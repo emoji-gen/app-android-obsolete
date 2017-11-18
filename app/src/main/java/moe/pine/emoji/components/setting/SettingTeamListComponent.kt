@@ -29,7 +29,7 @@ class SettingTeamListComponent(
         this.realm = Realm.getDefaultInstance()
         this.eventBus.register(this)
 
-        val adapter = SettingTeamListAdapter(this.fragment.context)
+        val adapter = SettingTeamListAdapter(this.fragment.context!!)
         this.fragment.list_view_setting.adapter = adapter
 
         this.update()

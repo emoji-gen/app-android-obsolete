@@ -50,7 +50,7 @@ class ShareProgressDialogFragment : DialogFragment(), Callback {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val uri = this.arguments.getString(URI_KEY)
+        val uri = this.arguments!!.getString(URI_KEY)
         val request = Request.Builder().url(uri).build()
         this.client.newCall(request).enqueue(this)
 

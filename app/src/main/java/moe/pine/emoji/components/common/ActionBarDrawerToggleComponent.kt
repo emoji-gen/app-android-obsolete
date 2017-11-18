@@ -24,11 +24,11 @@ class ActionBarDrawerToggleComponent(
                 R.string.open,
                 R.string.close
         ) {
-            override fun onDrawerClosed(drawerView: View?) {
+            override fun onDrawerClosed(drawerView: View) {
                 activity.invalidateOptionsMenu()
             }
 
-            override fun onDrawerOpened(drawerView: View?) {
+            override fun onDrawerOpened(drawerView: View) {
                 activity.invalidateOptionsMenu()
             }
         }

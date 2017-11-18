@@ -34,7 +34,7 @@ class WebViewLazyFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val url = this.arguments.getString(URL_KEY)
+        val url = this.arguments!!.getString(URL_KEY)
         this.web_view.loadUrl(url)
         this.web_view.onPageFinishedListener = { this.onPageFinishedListener() }
     }

@@ -20,7 +20,7 @@ class SettingSaverComponent(
         private val fragment: AddTeamFragment
 ) {
     private val context: Context
-        get() = this.fragment.context
+        get() = this.fragment.context!!
 
     @UiThread
     fun onActivityCreated(savedInstanceState: Bundle?) {

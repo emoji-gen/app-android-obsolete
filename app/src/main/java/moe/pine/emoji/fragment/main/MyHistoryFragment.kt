@@ -35,9 +35,9 @@ class MyHistoryFragment : Fragment(), RealmChangeListener<RealmResults<History>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        this.activity.setTitle(R.string.main_my_history_title)
+        this.activity!!.setTitle(R.string.main_my_history_title)
 
-        val adapter = HistoryRecyclerAdapter(this.context)
+        val adapter = HistoryRecyclerAdapter(this.context!!)
         this.recycler_view.adapter = adapter
 
         val result = realm.where(History::class.java)

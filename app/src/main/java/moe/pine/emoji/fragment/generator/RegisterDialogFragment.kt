@@ -38,8 +38,8 @@ class RegisterDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val inflater = LayoutInflater.from(this.context)
         val view = inflater.inflate(R.layout.dialog_register, null, false) as RegisterDialogView
-        view.previewUri = this.arguments.getString(PREVIEW_URI_KEY)
-        view.downloadUri = this.arguments.getString(DOWNLOAD_URI_KEY)
+        view.previewUri = this.arguments!!.getString(PREVIEW_URI_KEY)
+        view.downloadUri = this.arguments!!.getString(DOWNLOAD_URI_KEY)
         view.fragment = this
 
         val dialog = AlertDialog.Builder(this.activity)

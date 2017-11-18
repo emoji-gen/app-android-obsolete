@@ -24,7 +24,7 @@ class RegisterErrorDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val errorMessage = this.arguments.getString(ERROR_MESSAGE_KEY)
+        val errorMessage = this.arguments!!.getString(ERROR_MESSAGE_KEY)
 
         return AlertDialog.Builder(this.context)
                 .setTitle(R.string.generator_register_failed_title)

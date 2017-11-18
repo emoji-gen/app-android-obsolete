@@ -46,7 +46,7 @@ class InputTextDialogFragment : DialogFragment() {
             dialog.dismiss()
             (this.activity as GeneratorActivity).text = view.inputText
         }
-        view.inputText = this.arguments.getString(TEXT_KEY)
+        view.inputText = this.arguments!!.getString(TEXT_KEY)
 
         dialog.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
 

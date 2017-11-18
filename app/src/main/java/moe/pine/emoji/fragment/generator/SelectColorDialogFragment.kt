@@ -34,7 +34,7 @@ class SelectColorDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val color = this.arguments.getInt(COLOR_KEY)
+        val color = this.arguments!!.getInt(COLOR_KEY)
 
         return ColorPickerDialogBuilder
                 .with(this.context)
@@ -50,7 +50,7 @@ class SelectColorDialogFragment : DialogFragment() {
     }
 
     private fun updateColor(color: Int) {
-        val isBackground = this.arguments.getBoolean(IS_BACKGROUND_KEY)
+        val isBackground = this.arguments!!.getBoolean(IS_BACKGROUND_KEY)
         val activity = this.activity as GeneratorActivity
 
         if (isBackground) {

@@ -29,9 +29,9 @@ class OurHistoryFragment : Fragment(), ApiCallback<List<History>> {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        this.activity.setTitle(R.string.main_our_history_title)
+        this.activity!!.setTitle(R.string.main_our_history_title)
 
-        val adapter = HistoryRecyclerAdapter(this.context)
+        val adapter = HistoryRecyclerAdapter(this.context!!)
         this.recycler_view.adapter = adapter
 
         val client = ApiClient()

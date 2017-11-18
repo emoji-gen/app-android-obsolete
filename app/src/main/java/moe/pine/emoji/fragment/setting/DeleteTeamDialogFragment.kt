@@ -26,7 +26,7 @@ class DeleteTeamDialogFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val domain = this.arguments.getString(DOMAIN_KEY)
+        val domain = this.arguments!!.getString(DOMAIN_KEY)
 
         return AlertDialog.Builder(this.context, R.style.AppTheme_Dialog_Red)
                 .setTitle(R.string.setting_remove_team_message_title)

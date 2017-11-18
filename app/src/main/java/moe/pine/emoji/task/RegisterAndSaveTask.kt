@@ -34,7 +34,7 @@ class RegisterAndSaveTask(
     )
 
     val context: Context
-        get() = this.fragment.context
+        get() = this.fragment.context!!
 
     lateinit var dialog: DialogFragment
 
