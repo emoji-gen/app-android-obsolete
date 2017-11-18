@@ -30,17 +30,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting id="Add" value="true" />
-    <OptionsSetting id="Remove" value="true" />
-    <OptionsSetting id="Checkout" value="true" />
-    <OptionsSetting id="Update" value="true" />
-    <OptionsSetting id="Status" value="true" />
-    <OptionsSetting id="Edit" value="true" />
-    <ConfirmationsSetting id="Add" value="0" />
-    <ConfirmationsSetting id="Remove" value="0" />
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
