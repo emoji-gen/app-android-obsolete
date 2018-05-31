@@ -14,7 +14,7 @@ import java.io.IOException
  */
 class ApiClient {
     companion object {
-        private val BASE_URL = "https://emoji.pine.moe/api/v1/"
+        private val BASE_URL = "https://emoji-gen.ninja/api/v1/"
         private val FONTS_URL = BASE_URL + "fonts"
         private val HISTORY_URL = BASE_URL + "histories"
     }
