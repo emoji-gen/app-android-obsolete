@@ -79,7 +79,7 @@ val GeneratorActivity.previewUri: Uri
     get() {
         return Uri.Builder()
                 .scheme("https")
-                .authority("emoji.pine.moe")
+                .authority("emoji-gen.ninja")
                 .path("emoji")
                 .appendQueryParameter("text", this.text)
                 .appendQueryParameter("font", this.fontKey)
@@ -93,7 +93,7 @@ val GeneratorActivity.downloadUri: Uri
     get() {
         return Uri.Builder()
                 .scheme("https")
-                .authority("emoji.pine.moe")
+                .authority("emoji-gen.ninja")
                 .path("emoji_download")
                 .appendQueryParameter("text", this.text)
                 .appendQueryParameter("font", this.fontKey)

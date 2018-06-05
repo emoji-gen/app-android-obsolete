@@ -17,7 +17,7 @@ class AddEmojiFragment : Fragment() {
     companion object {
         fun newInstance() = AddEmojiFragment()
 
-        val EMOJI_URL = "https://emoji.pine.moe/emoji?align=center&back_color=FFFFFF00&color=EC71A1FF&font=notosans-mono-bold&public_fg=true&size_fixed=false&stretch=true&text=%E7%B5%B5%E6%96%87%0A%E5%AD%97%E3%80%82"
+        val EMOJI_URL = "https://emoji-gen.ninja/emoji?align=center&back_color=FFFFFF00&color=EC71A1FF&font=notosans-mono-bold&public_fg=true&size_fixed=false&stretch=true&text=%E7%B5%B5%E6%96%87%0A%E5%AD%97%E3%80%82"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
