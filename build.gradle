@@ -3,7 +3,7 @@
 buildscript {
     ext {
         versionCode = 9
-        versionName = '1.0.8'
+        versionName = '1.0.9'
 
         buildToolsVersion = '27.0.1'
         compileSdkVersion = 26
